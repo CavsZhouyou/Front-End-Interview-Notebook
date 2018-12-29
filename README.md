@@ -12,7 +12,7 @@
 
 ## 操作系统 :computer:
 
-> [计算机操作系统]() 待完善......
+> [计算机操作系统](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.md) 待完善......
 
 参考 现代操作系统、深入理解计算机系统。
 
