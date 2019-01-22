@@ -154,11 +154,13 @@
     分支一样。Blink 引擎现在是谷歌公司与 Opera Software 共同研发，上面提到过的，Opera 弃用了自己的 Presto 内核，加入
      Google 阵营，跟随谷歌一起研发 Blink。
 
-
-    扩展资料：[浏览器内核的解析和对比(http://www.cnblogs.com/fullhouse/archive/2011/12/19/2293455.html)](http://www.cnblogs.com/fullhouse/archive/2011/12/19/2293455.html)
-
-    [五大主流浏览器内核的源起以及国内各大浏览器内核总结(https://blog.csdn.net/Summer_15/article/details/71249203)](https://blog.csdn.net/Summer_15/article/details/71249203)
     ```
+    详细的资料可以参考：
+
+    [浏览器内核的解析和对比](http://www.cnblogs.com/fullhouse/archive/2011/12/19/2293455.html)
+
+    [五大主流浏览器内核的源起以及国内各大浏览器内核总结](https://blog.csdn.net/Summer_15/article/details/71249203)
+
 
 16. 常见浏览器所用内核
     ```
@@ -299,6 +301,109 @@
 
     详细的资料可以参考：
     [请描述一下cookies，sessionStorage和localStorage的区别？](https://segmentfault.com/a/1190000017423117)
+
+23. iframe 有那些缺点？
+    ```
+    iframe 元素会创建包含另外一个文档的内联框架（即行内框架）。
+
+    主要缺点有：
+
+    （1） iframe 会阻塞主页面的 onload 事件。window 的 onload 事件需要在所有 iframe 加载完毕后(包含里面的元      素)才会触发。在 Safari 和 Chrome 里，通过 JavaScript 动态设置 iframe 的 src 可以避免这种阻塞情况。
+    （2） 搜索引擎的检索程序无法解读这种页面，不利于 SEO 。
+    （3） iframe 和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
+    （4） 浏览器的后退按钮失效。
+    （5） 小型的移动设备无法完全显示框架。
+    ```
+    详细的资料可以参考：
+    [使用iframe的优缺点](https://blog.csdn.net/yintianqin/article/details/72625785)
+
+24. Label 的作用是什么？是怎么用的？
+    ```
+    label 标签来定义表单控制间的关系，当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。
+
+    <label for="Name">Number:</label>
+    <input type=“text“name="Name" id="Name"/>
+    ```
+25. HTML5 的 form 的自动完成功能是什么？
+    ```
+    autocomplete 属性规定输入字段是否应该启用自动完成功能。默认为启用，设置为 autocomplete=off 可以关
+    闭该功能。
+
+    自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，浏览器基于之前键入过的值，应该显示出在字段
+    中填写的选项。
+
+    autocomplete 属性适用于 <form>，以及下面的 <input> 类型：text, search, url, telephone, email, password, datepickers, range 以及 color。
+    ```
+
+26. 如何实现浏览器内多个标签页之间的通信? (阿里)
+    ```
+    （1） WebSocket
+    （2） SharedWorker (只在 chrome 浏览器实现了)
+    （3） 可以调用 localstorge、cookies 等本地存储方式，localstorge另一个浏览上下文里被添加、修改或
+         删除时，它都会触发一个事件，我们通过监听事件，控制它的值来进行页面信息通信；
+    ```
+    详细的资料可以参考：
+
+    [WebSocket 教程](http://www.ruanyifeng.com/blog/2017/05/websocket.html)
+    [使用 Web Storage API](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+    [JavaScript 的多线程，Worker 和 SharedWorker](https://www.zhuwenlong.com/blog/article/590ea64fe55f0f385f9a12e5)
+  
+
+27. webSocket如何兼容低浏览器？(阿里)
+    ```
+    Adobe Flash Socket 、
+    ActiveX HTMLFile (IE) 、
+    基于 multipart 编码发送 XHR 、
+    基于长轮询的 XHR
+    ```
+
+28. 页面可见性（Page Visibility API） 可以有哪些用途？
+    ```
+    通过 visibilityState 的值检测页面当前是否可见，以及打开网页的时间等;
+    在页面被切换到其他后台进程的时候，自动暂停音乐或视频的播放；
+    ```
+
+    详细资料可以参考：
+    [Page Visibility API 教程](http://www.ruanyifeng.com/blog/2018/10/page_visibility_api.html)
+
+29. 如何在页面上实现一个圆形的可点击区域？
+    ```
+    （1）纯 html 实现 map + area
+    （2）纯 css 实现 border-radius
+    （3）纯 js 实现 需要求一个点在不在圆上简单算法、获取鼠标坐标等等
+    ```
+    详细资料可以参考：
+    [如何在页面上实现一个圆形的可点击区域？](https://maizi93.github.io/2017/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%8A%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%9C%86%E5%BD%A2%E7%9A%84%E5%8F%AF%E7%82%B9%E5%87%BB%E5%8C%BA%E5%9F%9F%EF%BC%9F/)
+
+
+30. 实现不使用 border 画出1 px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。
+    
+    ```html
+     <div style="height:1px;overflow:hidden;background:red"></div>
+    ```
+
+31. title 与 h1 的区别
+    ```
+    title 属性没有明确意义只表示是个标题，h1 则表示层次明确的标题，对页面信息的抓取也有很大的影响。
+    ```
+
+32. b 与 strong 的区别和 i 与 em 的区别？
+    ```
+    从页面显示效果来看，被 <b> 和 <strong> 包围的文字将会被加粗，而被 <i> 和 <em> 包围的文字将以斜体
+    的形式呈现。
+
+    但是 <b> <i> 是自然样式标签，分别表示无意义的加粗，无意义的斜体，表现样式为 { font-weight: bolder }，
+    仅仅表示「这里应该用粗体显示」或者「这里应该用斜体显示」，此两个标签在HTML4.01中并不被推荐使用。
+
+    而 <em> 和 <strong> 是语义样式标签。 <em> 表示一般的强调文本，而 <strong>表示比 <em> 语义更强的的强调文本。
+    
+    使用阅读设备阅读网络时：<strong> 会重读，而 <b> 是展示强调内容。
+    ``` 
+    
+    详细资料可以参考：
+    [HTML5 中的 b/strong，i/em 有什么区别？](https://www.zhihu.com/question/19551271)
+
+
 
 
 
