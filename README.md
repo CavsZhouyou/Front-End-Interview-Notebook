@@ -40,7 +40,7 @@
 
 ## Css :cat:
 
-> [Css 基础]() 待完善......
+> [Css 基础](https://github.com/CavsZhouyou/Interview-Notebook/tree/master/Css) 待完善......
 
 ## JavaScript :koala:
 
