@@ -410,18 +410,46 @@
 
 19. CSS 里的 visibility 属性有个 collapse 属性值是干嘛用的？在不同浏览器下以后什么区别？
     ```
-   （1）对于一般的元素，它的表现跟 display:hidden 是一样的。元素是不可见的，相当于 display：hidden；，
+    （1）对于一般的元素，它的表现跟 display:hidden 是一样的。元素是不可见的，相当于 display：hidden；，
        但此时仍占用页面空间。
 
-   （2）但例外的是，如果这个元素是 table 相关的元素，例如 table 行，table group，table列，table column 
+    （2）但例外的是，如果这个元素是 table 相关的元素，例如 table 行，table group，table列，table column 
        group，它的表现却跟 display: none 一样，也就是说，它们占用的空间也会释放。
 
     在不同浏览器下的区别：
 
     在谷歌浏览器里，使用 collapse 值和使用 hidden 值没有什么区别。
 
-    在火狐浏览器、 Opera 和 IE11 里，使用 collapse 值的效果就如它的字面意思：table 的行会消失，它的下面一行会补充它的位置。
-    
+    在火狐浏览器、 Opera 和 IE11 里，使用 collapse 值的效果就如它的字面意思：table 的行会消失，它的下面一行
+    会补充它的位置。
+
     ```
     详细资料可以参考：
     [CSS里的visibility属性有个鲜为人知的属性值：collapse](http://www.webhek.com/post/visibility-collapse.html)
+
+20. 伪类与伪元素的区别
+    ```
+    css 引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，
+    比如，一句话中的第一个字母，或者是列表中的第一个元素。
+
+    伪类用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户
+    悬停在指定的元素时，我们可以通过 :hover 来描述这个元素的状态。
+
+    伪元素用于创建一些不在文档树中的元素，并为其添加样式。它们允许我们为元素的某些部分设置样式。比如说，我们可
+    以通过 ::before 来在一个元素前增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是这些文本
+    实际上不在文档树中。
+
+
+    有时你会发现伪元素使用了两个冒号 (::) 而不是一个冒号 (:)。 这是 CSS3 的一部分，并尝试区分伪类和伪元素。
+    大多数浏览器都支持这两个值。按照规则应该使(::)而不是(:)，从而区分伪类和伪元素。但是，由于在旧版本的 W3C
+    规范并未对此进行特别区分，因此目前绝大多数的浏览器都支持使用这两种方式表示伪元素。
+    ```
+    详细资料可以参考：
+    [总结伪类与伪元素](http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/)
+
+21. width:auto 和 width:100% 的区别
+    ```
+    width:100% 会使元素 box 的宽度等于父元素的 content box 的宽度。
+
+    width:auto 会使元素撑满整个父元素，margin、border、padding、content 区域会自动分配水平空间。 
+    ```
