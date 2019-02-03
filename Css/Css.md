@@ -275,38 +275,38 @@
         ```
 
       * 水平垂直居中四
-       ```css
+          ```css
 
-        利用  text-align: center 和 vertical-align: middle 属性
-           .container {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: rgba(0, 0, 0, 0.5);
-            text-align: center;
-            font-size: 0;
-            white-space: nowrap;
-            overflow: auto;
-          }
+           利用  text-align: center 和 vertical-align: middle 属性
+              .container {
+               position: fixed;
+               top: 0;
+               right: 0;
+               bottom: 0;
+               left: 0;
+               background: rgba(0, 0, 0, 0.5);
+               text-align: center;
+               font-size: 0;
+               white-space: nowrap;
+               overflow: auto;
+             }
 
-          .container::after {
-            content: "";
-            display: inline-block;
-            height: 100%;
-            vertical-align: middle;
-          }
+             .container::after {
+               content: "";
+               display: inline-block;
+               height: 100%;
+               vertical-align: middle;
+             }
 
-          .box {
-            display: inline-block;
-            width: 500px;
-            height: 400px;
-            background-color: pink;
-            white-space: normal;
-            vertical-align: middle;
-          }
-       ```
+             .box {
+               display: inline-block;
+               width: 500px;
+               height: 400px;
+               background-color: pink;
+               white-space: normal;
+               vertical-align: middle;
+             }
+          ```
   
 8. display 有哪些值？说明他们的作用。
    ```
@@ -793,17 +793,79 @@
     ```
 32. CSS 优化、提高性能的方法有哪些？
     ```
-    关键选择器（key selector）。选择器的最后面的部分为关键选择器（即用来匹配目标元素的部分）；
-    如果规则拥有 ID 选择器作为其关键选择器，则不要为规则增加标签。过滤掉无关的规则（这样样式系统就不会浪费时
-    间去匹配它们了）；
-    提取项目的通用公有样式，增强可复用性，按模块编写组件；增强项目的协同开发性、可维护性和可扩展性;
-    使用预处理工具或构建工具（gulp对css进行语法检查、自动补前缀、打包压缩、自动优雅降级）；
+    加载性能：
+
+    （1） css 压缩：将写好的 css 进行打包压缩，可以减少很多的体积。
+    （2） css 单一样式：当需要下边距和左边距的时候，很多时候选择: margin: top 0 bottom 0; 但 
+         margin-bottom: bottom;margin-left: left; 执行的效率更高。
+    （3） 减少使用 @import, 而建议使用 link， 因为后者在页面加载时一起加载，前者是等待页面加载完
+         成之后再进行加载;
+    
+    选择器性能：
+
+    （1）关键选择器（key selector）。选择器的最后面的部分为关键选择器（即用来匹配目标元素的部分）。
+        CSS 选择符是从右到左进行匹配的。当使用后代选择器的时候，浏览器会遍历所有子元素来确定是否是
+        指定的元素等等；
+
+    （2）如果规则拥有 ID 选择器作为其关键选择器，则不要为规则增加标签。过滤掉无关的规则（这样样式系
+        统就不会浪费时间去匹配它们了）。
+
+    （3）避免使用通配规则，如 *{} 计算次数惊人！只对需要用到的元素进行选择。
+
+    （4）尽量少的去对标签进行选择，而是用 class。
+
+    （5）尽量少的去使用后代选择器，降低选择器的权重值。后代选择器的开销是最高的，尽量将选择器的深度降
+         到最低，最高不要超过三层，更多的使用类来关联每一个标签元素。
+
+    （6）了解哪些属性是可以通过继承而来的，然后避免对这些属性重复指定规则。
+
+    渲染性能：
+
+    （1）慎重使用高性能属性：浮动、定位。
+
+    （2）尽量减少页面重排、重绘。
+
+    （3）去除空规则：｛｝。空规则的产生原因一般来说是为了预留样式。去除这些空规则无疑能减少 css 文档体积。 
+
+    （4）属性值为0时，不加单位。
+
+    （5）属性值为浮动小数0.**，可以省略小数点之前的0。
+
+    （6）标准化各种浏览器前缀：带浏览器前缀的在前。标准属性在后。
+
+    （7）不使用 @import 前缀，它会影响 css 的加载速度。
+
+    （8）选择器优化嵌套，尽量避免层级过深。
+
+    （9）css雪碧图，同一页面相近部分的小图标，方便使用，减少页面的请求次数，但是同时图片本身会变大，使
+         用时，优劣考虑清楚，再使用。
+
+    （10）正确使用 display 的属性，由于 display 的作用，某些样式组合会无效，徒增样式体积的同时也影响
+         解析性能。
+
+    （11）不滥用 web 字体。对于中文网站来说 Web Fonts 可能很陌生，国外却很流行。web fonts通常体积庞大，
+         而且一些浏览器在下载 web fonts 时会阻塞页面渲染损伤性能。 
+
+     可维护性、健壮性：
+
+     （1）将具有相同属性的样式抽离出来，整合并通过 class 在页面中进行使用,提高 css 的可维护性。
+
+     （2）样式与内容分离：将 css 代码定义到外部 css 中。
+
     ```
+
+    详细资料可以参考：
+    [CSS 优化、提高性能的方法有哪些？](https://www.zhihu.com/question/19886806)
+    [css优化，提高性能的方法](https://www.jianshu.com/p/4e673bf24a3b)
 
 33. 浏览器是怎样解析 CSS 选择器的？
     ```
     样式系统从关键选择器开始匹配，然后左移查找规则选择器的祖先元素。
     只要选择器的子树一直在工作，样式系统就会持续左移，直到和规则匹配，或者是因为不匹配而放弃该规则。
+
+    试想一下，如果采用从左至右的方式读取 CSS 规则，那么大多数规则读到最后（最右）才会发现是不匹配的，
+    这样会做费时耗能，最后有很多都是无用的；而如果采取从右向左的方式，那么只要发现最右边选择器不匹配，
+    就可以直接舍弃了，避免了许多无效匹配。
     ```
     详细资料可以参考：
     [探究 CSS 解析原理](https://juejin.im/entry/5a123c55f265da432240cc90)
@@ -816,16 +878,36 @@
     
     （2）浏览器缘故，低版本的浏览器 ie6 会把奇数字体强制转化为偶数，即 13px 渲染为 14px。
 
-    （3）系统差别，早期的 Windows 里，中易宋体点阵只有 12 和 14、15、16 px，唯独缺少 13 px。****
+    （3）系统差别，早期的 Windows 里，中易宋体点阵只有 12 和 14、15、16 px，唯独缺少 13 px。
     ```
+    详细资料可以参考：
+    [谈谈网页中使用奇数字体和偶数字体](https://blog.csdn.net/jian_xi/article/details/79346477)
+    [现在网页设计中的为什么少有人用 11px、13px、15px 等奇数的字体？](https://www.zhihu.com/question/20440679)
+
 35. margin 和 padding 分别适合什么场景使用？
     ```
     margin 是用来隔开元素与元素的间距；padding 是用来隔开元素与内容的间隔。
-    margin 用于布局分开元素使元素与元素互不相干；
-    padding 用于元素与内容之间的间隔，让内容（文字）与（包裹）元素之间有一段距离
+    margin 用于布局分开元素使元素与元素互不相干。
+    padding 用于元素与内容之间的间隔，让内容（文字）与（包裹）元素之间有一段距离。
+
+    何时应当使用 margin：
+         • 需要在 border 外侧添加空白时。
+         • 空白处不需要背景（色）时。
+         • 上下相连的两个盒子之间的空白，需要相互抵消时。如15px + 20px 的 margin，将得到 20px
+           的空白。
+
+    何时应当时用 padding：
+         • 需要在 border 内测添加空白时。
+         • 空白处需要背景（色）时。
+         • 上下相连的两个盒子之间的空白，希望等于两者之和时。如15px + 20px的 padding ，将得
+           到 35px 的空白。
     ```
 
 36. 抽离样式模块怎么写，说出思路，有无实践经验？[阿里航旅的面试题]
+    ```
+    我的理解是把常用的 css 样式单独做成 css 文件……通用的和业务相关的分离出来，通用的做成样式模块儿共享，
+    业务相关的，放进业务相关的库里面做成对应功能的模块儿。
+    ```
     详细资料可以参考：
     [CSS规范 - 分类方法](http://nec.netease.com/standard/css-sort.html)
 
@@ -879,3 +961,221 @@
     详细资料可以参考：
     [CSS基础篇--CSS中IE浏览器的hasLayout，IE低版本的bug根源](https://segmentfault.com/a/1190000010883974)
     [CSS魔法堂：hasLayout原来是这样的！](https://segmentfault.com/a/1190000004632071)
+
+41. 元素竖向的百分比设定是相对于容器的高度吗？
+    ```
+    如果是 height 的话，是相对于容器高度。
+    
+    如果是 padding 或者 margin 竖直方向的属性则是相对于容器的宽度。
+    ```
+
+42. 全屏滚动的原理是什么？用到了 CSS 的哪些属性？（待深入实践）
+    ```
+    原理：有点类似于轮播，整体的元素一直排列下去，假设有5个需要展示的全屏页面，那么高度是500%，只是展示100%，
+         容器及容器内的页面取当前可视区高度，同时容器的父级元素 overflow 属性值设为 hidden，通过更改容器 
+         容器可视区的位置来实现全屏滚动效果。主要是响应鼠标事件，页面通过 CSS 的动画效果，进行移动。
+
+    overflow：hidden；transition：all 1000ms ease；
+    ```
+    详细资料可以参考：
+    [js实现网页全屏切换（平滑过渡），鼠标滚动切换](https://blog.csdn.net/liona_koukou/article/details/52680409)
+    [用 ES6 写全屏滚动插件](https://juejin.im/post/5aeef41cf265da0ba0630de0)
+
+
+43. 什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？（待深入了解）
+    ```
+    响应式网站设计(Responsive Web design)是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本。基
+    本原理是通过媒体查询检测不同的设备屏幕尺寸做处理。页面头部必须有 meta 声明的 viewport 。
+    ```
+    详细资料可以参考：
+    [响应式布局原理](https://blog.csdn.net/dreamerframework/article/details/8994741)
+    [响应式布局的实现方法和原理](http://www.mahaixiang.cn/wzsj/278.html)
+
+44. 视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）
+    ```
+    视差滚动（Parallax Scrolling）是指多层背景以不同的速度移动，形成立体的运动效果，带来非常出色的视觉体验。
+    ```
+    详细资料可以参考：
+    [如何实现视差滚动效果的网页？](https://www.zhihu.com/question/20990029)
+
+45. ::before 和 :after 中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。
+    ```
+    单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。（伪元素由双冒号和伪元素名称组成）
+    双冒号是在当前规范中引入的，用于区分伪类和伪元素。不过浏览器需要同时支持旧的已经存在的伪元素写法，
+    比如:first-line、:first-letter、:before、:after 等，
+    而新的在 CSS3 中引入的伪元素则不允许再支持旧的单冒号的写法。
+
+    想让插入的内容出现在其它内容前，使用::before，否者，使用::after；
+    在代码顺序上，::after 生成的内容也比::before 生成的内容靠后。
+    如果按堆栈视角，::after 生成的内容会在::before 生成的内容之上
+    ```
+
+46. 如何修改 chrome 记住密码后自动填充表单的黄色背景 ？
+    ```
+    chrome 表单自动填充后，input 文本框的背景会变成黄色的，通过审查元素可以看到这是由于 chrome 会默认给自
+    动填充的 input 表单加上 input:-webkit-autofill 私有属性，然后对其赋予以下样式：
+
+    {
+        background-color: rgb(250, 255, 189) !important;
+        background-image: none !important;
+        color: rgb(0, 0, 0) !important;
+    }
+
+    对 chrome 默认定义的 background-color，background-image，color 使用 important 是不能提高其优先级
+    的，但是其他属性可使用。
+
+    使用足够大的纯色内阴影来覆盖 input 输入框的黄色背景，处理如下
+
+    input:-webkit-autofill , textarea:-webkit-autofill, select:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px white inset;
+      border: 1px solid #CCC!important;
+    }
+
+    ```
+    详细资料可以参考：
+    [去掉chrome记住密码后的默认填充样式](https://blog.csdn.net/zsl_955200/article/details/78276209)
+    [修改谷歌浏览器chrome记住密码后自动填充表单的黄色背景](https://blog.csdn.net/M_agician/article/details/73381706)
+
+
+47. 怎么让 Chrome 支持小于12px 的文字？
+    ```
+    在谷歌下 css 设置字体大小为12px及以下时，显示都是一样大小，都是默认12px;
+
+    解决办法：
+
+    （1）可以使用 Webkit 的内核的 -webkit-text-size-adjust 的私有 CSS 属性来解决，只要 加了
+        -webkit-text-size-adjust:none; 字体大小 就不受限制了。但是 chrome 更新到27版本之后
+        就不可以用了。所以高版本 chrome 谷歌浏览器已经不再支持 -webkit-text-size-adjust 样式，
+        所以要使用时候慎用。
+
+    （2）还可以使用 css3 的 transform 缩放属性 -webkit-transform: scale(0.5);注意-webkit-transform: scale(0.75); 
+        收缩的是整个元素的大小，这时候，如果是内联元素，必须要将内联元素转换成块元素，可以使用 display：block/inline-block/...；
+
+    
+    （3）使用图片：如果是内容固定不变情况下，使用将小于 12px 文字内容切出做图片，这样不影响兼容也不影响美观。
+    ```
+    详细资料可以参考：
+    [谷歌浏览器不支持CSS设置小于12px的文字怎么办？](https://570109268.iteye.com/blog/2406562)
+
+
+48. 让页面里的字体变清晰，变细用 CSS 怎么做？
+    ```
+     webkit 内核的私有属性： -webkit-font-smoothing，用于字体抗锯齿,使用后字体看起来会更清晰舒服。
+
+     在 MacOS 测试环境下面设置 -webkit-font-smoothing: antialiased; 但是这个属性仅仅是面向 MacOS，
+     其他操作系统设置后无效。
+    ```
+    详细资料可以参考：
+    [让字体变的更清晰CSS 中 -webkit-font-smoothing](https://blog.csdn.net/huo_bao/article/details/50251585)
+
+49. font-style 属性中 italic 和 oblique 的区别？
+    ```
+    italic 和 oblique 这两个关键字都表示“斜体”的意思。
+
+    它们的区别在于， italic 是使用当前字体的斜体字体，而 oblique 只是单纯地让文字倾斜。如果当前字体没有对
+    应的斜体字体，则退而求其次，解析为 oblique，也就是单纯形状倾斜。
+    ```
+
+50. position:fixed;在 android 下无效怎么处理？
+    ```
+    因为移动端浏览器默认的 viewport 叫做 layout viewport。在移动端显示时，因为 layout viewport 的宽度
+    大于移动端屏幕的宽度，所以页面会出现滚动条左右移动，fiexed 的元素是相对 layout viewport 来固定位置的，
+    而不是移动端屏幕来固定位置的，所以会出现感觉 fixed 无效的情况。
+
+    如果想实现 fixed 相对于屏幕的固定效果，我们需要改变的是 viewport 的大小为 ideal viewport，可以如下设置：
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    ```
+    详细资料可以参考：
+    [移动前端开发之viewport的深入理解](https://www.cnblogs.com/2050/p/3877280.html)
+    [说说移动前端中 viewport （视口）](https://www.html.cn/archives/5975)
+
+51. 如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）
+    ```
+    多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60*1000 ms ＝ 16.7 ms
+    ```
+
+52. 如何让去除 inline-block 元素间间距？
+    ```
+    移除空格、使用 margin 负值、使用 font-size:0、letter-spacing、word-spacing
+    ```
+    详细资料可以参考：
+    [去除inline-block元素间间距的N种方法](https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/)
+
+53. overflow: scroll 时不能平滑滚动的问题怎么处理？
+    ```
+    以下代码可解决这种卡顿的问题：-webkit-overflow-scrolling: touch;，是因为这行代码启用了硬件加速特性，
+    所以滑动很流畅。
+    ```
+    详细资料可以参考：
+    [解决页面使用overflow: scroll在iOS上滑动卡顿的问题](https://www.jianshu.com/p/1f4693d0ad2d)
+
+54. 有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度。
+    ```
+    1. 外层 div 使用 position：relative；高度要求自适应的 div 使用position: absolute; top: 100px;
+     bottom: 0; left: 0
+
+    2. 使用 flex 布局，设置主轴为竖轴，第二个 div 的 flex-grow 为1。
+    ```
+    详细资料可以参考：
+    [有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度(三种方案)](https://blog.csdn.net/xutongbao/article/details/79408522)
+
+58. png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？
+    ```
+    （1）png 是便携式网络图片（Portable Network Graphics）是一种无损数据压缩位图文件格式.优点是：压缩
+        比高，色彩好。 大多数地方都可以用。
+
+    （2）jpg 是一种针对相片使用的一种失真压缩方法，是一种破坏性的压缩，在色调及颜色平滑变化做的不错。在 www 上，
+        被用来储存和传输照片的格式。
+
+    （3）gif 是一种位图文件格式，以8位色重现真色彩的图像。可以实现动画效果.
+
+    （4）webp 格式是谷歌在2010年推出的图片格式，压缩率只有 jpg 的2/3，大小比 png 小了45%。缺点是压缩的时间
+        更久了，兼容性不好，目前谷歌和 opera 支持。
+    ```
+    详细资料可以参考：
+    [图片格式那么多，哪种更适合你？](http://zhaox.github.io/multimedia/2016/01/13/introducing-image-types)
+
+
+59. 什么是 Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）
+    ```
+    网站向服务器请求的时候，会自动带上 cookie 这样增加 表头信息量，使请求变慢。
+
+    如果静态文件都放在主域名下，那静态文件请求的时候都带有的 cookie 的数据提交给 server 的，非常浪费流量，
+    所以不如隔离开，静态资源放 CDN 。
+
+    因为cookie有域的限制，因此不能跨域提交请求，故使用非主要域名的时候，请求头中就不会带有cookie数据，
+    这样可以降低请求头的大小，降低请求时间，从而达到降低整体请求延时的目的。
+
+    同时这种方式不会将cookie传入Web Server，也减少了Web Server对cookie的处理分析环节，
+    提高了webserver的http请求的解析速度。
+    ```
+    详细资料可以参考：
+    []
+    [CDN是什么？使用CDN有什么优势？](https://www.zhihu.com/question/36514327?rf=37353035)
+
+
+60.  style 标签写在 body 后与 body 前有什么区别？
+   ```
+   页面加载自上而下 当然是先加载样式。写在 body 标签后由于浏览器以逐行方式对 HTML 文档进行解析，当解析到
+   写在尾部的样式表（外联或写在 style 标签）会导致浏览器停止之前的渲染，等待加载且解析样式表完成之后重新渲
+   染，在 windows 的 IE 下可能会出现 FOUC 现象（即样式失效导致的页面闪烁问题）
+   ```
+
+61. 什么是 CSS 预处理器 / 后处理器？
+    ```
+    预处理器例如：LESS、Sass、Stylus，用来预编译 Sass 或 less，增强了 css 代码的复用性，
+    还有层级、mixin、变量、循环、函数等，具有很方便的UI组件模块化开发能力，极大的提高工作效率。
+
+    后处理器例如：PostCSS，通常被视为在完成的样式表中根据 CSS 规范处理 CSS，让其更有效；目前最常做的
+    是给 CSS 属性添加浏览器私有前缀，实现跨浏览器兼容性的问题。
+    ```
+    详细资料可以参考：
+    [CSS预处理器和后处理器](https://blog.csdn.net/yushuangyushuang/article/details/79209752)
+
+62. 阐述一下 CSS Sprites
+    ```
+    将一个页面涉及到的所有图片都包含到一张大图中去，然后利用 CSS 的 background-image，background- repeat，
+    background-position 的组合进行背景定位。利用 CSS Sprites 能很好地减少网页的 http 请求，从而大大的
+    提高页面的性能；CSS Sprites 能减少图片的字节。
+    ```
