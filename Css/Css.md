@@ -1120,7 +1120,7 @@
     详细资料可以参考：
     [有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度(三种方案)](https://blog.csdn.net/xutongbao/article/details/79408522)
 
-58. png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？
+55. png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？
     ```
     （1）png 是便携式网络图片（Portable Network Graphics）是一种无损数据压缩位图文件格式.优点是：压缩
         比高，色彩好。 大多数地方都可以用。
@@ -1137,45 +1137,71 @@
     [图片格式那么多，哪种更适合你？](http://zhaox.github.io/multimedia/2016/01/13/introducing-image-types)
 
 
-59. 什么是 Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）
+56. 什么是 Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）
     ```
     网站向服务器请求的时候，会自动带上 cookie 这样增加 表头信息量，使请求变慢。
 
     如果静态文件都放在主域名下，那静态文件请求的时候都带有的 cookie 的数据提交给 server 的，非常浪费流量，
     所以不如隔离开，静态资源放 CDN 。
 
-    因为cookie有域的限制，因此不能跨域提交请求，故使用非主要域名的时候，请求头中就不会带有cookie数据，
+    因为 cookie 有域的限制，因此不能跨域提交请求，故使用非主要域名的时候，请求头中就不会带有 cookie 数据，
     这样可以降低请求头的大小，降低请求时间，从而达到降低整体请求延时的目的。
 
-    同时这种方式不会将cookie传入Web Server，也减少了Web Server对cookie的处理分析环节，
-    提高了webserver的http请求的解析速度。
+    同时这种方式不会将 cookie 传入 Web Server，也减少了 Web Server 对 cookie 的处理分析环节，
+    提高了 webserver 的 http 请求的解析速度。
     ```
     详细资料可以参考：
-    []
     [CDN是什么？使用CDN有什么优势？](https://www.zhihu.com/question/36514327?rf=37353035)
 
 
-60.  style 标签写在 body 后与 body 前有什么区别？
-   ```
-   页面加载自上而下 当然是先加载样式。写在 body 标签后由于浏览器以逐行方式对 HTML 文档进行解析，当解析到
-   写在尾部的样式表（外联或写在 style 标签）会导致浏览器停止之前的渲染，等待加载且解析样式表完成之后重新渲
-   染，在 windows 的 IE 下可能会出现 FOUC 现象（即样式失效导致的页面闪烁问题）
-   ```
+57.  style 标签写在 body 后与 body 前有什么区别？
+     ```
+     页面加载自上而下 当然是先加载样式。写在 body 标签后由于浏览器以逐行方式对 HTML 文档进行解析，当解析到
+     写在尾部的样式表（外联或写在 style 标签）会导致浏览器停止之前的渲染，等待加载且解析样式表完成之后重新渲
+     染，在 windows 的 IE 下可能会出现 FOUC 现象（即样式失效导致的页面闪烁问题）
+     ```
 
-61. 什么是 CSS 预处理器 / 后处理器？
+58. 什么是 CSS 预处理器 / 后处理器？
     ```
+    CSS 预处理器定义了一种新的语言，其基本思想是，用一种专门的编程语言，为 CSS 增加了一些编程的特性，将 CSS
+    作为目标生成文件，然后开发者就只要使用这种语言进行编码工作。通俗的说，CSS 预处理器用一种专门的编程语言，进
+    行 Web 页面样式设计，然后再编译成正常的 CSS 文件。
     预处理器例如：LESS、Sass、Stylus，用来预编译 Sass 或 less，增强了 css 代码的复用性，
     还有层级、mixin、变量、循环、函数等，具有很方便的UI组件模块化开发能力，极大的提高工作效率。
 
+    CSS 后处理器 是对 CSS 进行处理，并最终生成 CSS 的 预处理器，它属于广义上的 CSS 预处理器。 我们很久以前
+    就在用 CSS 后处理器 了，最典型的例子是 CSS 压缩工具（如 clean-css），只不过以前没单独拿出来说过。还有最
+    近比较火的 Autoprefixer，以 Can I Use 上的 浏览器支持数据 为基础，自动处理兼容性问题。
     后处理器例如：PostCSS，通常被视为在完成的样式表中根据 CSS 规范处理 CSS，让其更有效；目前最常做的
     是给 CSS 属性添加浏览器私有前缀，实现跨浏览器兼容性的问题。
     ```
     详细资料可以参考：
     [CSS预处理器和后处理器](https://blog.csdn.net/yushuangyushuang/article/details/79209752)
 
-62. 阐述一下 CSS Sprites
+59. 阐述一下 CSS Sprites
     ```
     将一个页面涉及到的所有图片都包含到一张大图中去，然后利用 CSS 的 background-image，background- repeat，
     background-position 的组合进行背景定位。利用 CSS Sprites 能很好地减少网页的 http 请求，从而大大的
     提高页面的性能；CSS Sprites 能减少图片的字节。
     ```
+
+60. 使用 rem 布局的优缺点？
+    ```
+    优点：
+    在屏幕分辨率千差万别的时代，只要将 rem 与屏幕分辨率关联起来就可以实现页面的整体缩放，使得在设备上的展现
+    都统一起来了。而且现在浏览器基本都已经支持 rem 了，兼容性也非常的好。
+
+    缺点：
+    （1）在奇葩的 dpr 设备上表现效果不太好，比如 一些华为的高端机型用 rem 布局会出现错乱。
+
+    （2）使用 iframe 引用也会出现问题。
+
+    （3）rem 在多屏幕尺寸适配上与当前两大平台的设计哲学不一致。即大屏的出现到底是为了看得又大又清楚，还是为了
+        看的更多的问题。
+    ```
+    详细资料可以参考：
+    [css3的字体大小单位rem到底好在哪？](https://www.zhihu.com/question/21504656)
+    [VW: 是时候放弃REM布局了](https://www.jianshu.com/p/e8ae1c3861dc)
+    [为什么设计稿是750px](https://blog.csdn.net/Honeymao/article/details/76795089)
+    [使用Flexible实现手淘H5页面的终端适配](https://github.com/amfe/article/issues/17)
+
