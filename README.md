@@ -36,15 +36,15 @@
 
 ## Html :baby_chick:
 
-> [Html 基础](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/Html/Html.md) 待完善......
+> [Html 基础](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/Html/Html.md)
 
 ## Css :cat:
 
-> [Css 基础](https://github.com/CavsZhouyou/Interview-Notebook/tree/master/Css/Css.md)) 待完善......
+> [Css 基础](https://github.com/CavsZhouyou/Interview-Notebook/tree/master/Css/Css.md)) 
 
 ## JavaScript :koala:
 
-> [JavaScript 基础]() 待完善......
+> [JavaScript 基础](https://github.com/CavsZhouyou/Interview-Notebook/tree/master/JavaScript/JavaScript.md)) 
 
 ## 工具 :hammer:
 

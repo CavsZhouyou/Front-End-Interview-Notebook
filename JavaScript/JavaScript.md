@@ -510,6 +510,7 @@
     [JS事件模型](https://segmentfault.com/a/1190000006934031#articleHeader6)
   
 37. 事件是什么？IE 与火狐的事件机制有什么区别？ 如何阻止冒泡？
+
     ```
     （1）事件是用户操作网页时发生的交互动作，比如 click/move, 事件除了用户触发的动作外，还可以是文档加载，
         窗口滚动和大小调整。事件被封装成一个 event 对象，包含了该事件发生时的所有相关信息（ event 的属性）
@@ -523,8 +524,12 @@
     [Javascript事件模型系列（一）事件及事件的三种模型](https://www.cnblogs.com/lvdabao/p/3265870.html)
     [Javascript事件模型：事件捕获和事件冒泡](https://blog.csdn.net/wuseyukui/article/details/13771493)
 
+38. 我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡。会执行几次事件，会先执行冒泡还是捕获？
+    详细资料可以参考：
+    [一个DOM元素绑定多个事件时，先执行冒泡还是捕获](https://blog.csdn.net/u013217071/article/details/77613706)
 
-38. ["1", "2", "3"].map(parseInt) 答案是多少？
+
+39. ["1", "2", "3"].map(parseInt) 答案是多少？
     ```
     parseInt() 函数能解析一个字符串，并返回一个整数，需要两个参数 (val, radix)，其中 radix 表示要解析
     的数字的基数。（该值介于 2 ~ 36 之间，并且字符串中的数字不能大于 radix 才能正确返回数字结果值）。
@@ -540,7 +545,7 @@
     详细资料可以参考：
     [为什么 ["1", "2", "3"].map(parseInt) 返回 [1,NaN,NaN]？](https://blog.csdn.net/justjavac/article/details/19473199)
 
-39. 什么是 闭包（closure），为什么要用它？
+40. 什么是 闭包（closure），为什么要用它？
     ```
     闭包是指有权访问另一个函数作用域中变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，
     通过另一个函数访问这个函数的局部变量,利用闭包可以突破作用链域，将函数内部的变量和方法传递到外部。
@@ -550,7 +555,7 @@
     [JavaScript深入理解之闭包](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E9%97%AD%E5%8C%85.html)
 
 
-40. javascript 代码中的 "use strict"; 是什么意思 ? 使用它区别是什么？
+41. javascript 代码中的 "use strict"; 是什么意思 ? 使用它区别是什么？
     ```
     use strict是一种 ECMAscript 5 添加的（严格）运行模式，这种模式使得 Javascript 在更严格的条件下运行。
     
@@ -577,7 +582,7 @@
     [Javascript 严格模式详解](http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html)
 
 
-41. 如何判断一个对象是否属于某个类？
+42. 如何判断一个对象是否属于某个类？
     ```
     instanceof 运算符用于测试构造函数的 prototype 属性是否出现在对象的原型链中的任何位置。
     ```
@@ -585,7 +590,7 @@
     [instanceof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
     [js 判断一个对象是否属于某一类](https://blog.csdn.net/haitunmin/article/details/78418522)
 
-42. new 操作符具体干了什么呢?
+43. new 操作符具体干了什么呢?
     ```
     （1）首先创建了一个空对象
     （2）设置原型，将对象的原型设置为函数的 prototype 对象。
@@ -596,7 +601,7 @@
     [new 操作符具体干了什么？](https://segmentfault.com/a/1190000008576048)
 
 
-43. Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
+44. Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
     ```
     hasOwnProperty
 
@@ -606,7 +611,7 @@
     详细资料可以参考：
     [Object.prototype.hasOwnProperty()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
 
-44. 对于 JSON 的了解？
+45. 对于 JSON 的了解？
     ```
     JSON 是一种数据交换格式，基于文本，优于轻量，用于交换数据。
 
@@ -617,7 +622,7 @@
     [深入了解JavaScript中的JSON ](https://my.oschina.net/u/3284240/blog/874368)
 
 
-45. [].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)}) 能解释一下这段代码的意思吗？
+46. [].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)}) 能解释一下这段代码的意思吗？
     ```
     （1）选取页面所有 DOM 元素。
 
@@ -630,7 +635,7 @@
     详细资料可以参考：
     [通过一行代码学JavaScript](https://2008winstar.iteye.com/blog/2128290)
   
-46. js 延迟加载的方式有哪些？
+47. js 延迟加载的方式有哪些？
     ```
     JS 延迟加载，也就是等页面加载完成之后再加载 JavaScript 文件。 JS 延迟加载有助于提高页面加载速度。
 
@@ -645,3 +650,298 @@
     详细资料可以参考：
     [JS延迟加载的几种方式](https://blog.csdn.net/meijory/article/details/76389762)
     [HTML 5 <script> async 属性](http://www.w3school.com.cn/html5/att_script_async.asp)
+
+
+48. Ajax 是什么? 如何创建一个Ajax？
+    ```
+    2005年2月，AJAX 这个词第一次正式提出，它是 Asynchronous JavaScript and XML 的缩写，指的是通过
+    JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页。
+
+    具体来说，AJAX 包括以下几个步骤。
+
+    (1)创建 XMLHttpRequest 对象,也就是创建一个异步调用对象
+    (2)创建一个新的 HTTP 请求,并指定该 HTTP 请求的方法、URL 及验证信息
+    (3)设置响应 HTTP 请求状态变化的函数
+    (4)发送 HTTP 请求
+    (5)获取异步调用返回的数据
+    (6)使用 JavaScript 和 DOM 实现局部刷新
+    ```
+    详细资料可以参考：
+    [XMLHttpRequest 对象](https://wangdoc.com/javascript/bom/xmlhttprequest.html)
+    [Ajax 是什么? 如何创建一个Ajax？](https://blog.csdn.net/lxcao/article/details/52745743)
+
+49. Ajax 解决浏览器缓存问题？
+    ```
+    1、在 ajax 发送请求前加上 anyAjaxObj.setRequestHeader("If-Modified-Since","0")。 
+
+    2、在 ajax 发送请求前加上 anyAjaxObj.setRequestHeader("Cache-Control","no-cache")。 
+
+    3、在 URL 后面加上一个随机数： "fresh=" + Math.random();。 
+
+    4、在 URL 后面加上时间搓："nowtime=" + new Date().getTime();。 
+
+    5、如果是使用 jQuery，直接这样就可以了$.ajaxSetup({cache:false})。这样页面的所有 ajax 都会执行这
+       条语句就是不需要保存缓存记录。
+    ```
+    详细资料可以参考：
+    [Ajax中浏览器的缓存问题解决方法](https://www.cnblogs.com/cwzqianduan/p/8632009.html)
+
+50. 同步和异步的区别？
+    ```
+    同步，可以理解为在执行完一个函数或方法之后，一直等待系统返回值或消息，这时程序是出于阻塞的，只有接收到返
+    回的值或消息后才往下执行其他的命令。  
+
+    异步，执行完函数或方法后，不必阻塞性地等待返回值或消息，只需要向系统委托一个异步过程，那么当系统接收到返
+    回值或消息时，系统会自动触发委托的异步过程，从而完成一个完整的流程。 
+    ```
+    详细资料可以参考：
+    [同步和异步的区别](https://blog.csdn.net/tennysonsky/article/details/45111623)
+
+51. 如何解决跨域问题？
+    ```
+    （1） 通过 jsonp 跨域
+    （2） document.domain + iframe 跨域
+    （3） location.hash + iframe
+    （4） window.name + iframe 跨域
+    （5） postMessage 跨域
+    （6） 跨域资源共享（CORS）
+    （7） nginx 代理跨域
+    （8） nodejs 中间件代理跨域
+    （9） WebSocket 协议跨域
+    ```
+    详细资料可以参考：
+    [前端常见跨域解决方案（全）](https://segmentfault.com/a/1190000011145364)
+    [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
+
+
+52. 服务器代理转发时，该如何处理 cookie？
+    详细资料可以参考：
+    [深入浅出Nginx](https://www.jianshu.com/p/5eab0f83e3b4)
+
+53. 模块化开发怎么做？
+    ```
+    把函数作为模块 缺陷: 污染全局变量 模块成员之间没什么关系 面向对象思想 并使用立即执行函数 实现闭包 避免
+    了变量污染 同时同一模块内的成员也有了关系 在模块外部无法修改我们没有暴露出来的变量、函数 这就是简单的模
+    块。
+    ```
+    详细资料可以参考：
+    [浅谈模块化开发](https://juejin.im/post/5ab378c46fb9a028ce7b824f)
+    [Javascript模块化编程（一）：模块的写法](http://www.ruanyifeng.com/blog/2012/10/javascript_module.html)
+
+54. AMD 和 CMD 规范的区别？
+    ```
+    Asynchronous Module Definition，异步模块定义，所有的模块将被异步加载，模块加载不影响后面语句运行。
+    所有依赖某些模块的语句均放置在回调函数中。
+
+    区别：
+
+     1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行
+     （根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
+     1. CMD 推崇依赖就近，AMD 推崇依赖前置。看代码：
+
+    // CMD
+    define(function(require, exports, module) {
+     var a = require('./a')
+     a.doSomething()
+     // 此处略去 100 行
+     var b = require('./b') // 依赖可以就近书写
+     b.doSomething()
+     // ...
+    })
+
+    // AMD 默认推荐
+    define(['./a', './b'], function(a, b) { // 依赖必须一开始就写好
+     a.doSomething()
+     // 此处略去 100 行
+     b.doSomething()
+     // ...
+    })
+    ```
+    详细资料可以参考：
+    [前端模块化，AMD与CMD的区别](https://juejin.im/post/5a422b036fb9a045211ef789)
+
+55. requireJS 的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何 缓存的？）
+    详细资料可以参考：
+    [requirejs的用法和原理分析](https://github.com/HRFE/blog/issues/10)
+    [requireJS 的核心原理是什么？](https://blog.csdn.net/mzrxLXR/article/details/81703099)
+
+56. JS 模块加载器的轮子怎么造，也就是如何实现一个模块加载器？
+    详细资料可以参考：
+    [JS模块加载器加载原理是怎么样的？](https://www.zhihu.com/question/21157540)
+
+57. ECMAScript6 怎么写 class，为什么会出现 class 这种东西?
+    详细资料可以参考：
+    [ECMAScript 6实现了class，对JavaScript前端开发有什么意义？](https://www.zhihu.com/question/29789315)
+
+58. documen.write和 innerHTML 的区别？
+    ```
+     document.write 只能重绘整个页面
+
+    innerHTML 可以重绘页面的一部分
+    ```
+    详细资料可以参考：
+    [简述document.write和 innerHTML的区别。](https://www.nowcoder.com/questionTerminal/2c5d8105b2694d85b06eff85e871cf50)
+
+59. DOM 操作——怎样添加、移除、移动、复制、创建和查找节点？
+    ```
+    （1）创建新节点
+    createDocumentFragment()    //创建一个DOM片段
+    createElement()   //创建一个具体的元素
+    createTextNode()   //创建一个文本节点
+    （2）添加、移除、替换、插入
+    appendChild()
+    removeChild()
+    replaceChild()
+    insertBefore() //在已有的子节点前插入一个新的子节点
+    （3）查找
+    getElementsByTagName()    //通过标签名称
+    getElementsByName()    //通过元素的Name属性的值(IE容错能力较强，会得到一个数组，其中包括id等于name值的)
+    getElementById()    //通过元素Id，唯一性
+    ```
+    详细资料可以参考：
+    [DOM概述](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction#DOM_interfaces)
+    [原生 JavaScript 的 DOM 操作汇总](https://harttle.land/2015/10/01/javascript-dom-api.html)
+    [原生JS中DOM节点相关API合集](https://microzz.com/2017/04/06/jsdom/)
+
+60. .call() 和 .apply() 的区别？
+    ```
+    它们的作用一模一样，区别仅在于传入参数的形式的不同。
+
+    apply 接受两个参数，第一个参数指定了函数体内 this 对象的指向，第二个参数为一个带下标的集合,这个集合可以
+    为数组，也可以为类数组，apply 方法把这个集合中的元素作为参数传递给被调用的函数。
+
+    call 传入的参数数量不固定，跟 apply 相同的是，第一个参数也是代表函数体内的 this 指向， 从第二个参数开、
+    始往后，每个参数被依次传入函数。
+    ``` 
+    详细资料可以参考：
+    [apply、call 的区别和用途](https://juejin.im/entry/58d0a7b22f301e007e5a15ae)
+
+61. 数组和对象有哪些原生方法，列举一下？
+    详细资料可以参考：
+    [JavaScript深入理解之Array类型详解](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8BArray%E8%AF%A6%E8%A7%A3.html)
+
+62. JavaScript 中的作用域与变量声明提升？
+    详细资料可以参考：
+    [JavaScript深入理解之变量对象](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E5%8F%98%E9%87%8F%E5%AF%B9%E8%B1%A1.html)
+
+63. 如何编写高性能的 Javascript ？
+    详细资料可以参考：
+    [如何编写高性能的Javascript？](https://zhuanlan.zhihu.com/p/34780474)
+
+64. 那些操作会造成内存泄漏？
+    ```
+    （1）意外的全局变量
+    （2）被遗忘的计时器或回调函数
+    （3）脱离 DOM 的引用
+    （4）闭包
+    ```
+    详细资料可以参考：
+    [JavaScript 内存泄漏教程](http://www.ruanyifeng.com/blog/2017/04/memory-leak.html)
+    [4类 JavaScript 内存泄漏及如何避免](https://jinlong.github.io/2016/05/01/4-Types-of-Memory-Leaks-in-JavaScript-and-How-to-Get-Rid-Of-Them/)
+    [杜绝js中四种内存泄漏类型的发生](https://juejin.im/entry/5a64366c6fb9a01c9332c706)
+
+
+65. 需求：实现一个页面操作不会整页刷新的网站，并且能在浏览器前进、后退时正确响应。给出你的技术实现方案？
+    ```
+    pushState + ajax 实现浏览器无刷新前进后退
+    ```
+    详细资料可以参考：
+    [pushState + ajax 实现浏览器无刷新前进后退](http://blog.chenxu.me/post/detail?id=ed4f0732-897f-48e4-9d4f-821e82f17fad)
+
+66. 如何判断当前脚本运行在浏览器还是node环境中？（阿里）
+    ```
+    this === window ? 'browser' : 'node';
+
+    通过判断 Global 对象是否为 window，如果不为 window，当前脚本没有运行在浏览器中
+    ``` 
+
+67. 把 Script 标签 放在页面的最底部的body封闭之前 和封闭之后有什么区别？浏览器会如何解析它们？
+    详细资料可以参考：
+    [为什么把 Script 标签放在 body 结束标签之后 html 结束标签之前？](https://www.zhihu.com/question/20027966)
+
+
+68. 移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？（click 有 300ms 延迟,为了实现
+    safari 的双击事件的设计，浏览器要知道你是不是要双击操作。）
+    详细资料可以参考：
+    [移动端300ms点击延迟和点击穿透](https://juejin.im/post/5b3cc9836fb9a04f9a5cb0e0)
+
+69. 什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点？
+    ```
+    （1）什么是前端路由？
+
+        路由是根据不同的 url 地址展示不同的内容或页面
+        前端路由就是把不同路由对应不同的内容或页面的任务交给前端来做，之前是通过服务端根据 url 的不同返回
+        不同的页面实现的。
+
+    （2）什么时候使用前端路由？
+
+        在单页面应用，大部分页面结构不变，只改变部分内容的使用
+
+    （3）前端路由有什么优点和缺点？
+
+        优点
+        用户体验好，不需要每次都从服务器全部获取，快速展现给用户
+
+        缺点
+        使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存
+        单页面无法记住之前滚动的位置，无法在前进，后退的时候记住滚动的位置
+    ```
+    详细资料可以参考：
+    [什么是“前端路由”](https://segmentfault.com/q/1010000005336260)
+    [面试官: 你了解前端路由吗?](https://juejin.im/post/5ac61da66fb9a028c71eae1b)
+    [前端路由是什么东西？](https://www.zhihu.com/question/53064386)
+
+70. 如何测试前端代码么？ 知道BDD, TDD, Unit Test么? 知道怎么测试你的前端工程么(mocha, sinon, 
+    jasmin, qUnit..)？
+    详细资料可以参考：
+    [浅谈前端单元测试](https://juejin.im/post/5b2da89cf265da597f1c7cab)
+
+71. 检测浏览器版本版本有哪些方式？
+    ```
+    功能检测、userAgent特征检测
+    ```
+    详细资料可以参考：
+    [JavaScript判断浏览器类型](https://www.jianshu.com/p/d99f4ca385ac)
+
+72. 什么是 Polyfill ？
+    ```
+    Polyfill的准确意思为：用于实现浏览器并不支持的原生API的代码。
+    ```
+    详细资料可以参考：
+    [Web开发中的“黑话”](https://segmentfault.com/a/1190000002593432)
+    [polyfill为何物](https://juejin.im/post/5a579bc7f265da3e38496ba1)
+
+73. 使用 JS 实现获取文件扩展名？
+    ```
+      function getFileExtension(filename) {
+        return filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2);
+      }
+
+      String.lastIndexOf() 方法返回指定值（本例中的'.'）在调用该方法的字符串中最后出现的位置，如果没找到
+      则返回 -1。
+      对于'filename'和'.hiddenfile'，lastIndexOf 的返回值分别为0和-1无符号右移操作符(»>) 将-1转换为4294967295，将-2转换为4294967294，这个方法可以保证边缘情况时文件名不变。
+      String.prototype.slice() 从上面计算的索引处提取文件的扩展名。如果索引比文件名的长度大，结果为""。
+    ```
+74. 介绍一下 js 的节流与防抖？
+    ```
+    函数防抖： 在事件被触发 n 秒后再执行回调，如果在这 n 秒内又被触发，则重新计时。
+
+    函数节流： 规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间
+             内某事件被触发多次，只有一次能生效。
+    ```
+    详细资料可以参考：
+    [轻松理解JS函数节流和函数防抖](https://juejin.im/post/5a35ed25f265da431d3cc1b1)
+    [JavaScript 事件节流和事件防抖](https://juejin.im/post/5aa60b0e518825556b6c6d1a)
+    [JS的防抖与节流](https://juejin.im/entry/5b1d2d54f265da6e2545bfa4)
+    
+
+75. Object.is() 与原来的比较操作符“ ===”、“ ==”的区别？
+    ```
+    两等号判等，会在比较时进行类型转换；
+    三等号判等(判断严格)，比较时不进行隐式类型转换,（类型不同则会返回false）；
+
+    Object.is 在三等号判等的基础上特别处理了 NaN 、-0 和 +0 ，保证 -0 和 +0 不再相同，
+    但 Object.is(NaN, NaN) 会返回 true.
+
+    Object.is 应被认为有其特殊的用途，而不能用它认为它比其它的相等对比更宽松或严格。
+    ``` 
