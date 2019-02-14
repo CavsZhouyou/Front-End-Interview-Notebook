@@ -97,7 +97,8 @@
 
 4. JavaScript 原型，原型链？ 有什么特点？
    ```
-   当我们调用构造函数创建一个新实例后，在这个实例的内部将包含一个指针，指向构造函数的 prototype 属性，在 ECMA-262 第五版中管这个指针叫做 [[Prototype]]（原型）。
+   当我们调用构造函数创建一个新实例后，在这个实例的内部将包含一个指针，指向构造函数的 prototype 属性，在 ECMA-262 第五版
+   中管这个指针叫做 [[Prototype]]（原型）。
 
    当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么它就会去它的原型对象里找这个属性，这个原型
    对象又会有自己的原型，于是就这样一直找下去，也就是我们平时所说的原型链的概念。
@@ -118,7 +119,7 @@
    两种类型的区别是：存储位置不同。
    原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储。
 
-   引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定。如果存储在栈中，将会影响程序运行的性能；引用数据
+   引用数据类型存储在堆(heap)中的对象，占据空间大、大小不固定。如果存储在栈中，将会影响程序运行的性能；引用数据
    类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址
    后从堆中获得实体。
    ```
@@ -180,7 +181,7 @@
 
 12. 内部属性 [[Class]] 是什么？
     ```
-    所有 typeof 返回值为"object" 的对象（如数组）都包含一个内部属性 [[Class]]（我们可以把它看作一个内部
+    所有 typeof 返回值为 "object" 的对象（如数组）都包含一个内部属性 [[Class]]（我们可以把它看作一个内部
     的分类，而非传统的面向对象意义上的类）。这个属性无法直接访问， 一般通过 Object.prototype.toString(..) 
     来查看。例如：
 
@@ -203,7 +204,7 @@
     ```
     规范的 9.8 节中定义了抽象操作 ToString ，它负责处理非字符串到字符串的强制类型转换。
 
-    基本类型值的字符串化规则为：null 转换为"null"，undefined 转换为"undefined"，true 转换为"true"。
+    基本类型值的字符串化规则为：null 转换为 "null"，undefined 转换为 "undefined"，true 转换为 "true"。
     数字的字符串化则遵循通用规则，不过那些极小和极大的数字会使用指数形式。
 
     对普通对象来说，除非自行定义，否则 toString()（Object.prototype.toString()）返回内部属性 [[Class]] 
@@ -212,6 +213,7 @@
     ```
 
 15. 非数字值到数字值的转换规则？
+    
     ```
     有时我们需要将非数字值当作数字来使用，比如数学运算。为此 ES5 规范在 9.3 节定义了抽象操作 ToNumber。
 
@@ -229,8 +231,14 @@
 
     如果 valueOf() 和toString() 均不返回基本类型值，会产生TypeError 错误。
     ```
+16. {} 和 [] 的 valueOf 和 toString 的结果是什么？
+    ```
+    {} 的 valueOf 结果为 {} ，toString 的结果为 "[object Object]"
 
-16. 其他值到布尔类型的值的转换规则？
+    [] 的 valueOf 结果为 [] ，toString 的结果为 ""
+    ```
+
+17. 其他值到布尔类型的值的转换规则？
     ```
     ES5 规范 9.2 节中定义了抽象操作 ToBoolean，列举了布尔强制类型转换所有可能出现的结果。
 
@@ -244,35 +252,36 @@
     假值的布尔强制类型转换结果为 false。从逻辑上说，假值列表以外的都应该是真值。
     ```
 
-17. 什么是假值对象？
+18. 什么是假值对象？
     ```
     浏览器在某些特定情况下，在常规 JavaScript 语法基础上自己创建了一些外来值，这些就是“假值对象”。假值对象
-    看起来和普通对象并无二致（都有属性，等等），但将它们强制类型转换为布尔值时结果为 false 最常见的例子是document.all，它是一个类数组对象，包含了页面上的所有元素，由 DOM（而不是JavaScript 引擎）提供给 JavaScript 程序使用。
+    看起来和普通对象并无二致（都有属性，等等），但将它们强制类型转换为布尔值时结果为 false 最常见的例子是document.all，
+    它是一个类数组对象，包含了页面上的所有元素，由 DOM（而不是JavaScript 引擎）提供给 JavaScript 程序使用。
     ```
 
-18. ~ 操作符的作用？
+19. ~ 操作符的作用？
     ```
     ~ 返回 2 的补码。
 
     ~x 大致等同于-(x+1)。
     ```
 
-19. 解析字符串中的数字和将字符串强制类型转换为数字的返回结果都是数字，它们之间的区别是什么？
+20. 解析字符串中的数字和将字符串强制类型转换为数字的返回结果都是数字，它们之间的区别是什么？
     ```
     解析允许字符串（如 parseInt() ）中含有非数字字符，解析按从左到右的顺序，如果遇到非数字字符就停止。而
     转换（如 Number ()）不允许出现非数字字符，否则会失败并返回 NaN。
     ```
 
-20.  `+` 操作符什么时候用于字符串的拼接？
+21. `+` 操作符什么时候用于字符串的拼接？
     ```
     根据 ES5 规范 11.6.1 节，如果某个操作数是字符串或者能够通过以下步骤转换为字符串的话，+ 将进行拼接操作。
     如果其中一个操作数是对象（包括数组），则首先对其调用 ToPrimitive 抽象操作，该抽象操作再调用[[DefaultValue]]，以数字作为上下文。
 
-    简单来说就是，如果 + 的其中一个操作数是字符串（或者通过以上步骤可以得到字符串），则执行字符串拼接；否则执
+    简单来说就是，如果 + 的其中一个操作数是字符串（或者通过以上步骤最终得到字符串），则执行字符串拼接；否则执
     行数字加法。
     ```
 
-21. 什么情况下会发生布尔值的隐式强制类型转换？
+22. 什么情况下会发生布尔值的隐式强制类型转换？
     ```
     （1） if (..) 语句中的条件判断表达式。
     （2） for ( .. ; .. ; .. ) 语句中的条件判断表达式（第二个）。
@@ -281,21 +290,19 @@
     （5） 逻辑运算符 ||（逻辑或）和 &&（逻辑与）左边的操作数（作为条件判断表达式）。
     ```
 
-22. || 和 && 操作符的返回值？
+23. || 和 && 操作符的返回值？
     ```
-    || 和 && 首先会对第一个操作数（a 和 c）执行条件判断，如果其不是布尔值（如上例）就
-    先进行 ToBoolean 强制类型转换，然后再执行条件判断。
+    || 和 && 首先会对第一个操作数执行条件判断，如果其不是布尔值就先进行 ToBoolean 强制类型转换，然后再
+    执行条件判断。
 
-    对于 || 来说，如果条件判断结果为 true 就返回第一个操作数（a 和 c）的值，如果为
-    false 就返回第二个操作数（b）的值。
+    对于 || 来说，如果条件判断结果为 true 就返回第一个操作数的值，如果为 false 就返回第二个操作数的值。
 
-    && 则相反，如果条件判断结果为 true 就返回第二个操作数（b）的值，如果为 false 就返
-    回第一个操作数（a 和c）的值。
+    && 则相反，如果条件判断结果为 true 就返回第二个操作数的值，如果为 false 就返回第一个操作数的值。
 
     || 和 && 返回它们其中一个操作数的值，而非条件判断的结果 
     ```
 
-23. Symbol 值的强制类型转换？
+24. Symbol 值的强制类型转换？
     ```
     ES6 允许从符号到字符串的显式强制类型转换，然而隐式强制类型转换会产生错误。
 
@@ -303,18 +310,25 @@
     （显式和隐式结果都是 true ）。
     ```
 
-24. == 操作符的强制类型转换规则？
+25. == 操作符的强制类型转换规则？
     ```
-    （1）符串和数字之间的相等比较，将字符串转换为数字之后再进行比较。
+    （1）字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较。
 
     （2）其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，在应用其他规则进行比较。
 
-    （3） null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。
+    （3）null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。
 
-    （4） 对象和非对象之间的相等比较，对象先调用 ToPromitive 抽象操作后，再进行比较。
+    （4）对象和非对象之间的相等比较，对象先调用 ToPromitive 抽象操作后，再进行比较。
+    
+    （5）如果一个操作值为 NaN ，则相等比较返回 false（ NaN 本身也不等于 NaN ）。
+
+    （6）如果两个操作值都是对象，则比较它们是不是指向同一个对象。如果两个操作数都指向同一个对象，则相等操作
+        符返回 true，否则，返回 false。
     ```
+   详细资料可以参考：
+   [JavaScript字符串间的比较](https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/)
 
-25. 如何将字符串转化为数字，例如 '12.3b'?
+26. 如何将字符串转化为数字，例如 '12.3b'?
     ```
     （1） 使用 Number() 方法，前提是所包含的字符串不包含不合法字符。
 
@@ -329,16 +343,16 @@
     [详解JS中Number()、parseInt()和parseFloat()的区别](https://blog.csdn.net/m0_38099607/article/details/72638678)
 
 
-26. 如何将浮点数点左边的数每三位添加一个逗号，如12000000.11转化为『12,000,000.11』?
+27. 如何将浮点数点左边的数每三位添加一个逗号，如12000000.11转化为『12,000,000.11』?
     ```
     function format(number){
          return number && number.replace(/(?!^)(?=(\d{3})+\.)/g,",")
     }
     ```
-27. 生成随机数的各种方法？
+28. 生成随机数的各种方法？
     [JS - 生成随机数的方法汇总（不同范围、类型的随机数）](http://www.hangge.com/blog/cache/detail_1872.html)
 
-28. 如何实现数组的随机排序？
+29. 如何实现数组的随机排序？
     ```
     （1）使用数组 sort 方法对数组元素随机排序，让 Math.random() 出来的数与 0.5 比较，如果大于就返回 1 
         不交换位置，如果小于就返回 -1，交换位置。
@@ -389,19 +403,19 @@
     [javascript实现数组随机排序?](https://www.zhihu.com/question/32303195)
     [JavaScript学习笔记：数组随机排序](https://www.w3cplus.com/javascript/how-to-randomize-shuffle-a-javascript-array.html)
 
-29. javascript 创建对象的几种方式？
+30. javascript 创建对象的几种方式？
     [JavaScript深入理解之对象创建](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA.html)
 
-30. JavaScript 继承的几种实现方式？
+31. JavaScript 继承的几种实现方式？
     [JavaScript深入理解之继承](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E7%BB%A7%E6%89%BF.html)
 
-31. Javascript 的作用域链?
+32. Javascript 的作用域链?
     [JavaScript深入理解之作用域链](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE.html)
 
-32. 谈谈 This 对象的理解。
+33. 谈谈 This 对象的理解。
     [JavaScript深入理解之this详解](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8Bthis%E8%AF%A6%E8%A7%A3.html)
 
-33. eval 是做什么的？
+34. eval 是做什么的？
     ```
     它的功能是把对应的字符串解析成 JS 代码并运行。
 
@@ -410,7 +424,7 @@
     详细资料可以参考：
     [eval()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval)
 
-34. 什么是 window 对象? 什么是 document 对象?
+35. 什么是 window 对象? 什么是 document 对象?
     ```
     Window 对象表示浏览器中打开的窗口。如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档
     创建一个 window 对象，并为每个框架创建一个额外的 window 对象。
@@ -422,12 +436,12 @@
     [DOM, DOCUMENT, BOM, WINDOW 有什么区别?](https://www.zhihu.com/question/33453164)
     [Window 对象](http://www.w3school.com.cn/jsref/dom_obj_window.asp)
 
-35. null，undefined 的区别？
+36. null，undefined 的区别？
     [JavaScript深入理解之undefined与null](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8Bundefined%E4%B8%8Enull.html)
 
 
 
-36. 写一个通用的事件侦听器函数。
+37. 写一个通用的事件侦听器函数。
     ```
     const EventUtils = {
      		// 页面加载完成后
@@ -509,7 +523,7 @@
     详细资料可以参考：
     [JS事件模型](https://segmentfault.com/a/1190000006934031#articleHeader6)
   
-37. 事件是什么？IE 与火狐的事件机制有什么区别？ 如何阻止冒泡？
+38. 事件是什么？IE 与火狐的事件机制有什么区别？ 如何阻止冒泡？
 
     ```
     （1）事件是用户操作网页时发生的交互动作，比如 click/move, 事件除了用户触发的动作外，还可以是文档加载，
@@ -524,12 +538,12 @@
     [Javascript事件模型系列（一）事件及事件的三种模型](https://www.cnblogs.com/lvdabao/p/3265870.html)
     [Javascript事件模型：事件捕获和事件冒泡](https://blog.csdn.net/wuseyukui/article/details/13771493)
 
-38. 我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡。会执行几次事件，会先执行冒泡还是捕获？
+39. 我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡。会执行几次事件，会先执行冒泡还是捕获？
     详细资料可以参考：
     [一个DOM元素绑定多个事件时，先执行冒泡还是捕获](https://blog.csdn.net/u013217071/article/details/77613706)
 
 
-39. ["1", "2", "3"].map(parseInt) 答案是多少？
+40. ["1", "2", "3"].map(parseInt) 答案是多少？
     ```
     parseInt() 函数能解析一个字符串，并返回一个整数，需要两个参数 (val, radix)，其中 radix 表示要解析
     的数字的基数。（该值介于 2 ~ 36 之间，并且字符串中的数字不能大于 radix 才能正确返回数字结果值）。
@@ -545,7 +559,7 @@
     详细资料可以参考：
     [为什么 ["1", "2", "3"].map(parseInt) 返回 [1,NaN,NaN]？](https://blog.csdn.net/justjavac/article/details/19473199)
 
-40. 什么是 闭包（closure），为什么要用它？
+41. 什么是 闭包（closure），为什么要用它？
     ```
     闭包是指有权访问另一个函数作用域中变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，
     通过另一个函数访问这个函数的局部变量,利用闭包可以突破作用链域，将函数内部的变量和方法传递到外部。
@@ -555,7 +569,7 @@
     [JavaScript深入理解之闭包](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E9%97%AD%E5%8C%85.html)
 
 
-41. javascript 代码中的 "use strict"; 是什么意思 ? 使用它区别是什么？
+42. javascript 代码中的 "use strict"; 是什么意思 ? 使用它区别是什么？
     ```
     use strict是一种 ECMAscript 5 添加的（严格）运行模式，这种模式使得 Javascript 在更严格的条件下运行。
     
@@ -582,7 +596,7 @@
     [Javascript 严格模式详解](http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html)
 
 
-42. 如何判断一个对象是否属于某个类？
+43. 如何判断一个对象是否属于某个类？
     ```
     instanceof 运算符用于测试构造函数的 prototype 属性是否出现在对象的原型链中的任何位置。
     ```
@@ -590,7 +604,7 @@
     [instanceof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
     [js 判断一个对象是否属于某一类](https://blog.csdn.net/haitunmin/article/details/78418522)
 
-43. new 操作符具体干了什么呢?
+44. new 操作符具体干了什么呢?
     ```
     （1）首先创建了一个空对象
     （2）设置原型，将对象的原型设置为函数的 prototype 对象。
@@ -601,7 +615,7 @@
     [new 操作符具体干了什么？](https://segmentfault.com/a/1190000008576048)
 
 
-44. Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
+45. Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
     ```
     hasOwnProperty
 
@@ -611,18 +625,20 @@
     详细资料可以参考：
     [Object.prototype.hasOwnProperty()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
 
-45. 对于 JSON 的了解？
+46. 对于 JSON 的了解？
     ```
     JSON 是一种数据交换格式，基于文本，优于轻量，用于交换数据。
 
     JSON 可以表示数字、布尔值、字符串、null、数组（值的有序序列），以及由这些值（或数组、对象）所组成的
     对象（字符串与值的映射）。
+
+    JSON 使用 JavaScript 语法，但是 JSON 格式仅仅是一个文本。文本可以被任何编程语言读取及作为数据格式传递。
     ```
     详细资料可以参考：
     [深入了解JavaScript中的JSON ](https://my.oschina.net/u/3284240/blog/874368)
 
 
-46. [].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)}) 能解释一下这段代码的意思吗？
+47. [].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)}) 能解释一下这段代码的意思吗？
     ```
     （1）选取页面所有 DOM 元素。
 
@@ -635,7 +651,7 @@
     详细资料可以参考：
     [通过一行代码学JavaScript](https://2008winstar.iteye.com/blog/2128290)
   
-47. js 延迟加载的方式有哪些？
+48. js 延迟加载的方式有哪些？
     ```
     JS 延迟加载，也就是等页面加载完成之后再加载 JavaScript 文件。 JS 延迟加载有助于提高页面加载速度。
 
@@ -652,7 +668,7 @@
     [HTML 5 <script> async 属性](http://www.w3school.com.cn/html5/att_script_async.asp)
 
 
-48. Ajax 是什么? 如何创建一个Ajax？
+49. Ajax 是什么? 如何创建一个Ajax？
     ```
     2005年2月，AJAX 这个词第一次正式提出，它是 Asynchronous JavaScript and XML 的缩写，指的是通过
     JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页。
@@ -668,9 +684,8 @@
     ```
     详细资料可以参考：
     [XMLHttpRequest 对象](https://wangdoc.com/javascript/bom/xmlhttprequest.html)
-    [Ajax 是什么? 如何创建一个Ajax？](https://blog.csdn.net/lxcao/article/details/52745743)
 
-49. Ajax 解决浏览器缓存问题？
+50. Ajax 解决浏览器缓存问题？
     ```
     1、在 ajax 发送请求前加上 anyAjaxObj.setRequestHeader("If-Modified-Since","0")。 
 
@@ -678,17 +693,18 @@
 
     3、在 URL 后面加上一个随机数： "fresh=" + Math.random();。 
 
-    4、在 URL 后面加上时间搓："nowtime=" + new Date().getTime();。 
+    4、在 URL 后面加上时间戳："nowtime=" + new Date().getTime();。 
 
     5、如果是使用 jQuery，直接这样就可以了$.ajaxSetup({cache:false})。这样页面的所有 ajax 都会执行这
        条语句就是不需要保存缓存记录。
     ```
     详细资料可以参考：
     [Ajax中浏览器的缓存问题解决方法](https://www.cnblogs.com/cwzqianduan/p/8632009.html)
+    [浅谈浏览器缓存](https://segmentfault.com/a/1190000012573337)
 
-50. 同步和异步的区别？
+51. 同步和异步的区别？
     ```
-    同步，可以理解为在执行完一个函数或方法之后，一直等待系统返回值或消息，这时程序是出于阻塞的，只有接收到返
+    同步，可以理解为在执行完一个函数或方法之后，一直等待系统返回值或消息，这时程序是处于阻塞的，只有接收到返
     回的值或消息后才往下执行其他的命令。  
 
     异步，执行完函数或方法后，不必阻塞性地等待返回值或消息，只需要向系统委托一个异步过程，那么当系统接收到返
@@ -697,7 +713,7 @@
     详细资料可以参考：
     [同步和异步的区别](https://blog.csdn.net/tennysonsky/article/details/45111623)
 
-51. 如何解决跨域问题？
+52. 如何解决跨域问题？
     ```
     （1） 通过 jsonp 跨域
     （2） document.domain + iframe 跨域
@@ -712,13 +728,16 @@
     详细资料可以参考：
     [前端常见跨域解决方案（全）](https://segmentfault.com/a/1190000011145364)
     [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
+    [跨域，你需要知道的全在这里](https://juejin.im/entry/59feae9df265da43094488f6)
 
 
-52. 服务器代理转发时，该如何处理 cookie？
+53. 服务器代理转发时，该如何处理 cookie？
     详细资料可以参考：
     [深入浅出Nginx](https://www.jianshu.com/p/5eab0f83e3b4)
+    [HTTP cookies](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies)
+    [聊一聊 cookie](https://segmentfault.com/a/1190000004556040)
 
-53. 模块化开发怎么做？
+54. 模块化开发怎么做？
     ```
     把函数作为模块 缺陷: 污染全局变量 模块成员之间没什么关系 面向对象思想 并使用立即执行函数 实现闭包 避免
     了变量污染 同时同一模块内的成员也有了关系 在模块外部无法修改我们没有暴露出来的变量、函数 这就是简单的模
@@ -727,8 +746,10 @@
     详细资料可以参考：
     [浅谈模块化开发](https://juejin.im/post/5ab378c46fb9a028ce7b824f)
     [Javascript模块化编程（一）：模块的写法](http://www.ruanyifeng.com/blog/2012/10/javascript_module.html)
+    [前端模块化：CommonJS,AMD,CMD,ES6](https://juejin.im/post/5aaa37c8f265da23945f365c)
+    [Module 的语法](http://es6.ruanyifeng.com/#docs/module)
 
-54. AMD 和 CMD 规范的区别？
+55. AMD 和 CMD 规范的区别？
     ```
     Asynchronous Module Definition，异步模块定义，所有的模块将被异步加载，模块加载不影响后面语句运行。
     所有依赖某些模块的语句均放置在回调函数中。
@@ -760,20 +781,24 @@
     详细资料可以参考：
     [前端模块化，AMD与CMD的区别](https://juejin.im/post/5a422b036fb9a045211ef789)
 
-55. requireJS 的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何 缓存的？）
+56. requireJS 的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何 缓存的？）
     详细资料可以参考：
     [requirejs的用法和原理分析](https://github.com/HRFE/blog/issues/10)
-    [requireJS 的核心原理是什么？](https://blog.csdn.net/mzrxLXR/article/details/81703099)
+    [requireJS 的核心原理是什么？](https://zhuanlan.zhihu.com/p/55039478)
+    [从 RequireJs 源码剖析脚本加载原理](https://www.cnblogs.com/dong-xu/p/7160919.html)
+    [requireJs原理分析](https://www.jianshu.com/p/5a39535909e4)
 
-56. JS 模块加载器的轮子怎么造，也就是如何实现一个模块加载器？
+
+57. JS 模块加载器的轮子怎么造，也就是如何实现一个模块加载器？
     详细资料可以参考：
     [JS模块加载器加载原理是怎么样的？](https://www.zhihu.com/question/21157540)
 
-57. ECMAScript6 怎么写 class，为什么会出现 class 这种东西?
+58. ECMAScript6 怎么写 class，为什么会出现 class 这种东西?
     详细资料可以参考：
     [ECMAScript 6实现了class，对JavaScript前端开发有什么意义？](https://www.zhihu.com/question/29789315)
+    [Class 的基本语法](http://es6.ruanyifeng.com/#docs/class)
 
-58. documen.write和 innerHTML 的区别？
+59. documen.write和 innerHTML 的区别？
     ```
      document.write 只能重绘整个页面
 
@@ -782,7 +807,7 @@
     详细资料可以参考：
     [简述document.write和 innerHTML的区别。](https://www.nowcoder.com/questionTerminal/2c5d8105b2694d85b06eff85e871cf50)
 
-59. DOM 操作——怎样添加、移除、移动、复制、创建和查找节点？
+60. DOM 操作——怎样添加、移除、移动、复制、创建和查找节点？
     ```
     （1）创建新节点
     createDocumentFragment()    //创建一个DOM片段
@@ -803,7 +828,7 @@
     [原生 JavaScript 的 DOM 操作汇总](https://harttle.land/2015/10/01/javascript-dom-api.html)
     [原生JS中DOM节点相关API合集](https://microzz.com/2017/04/06/jsdom/)
 
-60. .call() 和 .apply() 的区别？
+61. .call() 和 .apply() 的区别？
     ```
     它们的作用一模一样，区别仅在于传入参数的形式的不同。
 
@@ -816,19 +841,19 @@
     详细资料可以参考：
     [apply、call 的区别和用途](https://juejin.im/entry/58d0a7b22f301e007e5a15ae)
 
-61. 数组和对象有哪些原生方法，列举一下？
+62. 数组和对象有哪些原生方法，列举一下？
     详细资料可以参考：
     [JavaScript深入理解之Array类型详解](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8BArray%E8%AF%A6%E8%A7%A3.html)
 
-62. JavaScript 中的作用域与变量声明提升？
+63. JavaScript 中的作用域与变量声明提升？
     详细资料可以参考：
     [JavaScript深入理解之变量对象](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E5%8F%98%E9%87%8F%E5%AF%B9%E8%B1%A1.html)
 
-63. 如何编写高性能的 Javascript ？
+64. 如何编写高性能的 Javascript ？
     详细资料可以参考：
     [如何编写高性能的Javascript？](https://zhuanlan.zhihu.com/p/34780474)
 
-64. 那些操作会造成内存泄漏？
+65. 那些操作会造成内存泄漏？
     ```
     （1）意外的全局变量
     （2）被遗忘的计时器或回调函数
@@ -839,33 +864,38 @@
     [JavaScript 内存泄漏教程](http://www.ruanyifeng.com/blog/2017/04/memory-leak.html)
     [4类 JavaScript 内存泄漏及如何避免](https://jinlong.github.io/2016/05/01/4-Types-of-Memory-Leaks-in-JavaScript-and-How-to-Get-Rid-Of-Them/)
     [杜绝js中四种内存泄漏类型的发生](https://juejin.im/entry/5a64366c6fb9a01c9332c706)
+    [深入理解V8的垃圾回收原理](https://www.jianshu.com/p/b8ed21e8a4fb)
+    [javascript典型内存泄漏及chrome的排查方法](https://segmentfault.com/a/1190000008901861)
+    [JavaScript 中的垃圾回收](https://zhuanlan.zhihu.com/p/23992332)
 
 
-65. 需求：实现一个页面操作不会整页刷新的网站，并且能在浏览器前进、后退时正确响应。给出你的技术实现方案？
+66. 需求：实现一个页面操作不会整页刷新的网站，并且能在浏览器前进、后退时正确响应。给出你的技术实现方案？
     ```
     pushState + ajax 实现浏览器无刷新前进后退
     ```
     详细资料可以参考：
     [pushState + ajax 实现浏览器无刷新前进后退](http://blog.chenxu.me/post/detail?id=ed4f0732-897f-48e4-9d4f-821e82f17fad)
+    [Manipulating the browser history](https://developer.mozilla.org/zh-CN/docs/Web/API/History_API)
 
-66. 如何判断当前脚本运行在浏览器还是node环境中？（阿里）
+67. 如何判断当前脚本运行在浏览器还是node环境中？（阿里）
     ```
     this === window ? 'browser' : 'node';
 
     通过判断 Global 对象是否为 window，如果不为 window，当前脚本没有运行在浏览器中
     ``` 
 
-67. 把 Script 标签 放在页面的最底部的body封闭之前 和封闭之后有什么区别？浏览器会如何解析它们？
+68. 把 Script 标签 放在页面的最底部的body封闭之前 和封闭之后有什么区别？浏览器会如何解析它们？
     详细资料可以参考：
     [为什么把 Script 标签放在 body 结束标签之后 html 结束标签之前？](https://www.zhihu.com/question/20027966)
+    [从Chrome源码看浏览器如何加载资源](https://zhuanlan.zhihu.com/p/30558018)
 
 
-68. 移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？（click 有 300ms 延迟,为了实现
+69. 移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？（click 有 300ms 延迟,为了实现
     safari 的双击事件的设计，浏览器要知道你是不是要双击操作。）
     详细资料可以参考：
     [移动端300ms点击延迟和点击穿透](https://juejin.im/post/5b3cc9836fb9a04f9a5cb0e0)
 
-69. 什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点？
+70. 什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点？
     ```
     （1）什么是前端路由？
 
@@ -883,35 +913,34 @@
         用户体验好，不需要每次都从服务器全部获取，快速展现给用户
 
         缺点
-        使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存
         单页面无法记住之前滚动的位置，无法在前进，后退的时候记住滚动的位置
     ```
     详细资料可以参考：
     [什么是“前端路由”](https://segmentfault.com/q/1010000005336260)
-    [面试官: 你了解前端路由吗?](https://juejin.im/post/5ac61da66fb9a028c71eae1b)
+    [浅谈前端路由 ](https://github.com/kaola-fed/blog/issues/137)
     [前端路由是什么东西？](https://www.zhihu.com/question/53064386)
 
-70. 如何测试前端代码么？ 知道BDD, TDD, Unit Test么? 知道怎么测试你的前端工程么(mocha, sinon, 
+71. 如何测试前端代码么？ 知道BDD, TDD, Unit Test么? 知道怎么测试你的前端工程么(mocha, sinon, 
     jasmin, qUnit..)？
     详细资料可以参考：
     [浅谈前端单元测试](https://juejin.im/post/5b2da89cf265da597f1c7cab)
 
-71. 检测浏览器版本版本有哪些方式？
+72. 检测浏览器版本版本有哪些方式？
     ```
     功能检测、userAgent特征检测
     ```
     详细资料可以参考：
     [JavaScript判断浏览器类型](https://www.jianshu.com/p/d99f4ca385ac)
 
-72. 什么是 Polyfill ？
+73. 什么是 Polyfill ？
     ```
-    Polyfill的准确意思为：用于实现浏览器并不支持的原生API的代码。
+    Polyfill的准确意思为：用于实现浏览器并不支持的原生 API 的代码。
     ```
     详细资料可以参考：
     [Web开发中的“黑话”](https://segmentfault.com/a/1190000002593432)
     [polyfill为何物](https://juejin.im/post/5a579bc7f265da3e38496ba1)
 
-73. 使用 JS 实现获取文件扩展名？
+74. 使用 JS 实现获取文件扩展名？
     ```
       function getFileExtension(filename) {
         return filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2);
@@ -922,7 +951,9 @@
       对于'filename'和'.hiddenfile'，lastIndexOf 的返回值分别为0和-1无符号右移操作符(»>) 将-1转换为4294967295，将-2转换为4294967294，这个方法可以保证边缘情况时文件名不变。
       String.prototype.slice() 从上面计算的索引处提取文件的扩展名。如果索引比文件名的长度大，结果为""。
     ```
-74. 介绍一下 js 的节流与防抖？
+    详细资料可以参考：
+    [如何更有效的获取文件扩展名](https://segmentfault.com/a/1190000004993946)
+75. 介绍一下 js 的节流与防抖？
     ```
     函数防抖： 在事件被触发 n 秒后再执行回调，如果在这 n 秒内又被触发，则重新计时。
 
@@ -935,7 +966,7 @@
     [JS的防抖与节流](https://juejin.im/entry/5b1d2d54f265da6e2545bfa4)
     
 
-75. Object.is() 与原来的比较操作符“ ===”、“ ==”的区别？
+76. Object.is() 与原来的比较操作符“ ===”、“ ==”的区别？
     ```
     两等号判等，会在比较时进行类型转换；
     三等号判等(判断严格)，比较时不进行隐式类型转换,（类型不同则会返回false）；
@@ -944,4 +975,29 @@
     但 Object.is(NaN, NaN) 会返回 true.
 
     Object.is 应被认为有其特殊的用途，而不能用它认为它比其它的相等对比更宽松或严格。
-    ``` 
+    ```
+
+77. escape,encodeURI,encodeURIComponent 有什么区别? 
+    ```
+    escape 和 encodeURI 都属于 Percent-encoding，基本功能都是把 URI 非法字符转化成合法字符，
+    转化后形式类似「%*」。它们的根本区别在于，escape 在处理 0xff 之外字符的时候，是直接使用字符的
+    unicode 在前面加上一个 「%u」，而 encodeURI 则是先进行 UTF-8，再在 UTF-8 的每个字节码前加上
+    一个 「%」；在处理 0xff 以内字符时，编码方式是一样的（都是「%XX」，XX 为字符的 16 进制 unicode，
+    同时也是字符的 UTF-8），只是范围（即哪些字符编码哪些字符不编码）不一样。
+    ```
+    详细资料可以参考：
+    [escape,encodeURI,encodeURIComponent有什么区别?](https://www.zhihu.com/question/21861899)
+    [字符编码笔记：ASCII，Unicode 和 UTF-8](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
+
+
+78. js 的事件循环是什么？
+    ```
+    事件队列是一个存储着待执行任务的队列，其中的任务严格按照时间先后顺序执行，排在队头的任务将会率先执行，而排
+    在队尾的任务会最后执行。事件队列每次仅执行一个任务，在该任务执行完毕之后，再执行下一个任务。执行栈则是一个
+    类似于函数调用栈的运行容器，当执行栈为空时，JS 引擎便检查事件队列，如果不为空的话，事件队列便将第一个任务
+    压入执行栈中运行。
+    ```
+    详细资料可以参考：
+    [深入理解 JavaScript 事件循环（一）— event loop](http://www.cnblogs.com/dong-xu/p/7000163.html)
+    [详解JavaScript中的Event Loop（事件循环）机制](https://zhuanlan.zhihu.com/p/33058983)
+    [什么是 Event Loop？](http://www.ruanyifeng.com/blog/2013/10/event_loop.html)
