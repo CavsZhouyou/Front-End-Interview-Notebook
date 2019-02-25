@@ -44,7 +44,7 @@
 
 ## JavaScript :koala:
 
-> [JavaScript 基础](https://github.com/CavsZhouyou/Interview-Notebook/tree/master/JavaScript/JavaScript.md)) 
+> [JavaScript 基础](https://github.com/CavsZhouyou/Interview-Notebook/tree/master/JavaScript/JavaScript.md) 
 
 ## 工具 :hammer:
 

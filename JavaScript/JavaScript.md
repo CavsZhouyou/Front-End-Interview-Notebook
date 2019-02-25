@@ -604,15 +604,26 @@
     [instanceof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
     [js 判断一个对象是否属于某一类](https://blog.csdn.net/haitunmin/article/details/78418522)
 
-44. new 操作符具体干了什么呢?
+44. new 操作符具体干了什么呢？如何实现？
     ```
     （1）首先创建了一个空对象
     （2）设置原型，将对象的原型设置为函数的 prototype 对象。
     （3）让函数的 this 指向这个对象，执行构造函数的代码（为这个新对象添加属性）
     （4）判断函数的返回值类型，如果是值类型，返回创建的对象。如果是引用类型，就返回这个引用类型的对象。
+    
+    实现:
+
+    function create() {
+      let obj = {}
+      let Con = [].shift.call(arguments)
+      obj.__proto__ = Con.prototype
+      let result = Con.apply(obj, arguments)
+      return result instanceof Object ? result : obj
+    }
     ```
     详细资料可以参考：
     [new 操作符具体干了什么？](https://segmentfault.com/a/1190000008576048)
+    [JavaScript深入之new的模拟实现](https://github.com/mqyqingfeng/Blog/issues/13)
 
 
 45. Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
@@ -729,6 +740,7 @@
     [前端常见跨域解决方案（全）](https://segmentfault.com/a/1190000011145364)
     [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
     [跨域，你需要知道的全在这里](https://juejin.im/entry/59feae9df265da43094488f6)
+    [为什么form表单提交没有跨域问题，但ajax提交有跨域问题？](https://www.zhihu.com/question/31592553)
 
 
 53. 服务器代理转发时，该如何处理 cookie？
@@ -953,6 +965,7 @@
     ```
     详细资料可以参考：
     [如何更有效的获取文件扩展名](https://segmentfault.com/a/1190000004993946)
+
 75. 介绍一下 js 的节流与防抖？
     ```
     函数防抖： 在事件被触发 n 秒后再执行回调，如果在这 n 秒内又被触发，则重新计时。
@@ -998,6 +1011,309 @@
     压入执行栈中运行。
     ```
     详细资料可以参考：
-    [深入理解 JavaScript 事件循环（一）— event loop](http://www.cnblogs.com/dong-xu/p/7000163.html)
+    [浏览器事件循环机制（event loop）](https://juejin.im/post/5afbc62151882542af04112d)
     [详解JavaScript中的Event Loop（事件循环）机制](https://zhuanlan.zhihu.com/p/33058983)
     [什么是 Event Loop？](http://www.ruanyifeng.com/blog/2013/10/event_loop.html)
+
+
+79. js 中的深浅拷贝实现？
+    ```
+    浅拷贝的实现
+
+    var shallowCopy = function(obj) {
+    // 只拷贝对象
+    if (typeof obj !== 'object') return;
+    // 根据obj的类型判断是新建一个数组还是对象
+    var newObj = obj instanceof Array ? [] : {};
+    // 遍历obj，并且判断是obj的属性才拷贝
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            newObj[key] = obj[key];
+        }
+    }
+    return newObj;
+    }
+
+    深拷贝的实现
+
+    var deepCopy = function(obj) {
+    if (typeof obj !== 'object') return;
+    var newObj = obj instanceof Array ? [] : {};
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            newObj[key] = typeof obj[key] === 'object' ? deepCopy(obj[key]) : obj[key];
+        }
+    }
+    return newObj;
+    }
+
+    ```
+    详细资料可以参考：
+    [JavaScript专题之深浅拷贝](https://github.com/mqyqingfeng/Blog/issues/32)
+    [前端面试之道](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bed40d951882545f73004f6)
+
+80. 手写 call、apply 及 bind 函数
+    ```
+    call 函数实现
+
+    Function.prototype.myCall = function(context) {
+      if (typeof this !== 'function') {
+        throw new TypeError('Error')
+      }
+      context = context || window
+      context.fn = this
+      const args = [...arguments].slice(1)
+      const result = context.fn(...args)
+      delete context.fn
+      return result
+    }
+
+    apply 函数实现
+
+    Function.prototype.myApply = function(context) {
+      if (typeof this !== 'function') {
+        throw new TypeError('Error')
+      }
+      context = context || window
+      context.fn = this
+      let result
+      // 处理参数和 call 有区别
+      if (arguments[1]) {
+        result = context.fn(...arguments[1])
+      } else {
+        result = context.fn()
+      }
+      delete context.fn
+      return result
+    }
+
+    bind 函数实现
+
+    Function.prototype.myBind = function (context) {
+      if (typeof this !== 'function') {
+        throw new TypeError('Error')
+      }
+      const _this = this
+      const args = [...arguments].slice(1)
+      // 返回一个函数
+      return function F() {
+        // 因为返回了一个函数，我们可以 new F()，所以需要判断
+        if (this instanceof F) {
+          return new _this(...args, ...arguments)
+        }
+        return _this.apply(context, args.concat(...arguments))
+      }
+    }
+    ```
+    详细资料可以参考：
+    [手写 call、apply 及 bind 函数](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdd0d8e6fb9a04a044073fe)
+    [JavaScript深入之call和apply的模拟实现](https://github.com/mqyqingfeng/Blog/issues/11)
+
+
+81. 为什么 0.1 + 0.2 != 0.3？如何解决这个问题？
+    详细资料可以参考：
+    [0.1 + 0.2不等于0.3？](https://juejin.im/post/5b90e00e6fb9a05cf9080dff)
+    [JavaScript 中的数字](http://web.jobbole.com/74199/)
+
+
+82. 浏览器的渲染原理？
+    详细资料可以参考：
+    [浏览器渲染原理](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc7207f265da613c09425d)
+    [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)
+    [前端必读：浏览器内部工作原理](https://kb.cnblogs.com/page/129756/)
+    [深入浅出浏览器渲染原理](https://blog.fundebug.com/2019/01/03/understand-browser-rendering/)
+
+
+83. 前端安全防范
+    详细资料可以参考：
+    [前端安全系列（一）：如何防止XSS攻击？](https://juejin.im/post/5bad9140e51d450e935c6d64)
+    [内容安全策略   (CSP) ](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP)
+    [前端安全系列之二：如何防止CSRF攻击？](https://juejin.im/post/5bc009996fb9a05d0a055192)
+    [web安全之--点击劫持攻击与防御技术简介](https://juejin.im/post/5bc009996fb9a05d0a055192)
+    [[HTTP趣谈]origin,referer和host区别](https://www.jianshu.com/p/1f9c71850299)
+
+84. 什么是 MVVM？比之 MVC 有什么区别？
+    详细资料可以参考：
+    [浅析前端开发中的 MVC/MVP/MVVM 模式](https://juejin.im/post/593021272f301e0058273468)
+    [MVC，MVP 和 MVVM 的图示](http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html)
+    [MVVM](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc72e6e51d45054f664dbf)
+    [一篇文章了解架构模式：MVC/MVP/MVVM](https://segmentfault.com/a/1190000015310674)
+
+85. 什么是 Virtual DOM？为什么 Virtual DOM 比原生 DOM 快？
+    详细资料可以参考：
+    [Virtual DOM](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc72e6e51d45054f664dbf)
+    [理解 Virtual DOM](https://github.com/y8n/blog/issues/5)
+    [深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)
+    [网上都说操作真实 DOM 慢，但测试结果却比 React 更快，为什么？](https://www.zhihu.com/question/31809713/answer/53544875)
+
+86. 双向数据绑定原理？
+    详细资料可以参考：
+    [Vue.js双向绑定的实现原理](http://www.cnblogs.com/kidney/p/6052935.html?utm_source=gold_browser_extension)
+
+87. 什么是 requestAnimationFrame ？
+    详细资料可以参考：
+    [你需要知道的requestAnimationFrame](https://juejin.im/post/5a82f0626fb9a06358657c9c)
+    [CSS3动画那么强，requestAnimationFrame还有毛线用？](https://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/)
+
+
+88. 谈谈你对 webpack 的看法
+    ```
+    WebPack 是一个模块打包工具，你可以使用 WebPack 管理你的模块依赖，并编绎输出模块们所需的静态文件。它能
+    够很好地管理、打包 Web 开发中所用到的 HTML、Javascript、CSS 以及各种静态文件（图片、字体等），让开发
+    过程更加高效。对于不同类型的资源，webpack 有对应的模块加载器。webpack 模块打包器会分析模块间的依赖关系，
+    最后 生成了优化且合并后的静态资源
+    ```
+
+89. offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别？
+    ```
+    offsetWidth/offsetHeight 返回值包含 content + padding + border 包含了滚动条
+
+    clientWidth/clientHeight 返回值只包含 content + padding，如果有滚动条，也不包含滚动条
+
+    scrollWidth/scrollHeight 返回值包含 content + padding + 溢出内容的尺寸
+    ```
+    详细资料可以参考：
+    [offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别](https://www.bgpy.net/biancheng/js_49841.html)
+
+90. 谈一谈你理解的函数式编程？
+    ```
+    简单说，"函数式编程"是一种"编程范式"（programming paradigm），也就是如何编写程序的方法论
+
+    它具有以下特性：闭包和高阶函数、惰性计算、递归、函数是"第一等公民"、只用"表达式"
+    ```
+    详细资料可以参考：
+    [函数式编程初探](http://www.ruanyifeng.com/blog/2012/04/functional_programming.html)
+
+91. 异步编程的实现方式？
+    ```
+    回调函数
+    优点：简单、容易理解
+    缺点：不利于维护，代码耦合高
+
+    事件监听(采用时间驱动模式，取决于某个事件是否发生)：
+    优点：容易理解，可以绑定多个事件，每个事件可以指定多个回调函数
+    缺点：事件驱动型，流程不够清晰
+
+    发布/订阅(观察者模式)
+    类似于事件监听，但是可以通过‘消息中心’，了解现在有多少发布者，多少订阅者
+
+    Promise对象
+    优点：可以利用then方法，进行链式写法；可以书写错误时的回调函数；
+    缺点：编写和理解，相对比较难
+
+    Generator函数
+    优点：函数体内外的数据交换、错误处理机制
+    缺点：流程管理不方便
+
+    async函数
+    优点：内置执行器、更好的语义、更广的适用性、返回的是Promise、结构清晰。
+    缺点：错误处理机制
+
+    ```
+
+92. Js 动画与 CSS 动画区别及相应实现
+    ```
+    CSS3 的动画的优点
+
+    在性能上会稍微好一些，浏览器会对 CSS3 的动画做一些优化
+    代码相对简单
+
+    缺点
+
+    在动画控制上不够灵活
+    兼容性不好
+
+    JavaScript 的动画正好弥补了这两个缺点，控制能力很强，可以单帧的控制、变换，同时写得好完全可以兼
+    容 IE6，并且功能强大。对于一些复杂控制的动画，使用 javascript 会比较靠谱。而在实现一些小的交互
+    动效的时候，就多考虑考虑 CSS 吧
+    ```
+
+93. get 请求传参长度的误区
+    ```
+    误区：我们经常说 get 请求参数的大小存在限制，而 post 请求的参数大小是无限制的。
+
+    实际上 HTTP 协议从未规定 GET/POST 的请求长度限制是多少。对 get 请求参数的限制是来源与浏览器或 web
+    服务器，浏览器或 web 服务器限制了 url 的长度。为了明确这个概念，我们必须再次强调下面几点:
+
+    （1）HTTP 协议 未规定 GET 和 POST 的长度限制
+    （2）GET 的最大长度显示是因为 浏览器和 web 服务器限制了 URI 的长度
+    （3）不同的浏览器和 WEB 服务器，限制的最大长度不一样
+    （4）要支持 IE，则最大长度为 2083byte，若只支持 Chrome，则最大长度 8182byte
+    ```
+
+94. URL 和 URI 的区别？
+    ```
+    URI：Uniform Resource Identifier，统一资源标识符
+    URL：Uniform Resource Location统一资源定位符
+
+    URL是一种 URI，它标识一个互联网资源，并指定对其进行操作或获取该资源的方法。可能通过对主要访问手段的描述，
+    也可能通过网络“位置”进行标识。
+    ```
+    详细资料可以参考：
+    [HTTP 协议中 URI 和 URL 有什么区别？](https://www.zhihu.com/question/21950864)
+
+95. get 和 post 请求在缓存方面的区别
+    ```
+    get 请求类似于查找的过程，用户获取数据，可以不用每次都与数据库连接，所以可以使用缓存。
+
+    post 不同，post 做的一般是修改和删除的工作，所以必须与数据库交互，所以不能使用缓存。因此 get 请求适合
+    于请求缓存。
+    ```
+
+96. 图片的懒加载和预加载
+    ```
+    预加载：提前加载图片，当用户需要查看时可直接从本地缓存中渲染。
+
+    懒加载：懒加载的主要目的是作为服务器前端的优化，减少请求数或延迟请求数。
+
+    两种技术的本质：两者的行为是相反的，一个是提前加载，一个是迟缓甚至不加载。 懒加载对服务器前端有一定的
+    缓解压力作用，预加载则会增加服务器前端压力。
+    ```
+
+97. mouseover 和 mouseenter 的区别？
+    ```
+    当鼠标移动到元素上时就会触发 mouseenter 事件，类似 mouseover，它们两者之间的差别是 mouseenter 
+    不会冒泡。
+
+    由于 mouseenter 不支持事件冒泡，导致在一个元素的子元素上进入或离开的时候会触发其 mouseover 和
+    mouseout 事件，但是却不会触发 mouseenter 和 mouseleave 事件。
+    ```
+    详细资料可以参考：
+    [mouseenter与mouseover为何这般纠缠不清？](https://github.com/qianlongo/zepto-analysis/issues/1)
+
+
+98. js 拖拽功能的实现
+    ```
+    首先是三个事件，分别是 mousedown，mousemove，mouseup
+    当鼠标点击按下的时候，需要一个 tag 标识此时已经按下，可以执行 mousemove 里面的具体方法。
+    clientX，clientY 标识的是鼠标的坐标，分别标识横坐标和纵坐标，并且我们用 offsetX 和 offsetY 来表示
+    元素的元素的初始坐标，移动的举例应该是：
+    鼠标移动时候的坐标-鼠标按下去时候的坐标。
+    也就是说定位信息为：
+    鼠标移动时候的坐标-鼠标按下去时候的坐标+元素初始情况下的offetLeft.
+    ```
+    详细资料可以参考：
+    [js拖拽功能的实现](https://juejin.im/post/5b44a485e51d4519945fb6b7)
+
+99. 用 setTimeout 实现 setInterval
+    ```
+    思路是使用递归函数，不断地去执行 setTimeout 从而达到 setInterval 的效果
+
+    function mySetInterval(fn, millisec,count){
+      function interval(){
+        if(typeof count===‘undefined’||count-->0){
+          setTimeout(interval, millisec);
+          try{
+            fn()
+          }catch(e){
+            t = 0;
+            throw e.toString();
+          }
+        }
+      }
+      setTimeout(interval, millisec)
+    }
+    ```
+    详细资料可以参考：
+    [用setTimeout实现setInterval](https://www.jianshu.com/p/32479bdfd851)
+    [setInterval有什么缺点？](https://zhuanlan.zhihu.com/p/51995737)

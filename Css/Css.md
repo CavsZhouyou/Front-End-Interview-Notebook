@@ -1166,7 +1166,7 @@
     CSS 预处理器定义了一种新的语言，其基本思想是，用一种专门的编程语言，为 CSS 增加了一些编程的特性，将 CSS
     作为目标生成文件，然后开发者就只要使用这种语言进行编码工作。通俗的说，CSS 预处理器用一种专门的编程语言，进
     行 Web 页面样式设计，然后再编译成正常的 CSS 文件。
-    预处理器例如：LESS、Sass、Stylus，用来预编译 Sass 或 less，增强了 css 代码的复用性，
+    预处理器例如：LESS、Sass、Stylus，用来预编译 Sass 或 lesscss sprite，增强了 css 代码的复用性，
     还有层级、mixin、变量、循环、函数等，具有很方便的UI组件模块化开发能力，极大的提高工作效率。
 
     CSS 后处理器 是对 CSS 进行处理，并最终生成 CSS 的 预处理器，它属于广义上的 CSS 预处理器。 我们很久以前
@@ -1183,6 +1183,17 @@
     将一个页面涉及到的所有图片都包含到一张大图中去，然后利用 CSS 的 background-image，background- repeat，
     background-position 的组合进行背景定位。利用 CSS Sprites 能很好地减少网页的 http 请求，从而大大的
     提高页面的性能；CSS Sprites 能减少图片的字节。
+
+    优点：
+
+        减少HTTP请求数，极大地提高页面加载速度
+        增加图片信息重复度，提高压缩比，减少图片大小
+        更换风格方便，只需在一张或几张图片上修改颜色或样式即可实现
+
+    缺点：
+
+        图片合并麻烦
+        维护麻烦，修改一个图片可能需要从新布局整个图片，样式
     ```
 
 60. 使用 rem 布局的优缺点？
@@ -1205,3 +1216,27 @@
     [为什么设计稿是750px](https://blog.csdn.net/Honeymao/article/details/76795089)
     [使用Flexible实现手淘H5页面的终端适配](https://github.com/amfe/article/issues/17)
 
+61. 几种常见的 CSS 布局
+    详细的资料可以参考：
+    [几种常见的CSS布局](https://juejin.im/post/5bbcd7ff5188255c80668028#heading-12)
+    
+62. 画一条0.5 px 的线
+    ```
+    采用meta viewport的方式
+
+    采用 border-image 的方式
+
+    采用 transform: scale() 的方式
+    ```
+    详细资料可以参考：
+    [怎么画一条0.5px的边（更新）](https://juejin.im/post/5ab65f40f265da2384408a95)
+
+63. transition 和 animation 的区别
+    ```
+    transition 关注的是 CSS property 的变化，property 值和时间的关系是一个三次贝塞尔曲线。
+
+    animation 作用于元素本身而不是样式属性，可以使用关键帧的概念，应该说可以实现更自由的动画效果。 
+    ```
+    详细资料可以参考：
+    [CSS animation 与 CSS transition 有何区别？](https://www.zhihu.com/question/19749045)
+    [CSS3 Transition 和 Animation 区别及比较](https://blog.csdn.net/cddcj/article/details/53582334)

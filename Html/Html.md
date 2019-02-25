@@ -308,7 +308,9 @@
 
     主要缺点有：
 
-    （1） iframe 会阻塞主页面的 onload 事件。window 的 onload 事件需要在所有 iframe 加载完毕后(包含里面的元      素)才会触发。在 Safari 和 Chrome 里，通过 JavaScript 动态设置 iframe 的 src 可以避免这种阻塞情况。
+    （1） iframe 会阻塞主页面的 onload 事件。window 的 onload 事件需要在所有 iframe 加载完毕后(包含里
+         面的元素)才会触发。在 Safari 和 Chrome 里，通过 JavaScript 动态设置 iframe 的 src 可以避免这
+         种阻塞情况。
     （2） 搜索引擎的检索程序无法解读这种页面，不利于 SEO 。
     （3） iframe 和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
     （4） 浏览器的后退按钮失效。
@@ -404,8 +406,191 @@
     [HTML5 中的 b/strong，i/em 有什么区别？](https://www.zhihu.com/question/19551271)
 
 
+33. 前端需要注意哪些SEO
+    ```
+    （1）合理的title、description、keywords：搜索对着三项的权重逐个减小，title值强调重点即可，重要关键
+        词出现不要超过2次，而且要靠前，不同页面title要有所不同；description把页面内容高度概括，长度合适，
+        不可过分堆砌关键词，不同页面description有所不同；keywords列举出重要关键词即可
 
+    （2）语义化的HTML代码，符合W3C规范：语义化代码让搜索引擎容易理解网页
 
+    （3）重要内容HTML代码放在最前：搜索引擎抓取HTML顺序是从上到下，有的搜索引擎对抓取长度有限制，保证重要内
+        容一定会被抓取
 
+    （4）重要内容不要用js输出：爬虫不会执行js获取内容
 
+    （5）少用iframe：搜索引擎不会抓取iframe中的内容
+
+    （6）非装饰性图片必须加alt
+
+    （7）提高网站速度：网站速度是搜索引擎排序的一个重要指标
+    ```
+
+34. <img> 的 title 和 alt 有什么区别
+    ```
+    title 通常当鼠标滑动到元素上的时候显示
+
+    alt 是<img>的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问
+    性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。
+    ```
+
+35. 语义化的理解
+    ```
+    （1）用正确的标签做正确的事情！
+    （2）html 语义化就是让页面的内容结构化，便于对浏览器、搜索引擎解析；
+    （3）在没有样式 CSS 情况下也以一种文档格式显示，并且是容易阅读的。
+    （4）搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重，利于 SEO。
+    （5）使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解
+    ```
+36. Canvas 和 SVG 有什么区别？
+    ```
+    （1）svg 绘制出来的每一个图形的元素都是独立的 DOM 节点，能够方便的绑定事件或用来修改。canvas 输出的是
+        一整幅画布。
+    （2）svg 输出的图形是矢量图形，后期可以修改参数来自由放大缩小，不会是真和锯齿。而 canvas 输出标量画布，
+        就像一张图片一样，放大会失真或者锯齿。
+    ```
+
+37. 网页验证码是干嘛的，是为了解决什么安全问题
+    ```
+    （1）区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水
+    （2）有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试
+    ```  
+
+38. 渐进增强和优雅降级
+    ```
+    渐进增强 ：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。
+
+    优雅降级 ：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容
+    ```
    
+39. attribute 和 property 的区别是什么？
+    ```
+    attribute 是 dom 元素在文档中作为 html 标签拥有的属性；
+    property 就是 dom 元素在 js 中作为对象拥有的属性。
+    对于 html 的标准属性来说，attribute 和 property 是同步的，是会自动更新的
+    但是对于自定义的属性来说，他们是不同步的
+    ```
+
+40. 对 web 标准、可用性、可访问性的理解
+    ```
+    可用性（Usability）：产品是否容易上手，用户能否完成任务，效率如何，以及这过程中用户的主观感受可好，
+    是从用户的角度来看产品的质量。可用性好意味着产品质量高，是企业的核心竞争力
+
+    可访问性（Accessibility）：Web 内容对于残障用户的可阅读和可理解性
+    
+    可维护性（Maintainability）：一般包含两个层次，一是当系统出现问题时，快速定位并解决问题的成本，成
+    本低则可维护性好。二是代码是否容易被人理解，是否容易修改和增强功能。
+    ```
+
+41. ie 各版本和 chrome 可以并行下载多少个资源？
+    ```
+    （1）  IE6 2 个并发
+    （2）  iE7 升级之后的 6 个并发，之后版本也是 6 个
+    （3）  Firefox，chrome 也是6个
+    ```
+
+42. Flash、Ajax 各自的优缺点，在使用中如何取舍？
+    ```
+    Flash：
+    （1） Flash适合处理多媒体、矢量图形、访问机器
+    （2） 对CSS、处理文本上不足，不容易被搜索
+
+    Ajax：
+    （1） Ajax对CSS、文本支持很好，支持搜索
+    （2） 多媒体、矢量图形、机器访问不足
+
+    共同点：
+    （1） 与服务器的无刷新传递消息
+    （2） 可以检测用户离线和在线状态
+    （3） 操作DOM
+    ```
+
+43. 哪些地方会出现 css 阻塞，哪些地方会出现 js 阻塞？
+    ```
+    js 的阻塞特性：所有浏览器在下载 JS 的时候，会阻止一切其他活动，比如其他资源的下载，内容的呈现等等。直
+    到 JS 下载、解析、执行完毕后才开始继续并行下载其他资源并呈现内容。为了提高用户体验，新一代浏览器都支持
+    并行下载 JS，但是 JS 下载仍然会阻塞其它资源的下载（例如.图片，css文件等）。
+    由于浏览器为了防止出现 JS 修改 DOM 树，需要重新构建 DOM 树的情况，所以就会阻塞其他的下载和呈现。
+    嵌入 JS 会阻塞所有内容的呈现，而外部 JS 只会阻塞其后内容的显示，2 种方式都会阻塞其后资源的下载。也就是
+    说外部样式不会阻塞外部脚本的加载，但会阻塞外部脚本的执行。
+
+    CSS 怎么会阻塞加载了？CSS 本来是可以并行下载的，在什么情况下会出现阻塞加载了(在测试观察中，IE6 下 CSS
+     都是阻塞加载）
+    当 CSS 后面跟着嵌入的 JS 的时候，该 CSS 就会出现阻塞后面资源下载的情况。而当把嵌入 JS 放到 CSS 前面，
+    就不会出现阻塞的情况了。
+    根本原因：因为浏览器会维持 html 中 css 和 js 的顺序，样式表必须在嵌入的 JS 执行前先加载、解析完。而嵌
+    入的 JS 会阻塞后面的资源加载，所以就会出现上面 CSS 阻塞下载的情况。
+
+    ```
+
+44. 怎么重构页面？
+    ```
+    （1） 编写 CSS
+    （2） 让页面结构更合理化，提升用户体验
+    （3） 实现良好的页面效果和提升性能
+    ```
+
+45. 浏览器架构
+    ```
+    * 用户界面
+      * 主进程
+      * 内核
+          * 渲染引擎
+          * JS 引擎
+              * 执行栈
+          * 事件触发线程
+              * 消息队列
+                  * 微任务
+                  * 宏任务
+          * 网络异步线程
+          * 定时器线程
+    ```
+
+46. meta 标签
+    ```
+    <!DOCTYPE html>  H5标准声明，使用 HTML5 doctype，不区分大小写
+    <head lang=”en”> 标准的 lang 属性写法
+    <meta charset=’utf-8′>    声明文档使用的字符编码
+    <meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>   优先使用 IE 最新版本和 Chrome
+    <meta name=”description” content=”不超过150个字符”/>       页面描述
+    <meta name=”keywords” content=””/>      页面关键词
+    <meta name=”author” content=”name, email@gmail.com”/>    网页作者
+    <meta name=”robots” content=”index,follow”/>      搜索引擎抓取
+    <meta name=”viewport” content=”initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no”> 为移动设备添加 viewport
+    <meta name=”apple-mobile-web-app-title” content=”标题”> iOS 设备 begin
+    <meta name=”apple-mobile-web-app-capable” content=”yes”/>  添加到主屏后的标题（iOS 6 新增）
+    是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏
+    <meta name=”apple-itunes-app” content=”app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL”>
+    添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）
+    <meta name=”apple-mobile-web-app-status-bar-style” content=”black”/>
+    <meta name=”format-detection” content=”telphone=no, email=no”/>  设置苹果工具栏颜色
+    <meta name=”renderer” content=”webkit”>  启用360浏览器的极速模式(webkit)
+    <meta http-equiv=”X-UA-Compatible” content=”IE=edge”>     避免IE使用兼容模式
+    <meta http-equiv=”Cache-Control” content=”no-siteapp” />    不让百度转码
+    <meta name=”HandheldFriendly” content=”true”>     针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓
+    <meta name=”MobileOptimized” content=”320″>   微软的老式浏览器
+    <meta name=”screen-orientation” content=”portrait”>   uc强制竖屏
+    <meta name=”x5-orientation” content=”portrait”>    QQ强制竖屏
+    <meta name=”full-screen” content=”yes”>              UC强制全屏
+    <meta name=”x5-fullscreen” content=”true”>       QQ强制全屏
+    <meta name=”browsermode” content=”application”>   UC应用模式
+    <meta name=”x5-page-mode” content=”app”>    QQ应用模式
+    <meta name=”msapplication-tap-highlight” content=”no”>    windows phone 点击无高光
+    设置页面不缓存
+    <meta http-equiv=”pragma” content=”no-cache”>
+    <meta http-equiv=”cache-control” content=”no-cache”>
+    <meta http-equiv=”expires” content=”0″>
+    ```
+    详细资料可以参考：
+    [Meta标签用法大全](http://www.cnblogs.com/qiumohanyu/p/5431859.html)
+
+47. css reset 和 normalize.css 有什么区别
+    ```
+    （1）两者都是通过重置样式，保持浏览器样式的一致性
+    （2）前者几乎为所有标签添加了样式，后者保持了许多浏览器样式，保持尽可能的一致
+    （3）后者修复了常见的桌面端和移动端浏览器的 bug：包含了 HTML5 元素的显示设置、预格式化文字的 font-size
+        问题、在 IE9 中 SVG 的溢出、许多出现在各浏览器和操作系统中的与表单相关的 bug。
+    （4）前者中含有大段的继承链
+    （5）后者模块化，文档较前者来说丰富
+
+    ```
