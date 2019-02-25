@@ -1116,15 +1116,7 @@
     [JavaScript 中的数字](http://web.jobbole.com/74199/)
 
 
-82. 浏览器的渲染原理？
-    详细资料可以参考：
-    [浏览器渲染原理](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc7207f265da613c09425d)
-    [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)
-    [前端必读：浏览器内部工作原理](https://kb.cnblogs.com/page/129756/)
-    [深入浅出浏览器渲染原理](https://blog.fundebug.com/2019/01/03/understand-browser-rendering/)
-
-
-83. 前端安全防范
+82. 前端安全防范
     详细资料可以参考：
     [前端安全系列（一）：如何防止XSS攻击？](https://juejin.im/post/5bad9140e51d450e935c6d64)
     [内容安全策略   (CSP) ](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP)
@@ -1132,31 +1124,31 @@
     [web安全之--点击劫持攻击与防御技术简介](https://juejin.im/post/5bc009996fb9a05d0a055192)
     [[HTTP趣谈]origin,referer和host区别](https://www.jianshu.com/p/1f9c71850299)
 
-84. 什么是 MVVM？比之 MVC 有什么区别？
+83. 什么是 MVVM？比之 MVC 有什么区别？
     详细资料可以参考：
     [浅析前端开发中的 MVC/MVP/MVVM 模式](https://juejin.im/post/593021272f301e0058273468)
     [MVC，MVP 和 MVVM 的图示](http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html)
     [MVVM](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc72e6e51d45054f664dbf)
     [一篇文章了解架构模式：MVC/MVP/MVVM](https://segmentfault.com/a/1190000015310674)
 
-85. 什么是 Virtual DOM？为什么 Virtual DOM 比原生 DOM 快？
+84. 什么是 Virtual DOM？为什么 Virtual DOM 比原生 DOM 快？
     详细资料可以参考：
     [Virtual DOM](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc72e6e51d45054f664dbf)
     [理解 Virtual DOM](https://github.com/y8n/blog/issues/5)
     [深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)
     [网上都说操作真实 DOM 慢，但测试结果却比 React 更快，为什么？](https://www.zhihu.com/question/31809713/answer/53544875)
 
-86. 双向数据绑定原理？
+85. 双向数据绑定原理？
     详细资料可以参考：
     [Vue.js双向绑定的实现原理](http://www.cnblogs.com/kidney/p/6052935.html?utm_source=gold_browser_extension)
 
-87. 什么是 requestAnimationFrame ？
+86. 什么是 requestAnimationFrame ？
     详细资料可以参考：
     [你需要知道的requestAnimationFrame](https://juejin.im/post/5a82f0626fb9a06358657c9c)
     [CSS3动画那么强，requestAnimationFrame还有毛线用？](https://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/)
 
 
-88. 谈谈你对 webpack 的看法
+87. 谈谈你对 webpack 的看法
     ```
     WebPack 是一个模块打包工具，你可以使用 WebPack 管理你的模块依赖，并编绎输出模块们所需的静态文件。它能
     够很好地管理、打包 Web 开发中所用到的 HTML、Javascript、CSS 以及各种静态文件（图片、字体等），让开发
@@ -1164,7 +1156,7 @@
     最后 生成了优化且合并后的静态资源
     ```
 
-89. offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别？
+88. offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别？
     ```
     offsetWidth/offsetHeight 返回值包含 content + padding + border 包含了滚动条
 
@@ -1175,7 +1167,7 @@
     详细资料可以参考：
     [offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别](https://www.bgpy.net/biancheng/js_49841.html)
 
-90. 谈一谈你理解的函数式编程？
+89. 谈一谈你理解的函数式编程？
     ```
     简单说，"函数式编程"是一种"编程范式"（programming paradigm），也就是如何编写程序的方法论
 
@@ -1184,7 +1176,7 @@
     详细资料可以参考：
     [函数式编程初探](http://www.ruanyifeng.com/blog/2012/04/functional_programming.html)
 
-91. 异步编程的实现方式？
+90. 异步编程的实现方式？
     ```
     回调函数
     优点：简单、容易理解
@@ -1211,7 +1203,7 @@
 
     ```
 
-92. Js 动画与 CSS 动画区别及相应实现
+91. Js 动画与 CSS 动画区别及相应实现
     ```
     CSS3 的动画的优点
 
@@ -1228,7 +1220,7 @@
     动效的时候，就多考虑考虑 CSS 吧
     ```
 
-93. get 请求传参长度的误区
+92. get 请求传参长度的误区
     ```
     误区：我们经常说 get 请求参数的大小存在限制，而 post 请求的参数大小是无限制的。
 
@@ -1241,7 +1233,7 @@
     （4）要支持 IE，则最大长度为 2083byte，若只支持 Chrome，则最大长度 8182byte
     ```
 
-94. URL 和 URI 的区别？
+93. URL 和 URI 的区别？
     ```
     URI：Uniform Resource Identifier，统一资源标识符
     URL：Uniform Resource Location统一资源定位符
@@ -1252,7 +1244,7 @@
     详细资料可以参考：
     [HTTP 协议中 URI 和 URL 有什么区别？](https://www.zhihu.com/question/21950864)
 
-95. get 和 post 请求在缓存方面的区别
+94. get 和 post 请求在缓存方面的区别
     ```
     get 请求类似于查找的过程，用户获取数据，可以不用每次都与数据库连接，所以可以使用缓存。
 
@@ -1260,7 +1252,7 @@
     于请求缓存。
     ```
 
-96. 图片的懒加载和预加载
+95. 图片的懒加载和预加载
     ```
     预加载：提前加载图片，当用户需要查看时可直接从本地缓存中渲染。
 
@@ -1270,7 +1262,7 @@
     缓解压力作用，预加载则会增加服务器前端压力。
     ```
 
-97. mouseover 和 mouseenter 的区别？
+96. mouseover 和 mouseenter 的区别？
     ```
     当鼠标移动到元素上时就会触发 mouseenter 事件，类似 mouseover，它们两者之间的差别是 mouseenter 
     不会冒泡。
@@ -1282,7 +1274,7 @@
     [mouseenter与mouseover为何这般纠缠不清？](https://github.com/qianlongo/zepto-analysis/issues/1)
 
 
-98. js 拖拽功能的实现
+97. js 拖拽功能的实现
     ```
     首先是三个事件，分别是 mousedown，mousemove，mouseup
     当鼠标点击按下的时候，需要一个 tag 标识此时已经按下，可以执行 mousemove 里面的具体方法。
@@ -1295,7 +1287,7 @@
     详细资料可以参考：
     [js拖拽功能的实现](https://juejin.im/post/5b44a485e51d4519945fb6b7)
 
-99. 用 setTimeout 实现 setInterval
+98. 用 setTimeout 实现 setInterval
     ```
     思路是使用递归函数，不断地去执行 setTimeout 从而达到 setInterval 的效果
 
