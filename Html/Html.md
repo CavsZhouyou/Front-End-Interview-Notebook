@@ -755,6 +755,9 @@
 
 56. meta 标签
     ```
+    <meta> 元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。
+    <meta> 标签位于文档的头部，不包含任何内容。<meta> 标签的属性定义了与文档相关联的名称/值对。
+
     <!DOCTYPE html>  H5标准声明，使用 HTML5 doctype，不区分大小写
     <head lang=”en”> 标准的 lang 属性写法
     <meta charset=’utf-8′>    声明文档使用的字符编码
@@ -838,3 +841,88 @@
     详细资料可以参考：
     [关于CSS Reset 那些事（一）之 历史演变与Normalize.css](https://segmentfault.com/a/1190000003021766#articleHeader0)
     [Normalize.css 和 Reset CSS 有什么本质区别没？](https://segmentfault.com/q/1010000000117189)
+
+58. 用于预格式化文本的标签是？
+    ```
+    预格式化就是保留文字在源码中的格式 最后显示出来样式与源码中的样式一致 所见即所得。
+
+    <pre> 定义预格式文本，保持文本原有的格式
+    ```
+
+59. 常见的浏览器端的存储技术有哪些？
+    ```
+    cookie
+    WebStorage(localStorage、sessionStorage)
+    userData ，IE 支持 userData 存储数据，但是基本很少使用到，除非有很强的浏览器兼容需求。
+    indexedDB
+    ``` 
+
+60. DHTML 是什么？
+    ```
+    DHTML 将 HTML、JavaScript、DOM 以及 CSS 组合在一起，用于创造动态性更强的网页。通过 JavaScript 和 
+    HTML DOM，能够动态地改变 HTML 元素的样式。
+
+    DHTML 实现了网页从 Web 服务器下载后无需再经过服务的处理，而在浏览器中直接动态地更新网页的内容、排版样式
+    和动画的功能。例如，当鼠标指针移到文章段落中时，段落能够变成蓝色，或者当鼠标指针移到一个超级链接上时，会自
+    动生成一个下拉式子链接目录等。
+
+    包括：
+    （1）动态内容(Dynamic Content)：动态地更新网页内容，可“动态”地插入、修改或删除网页的元件，如文字、图像、
+        标记等。
+
+    （2）动态排版样式(Dynamic Style Sheets)：W3C的CSS样式表提供了设定HTML标记的字体大小、字形、样式、粗细、    文字颜色、行高度、加底线或加中间横线、缩排、与边缘距离、靠左右或置中、背景图片或颜色等排版功能，而“动态
+        排版样式”即可以“动态”地改变排版样式。
+    ```
+
+61. head 标签中必不少的是？
+    ```
+    <head> 标签用于定义文档的头部，它是所有头部元素的容器。<head> 中的元素可以引用脚本、指示浏览器在哪里找
+    到样式表、提供元信息等等。
+
+    文档的头部描述了文档的各种属性和信息，包括文档的标题、在 Web 中的位置以及和其他文档的关系等。绝大多数文档
+    头部包含的数据都不会真正作为内容显示给读者。
+
+    下面这些标签可用在 head 部分：<base>, <link>, <meta>, <script>, <style>, 以及 <title>。
+
+    <title> 定义文档的标题，它是 head 部分中唯一必需的元素。
+    ``` 
+
+62. HTML5 新增的表单元素有？
+    ```
+    datalist 规定输入域的选项列表，通过option创建！ 
+    
+    keygen 提供一种验证用户的可靠方法，密钥对生成器，私钥存于客户端，公钥发到服务器，用于之后验证客户端证书！
+    
+    output 元素用于不同类型的输出！
+    ```
+
+63. 在 HTML5 中，哪个方法用于获得用户的当前位置？
+    ```
+    getCurrentPosition()
+    ```
+
+64. 文档的不同注释方式？
+    ```
+    HTML 的注释方法 <!--注释内容--> 
+    
+    CSS 的注释方法 /*注释内容*/ 
+    
+    JavaScript 的注释方法 /* 多行注释方式 */ //单行注释方式
+    ```
+
+65. disabled 和 readonly 的区别？
+    ```
+     disabled 指当 input 元素加载时禁用此元素。input 内容不会随着表单提交。
+     
+     readonly 规定输入字段为只读。input 内容会随着表单提交。
+
+     无论设置 readonly 还是 disabled，通过 js 脚本都能更改 input 的 value
+    ```  
+
+66. 主流浏览器内核私有属性 css 前缀？
+    ```
+    mozilla内核 （irefox,flock等）    -moz
+    webkit内核  （safari,chrome等）   -webkit
+    opera内核   （opera浏览器）        -o
+    trident内核 （ie浏览器）           -ms
+    ```

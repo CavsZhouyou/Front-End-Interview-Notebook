@@ -1715,6 +1715,9 @@
     设置了 background-image，则图片依然会去加载；如果是父元素的 display 计算值为 none，则背景图不会请
     求，此时浏览器或许放心地认为这个背景图暂时是不会使用的。
 
-    如果不是 background-image 图 图 10-1 Chrome 浏览器下图片请求片，而是<img>元素，则设置 display:
-    none 在所有浏览器下依旧都会请求图片资源。
+    如果不是 background-image ，而是<img>元素，则设置 display:none 在所有浏览器下依旧都会请求图片资源。
+
+    还需要注意的是如果设置的样式没有对应的元素，则 background-image 也不会加载。hover 情况下的background-image ，在触发时加载。
     ```
+    详细资料可以参考：
+    [CSS控制前端图片HTTP请求的各种情况示例](https://www.jb51.net/css/469033.html)
