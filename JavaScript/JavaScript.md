@@ -2128,11 +2128,11 @@
      的操作 DOM 要快，这种方法的目的是为了提高我们开发时的可维护性，在任意的情况下，都能保证一个尽量小的性能消耗
      去进行操作。
      ```
-    详细资料可以参考：
-    [Virtual DOM](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc72e6e51d45054f664dbf)
-    [理解 Virtual DOM](https://github.com/y8n/blog/issues/5)
-    [深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)
-    [网上都说操作真实 DOM 慢，但测试结果却比 React 更快，为什么？](https://www.zhihu.com/question/31809713/answer/53544875)
+     详细资料可以参考：
+     [Virtual DOM](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc72e6e51d45054f664dbf)
+     [理解 Virtual DOM](https://github.com/y8n/blog/issues/5)
+     [深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)
+     [网上都说操作真实 DOM 慢，但测试结果却比 React 更快，为什么？](https://www.zhihu.com/question/31809713/answer/53544875)
 
 102. 如何比较两个 DOM 树的差异？
      ```
@@ -2153,82 +2153,82 @@
 
 
 104. 谈谈你对 webpack 的看法
-    ```
-    WebPack 是一个模块打包工具，你可以使用 WebPack 管理你的模块依赖，并编绎输出模块们所需的静态文件。它能
-    够很好地管理、打包 Web 开发中所用到的 HTML、Javascript、CSS 以及各种静态文件（图片、字体等），让开发
-    过程更加高效。对于不同类型的资源，webpack 有对应的模块加载器。webpack 模块打包器会分析模块间的依赖关系，
-    最后 生成了优化且合并后的静态资源
-    ```
+     ```
+     WebPack 是一个模块打包工具，你可以使用 WebPack 管理你的模块依赖，并编绎输出模块们所需的静态文件。它能
+     够很好地管理、打包 Web 开发中所用到的 HTML、Javascript、CSS 以及各种静态文件（图片、字体等），让开发
+     过程更加高效。对于不同类型的资源，webpack 有对应的模块加载器。webpack 模块打包器会分析模块间的依赖关系，
+     最后 生成了优化且合并后的静态资源
+     ```
 
 105. offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别？
-    ```
-    clientWidth/clientHeight 返回值只包含 content + padding，如果有滚动条，不包含滚动条
+     ```
+     clientWidth/clientHeight 返回值只包含 content + padding，如果有滚动条，不包含滚动条
 
-    offsetWidth/offsetHeight 返回值包含 content + padding + border 包含了滚动条
+     offsetWidth/offsetHeight 返回值包含 content + padding + border 包含了滚动条
 
-    scrollWidth/scrollHeight 返回值包含 content + padding + 溢出内容的尺寸
-    ```
-    详细资料可以参考：
-    [最全的获取元素宽高及位置的方法](https://juejin.im/post/5bc9366d5188255c4834e75a)
-    [用Javascript获取页面元素的位置](http://www.ruanyifeng.com/blog/2009/09/find_element_s_position_using_javascript.html)
+     scrollWidth/scrollHeight 返回值包含 content + padding + 溢出内容的尺寸
+     ```
+     详细资料可以参考：
+     [最全的获取元素宽高及位置的方法](https://juejin.im/post/5bc9366d5188255c4834e75a)
+     [用Javascript获取页面元素的位置](http://www.ruanyifeng.com/blog/2009/09/find_element_s_position_using_javascript.html)
 
 106. 谈一谈你理解的函数式编程？
-    ```
-    简单说，"函数式编程"是一种"编程范式"（programming paradigm），也就是如何编写程序的方法论
+     ```
+     简单说，"函数式编程"是一种"编程范式"（programming paradigm），也就是如何编写程序的方法论
 
-    它具有以下特性：闭包和高阶函数、惰性计算、递归、函数是"第一等公民"、只用"表达式"
-    ```
-    详细资料可以参考：
-    [函数式编程初探](http://www.ruanyifeng.com/blog/2012/04/functional_programming.html)
+     它具有以下特性：闭包和高阶函数、惰性计算、递归、函数是"第一等公民"、只用"表达式"
+     ```
+     详细资料可以参考：
+     [函数式编程初探](http://www.ruanyifeng.com/blog/2012/04/functional_programming.html)
 
 107. 异步编程的实现方式？
      
-    相关资料：
-    ```
-    回调函数
-    优点：简单、容易理解
-    缺点：不利于维护，代码耦合高
+     相关资料：
+     ```
+     回调函数
+     优点：简单、容易理解
+     缺点：不利于维护，代码耦合高
 
-    事件监听(采用时间驱动模式，取决于某个事件是否发生)：
-    优点：容易理解，可以绑定多个事件，每个事件可以指定多个回调函数
-    缺点：事件驱动型，流程不够清晰
+     事件监听(采用时间驱动模式，取决于某个事件是否发生)：
+     优点：容易理解，可以绑定多个事件，每个事件可以指定多个回调函数
+     缺点：事件驱动型，流程不够清晰
 
-    发布/订阅(观察者模式)
-    类似于事件监听，但是可以通过‘消息中心’，了解现在有多少发布者，多少订阅者
+     发布/订阅(观察者模式)
+     类似于事件监听，但是可以通过‘消息中心’，了解现在有多少发布者，多少订阅者
 
-    Promise对象
-    优点：可以利用then方法，进行链式写法；可以书写错误时的回调函数；
-    缺点：编写和理解，相对比较难
+     Promise对象
+     优点：可以利用then方法，进行链式写法；可以书写错误时的回调函数；
+     缺点：编写和理解，相对比较难
 
-    Generator函数
-    优点：函数体内外的数据交换、错误处理机制
-    缺点：流程管理不方便
+     Generator函数
+     优点：函数体内外的数据交换、错误处理机制
+     缺点：流程管理不方便
 
-    async函数
-    优点：内置执行器、更好的语义、更广的适用性、返回的是Promise、结构清晰。
-    缺点：错误处理机制
+     async函数
+     优点：内置执行器、更好的语义、更广的适用性、返回的是Promise、结构清晰。
+     缺点：错误处理机制
 
-    ```
+     ```
 
-    回答：
-    ```
-    js 中的异步机制可以分为以下几种
+     回答：
+     ```
+     js 中的异步机制可以分为以下几种
+ 
+     第一种最常见的是使用回调函数的方式，使用回调函数的方式有一个缺点是，多个回调函数嵌套的时候会造成回调函数地
+     狱，上下两层的回调函数间的代码耦合度太高。
 
-    第一种最常见的是使用回调函数的方式，使用回调函数的方式有一个缺点是，多个回调函数嵌套的时候会造成回调函数地
-    狱，上下两层的回调函数间的代码耦合度太高。
+     第二种是 Promise 的方式，使用 Promise 的方式可以将嵌套的回调函数作为链式调用。但是使用这种方法，有时会造
+     成多个 then 的链式调用，可能会造成语义不够明确。
 
-    第二种是 Promise 的方式，使用 Promise 的方式可以将嵌套的回调函数作为链式调用。但是使用这种方法，有时会造
-    成多个 then 的链式调用，可能会造成语义不够明确。
+     第三种是使用 generator 的方式，它可以在函数的执行过程中，将函数的执行权转移出去，后面我们还可以将执行权转移
+     回来。我们可以当遇到异步函数执行的时候，将函数执行权转移出去，当异步函数执行完毕的时候我们再将执行权给转移回
+     来。因此我们在 generator 内部对于异步操作的方式，可以以同步的顺序来书写。使用这种方式我们需要考虑的问题是何
+     时将函数的控制权转移回来，因此我们需要有一个自动执行 generator 的机制，比如说 co 模块等。
 
-    第三种是使用 generator 的方式，它可以在函数的执行过程中，将函数的执行权转移出去，后面我们还可以将执行权转移
-    回来。我们可以当遇到异步函数执行的时候，将函数执行权转移出去，当异步函数执行完毕的时候我们再将执行权给转移回
-    来。因此我们在 generator 内部对于异步操作的方式，可以以同步的顺序来书写。使用这种方式我们需要考虑的问题是何
-    时将函数的控制权转移回来，因此我们需要有一个自动执行 generator 的机制，比如说 co 模块等。
-
-    第四种是使用 async 函数的形式，async 函数是 generator 和 promise 实现的一个自动执行的语法糖，它内部自带
-    执行器，当函数内部执行到一个 await 语句的时候，如果语句返回一个 promise 对象，那么函数将会等待 promise 对
-    像的状态变为 resolve 后再继续向下执行。因此我们可以将异步逻辑，转化为同步的顺序来书写。
-    ```
+     第四种是使用 async 函数的形式，async 函数是 generator 和 promise 实现的一个自动执行的语法糖，它内部自带
+     执行器，当函数内部执行到一个 await 语句的时候，如果语句返回一个 promise 对象，那么函数将会等待 promise 对
+     像的状态变为 resolve 后再继续向下执行。因此我们可以将异步逻辑，转化为同步的顺序来书写。
+     ```
 
 108. Js 动画与 CSS 动画区别及相应实现
     ```
@@ -2496,8 +2496,9 @@
      Promise 是一个构造函数，接收一个函数作为参数，返回一个 Promise 实例。一个 Promise 实例有三种状态，分别是
      pending、resolved 和 rejected，分别代表了进行中、已成功和已失败。实例的状态只能由 pending 转变resolved
      或者 rejected 状态，并且状态一经改变，就凝固了，无法再被改变了。状态的改变是通过 resolve() 和 reject() 
-     函数来实现的，我们可以在异步操作结束后调用这两个函数改变 Promise 实例的状态。Promise 的原型上定义了一个 then 方法，使用这个 then 方法可以为两个状态的改变注册回调函数。这个回调函数属于微任务，会在本轮事件循环的末
-     尾执行。
+     函数来实现的，我们可以在异步操作结束后调用这两个函数改变 Promise 实例的状态。Promise 的原型上定义了一个 
+     then 方法，使用这个 then 方法可以为两个状态的改变注册回调函数。这个回调函数属于微任务，会在本轮事件循环的
+     末尾执行。
      ```
      详细资料可以参考：
      [Promises/A+规范](http://www.ituring.com.cn/article/66566)
