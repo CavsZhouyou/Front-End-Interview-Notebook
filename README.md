@@ -8,7 +8,7 @@
 
 ## 算法 :pencil2:
 
-> [剑指 Offer 题解]() 待完善......
+> [基本数据结构和算法](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95.md) 
 
 ## 操作系统 :computer:
 
@@ -18,7 +18,7 @@
 
 ## 计算机网络 :cloud:
 
-> [计算机网络]() 待完善......
+> [计算机网络](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md) 
 
 参考 计算机网络 自顶向下方法。
 
@@ -40,7 +40,7 @@
 
 ## Css :cat:
 
-> [Css 基础](https://github.com/CavsZhouyou/Interview-Notebook/tree/master/Css/Css.md)) 
+> [Css 基础](https://github.com/CavsZhouyou/Interview-Notebook/tree/master/Css/Css.md)
 
 ## JavaScript :koala:
 
