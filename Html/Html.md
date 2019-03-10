@@ -341,6 +341,10 @@
 
     ![常见引起回流属性和方法](https://cavszhouyou-1254093697.cos.ap-chongqing.myqcloud.com/note-14.png)
 
+
+    详细资料可以参考：
+    [浏览器的回流与重绘](https://juejin.im/post/5a9923e9518825558251c96a)
+
 26. 如何减少回流？（浏览器绘制过程）
     ```
     （1）使用 transform 替代 top
@@ -557,7 +561,7 @@
     （2） 使用 SharedWorker （只在 chrome 浏览器实现了），两个页面共享同一个线程，通过向线程发送数据和接收
          数据来实现标签页之间的双向通行。
 
-    （3） 可以调用 localstorge、cookies 等本地存储方式，localstorge 另一个浏览上下文里被添加、修改或
+    （3） 可以调用 localStorage、cookies 等本地存储方式，localStorge 另一个浏览上下文里被添加、修改或
          删除时，它都会触发一个 storage 事件，我们通过监听 storage 事件，控制它的值来进行页面信息通信；
     ```
     详细的资料可以参考：
