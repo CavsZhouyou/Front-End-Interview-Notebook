@@ -2756,18 +2756,19 @@
 
 
 138. $route 和 $router的区别？
+     
      ```
      $route 是“路由信息对象”，包括 path，params，hash，query，fullPath，matched，name 等路由信息参数。而
      $router是“路由实例”对象包括了路由的跳转方法，钩子函数等。
      ```
 
-193. vue 常用的修饰符？
+139. vue 常用的修饰符？
      ```
      .prevent: 提交事件不再重载页面；.stop: 阻止单击事件冒泡；.self: 当事件发生在该元素本身而不是子元素的时
      候会触发；
      ```
 
-194. vue中 key 值的作用？
+140. vue中 key 值的作用？
      ```
      当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue 将
      不会移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个
@@ -2776,19 +2777,19 @@
      详细资料可以参考：
      [Vue面试中，经常会被问到的面试题/Vue知识点整理](https://segmentfault.com/a/1190000016344599)
 
-195. computed 和 watch 区别？
+141. computed 和 watch 区别？
      ```
      computed 是计算属性，依赖其他属性计算值，并且 computed 的值有缓存，只有当计算值变化才会返回内容。
 
      watch 监听到值的变化就会执行回调，在回调中可以进行一些逻辑操作。
      ```
 
-196. keep-alive 组件有什么作用？
+142. keep-alive 组件有什么作用？
      ```
      如果你需要在组件切换的时候，保存一些组件的状态防止多次渲染，就可以使用 keep-alive 组件包裹需要保存的组件。
      ```
 
-200. mixin 和 mixins 区别？
+143. mixin 和 mixins 区别？
      ```
      mixin 用于全局混入，会影响到每个组件实例。
 
@@ -2800,3 +2801,25 @@
      [前端面试之道](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc731b51882516c56ced6f)
      [混入](https://cn.vuejs.org/v2/guide/mixins.html)
      
+
+144. 开发中常用的几种 Content-Type ？
+     ```
+    （1）application/x-www-form-urlencoded
+
+        浏览器的原生 form 表单，如果不设置 enctype 属性，那么最终就会以application/x-www-form-urlencoded 方式提交数据。该种方式提交的数据放在 body 里面，数据按照 key1=val1&key2=val2 的方式进行编码，key 和
+         val 都进行了 URL 转码。
+
+    （2）multipart/form-data
+    
+        该种方式也是一个常见的 POST 提交方式，通常表单上传文件时使用该种方式。
+
+    （3）application/json
+        
+        告诉服务器消息主体是序列化后的 JSON 字符串。
+
+    （4）text/xml
+    
+        该种方式主要用来提交 XML 格式的数据。
+     ```
+     详细资料可以参考：
+     [常用的几种 Content-Type](https://honglu.me/2015/07/13/%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8DContent-Type/)
