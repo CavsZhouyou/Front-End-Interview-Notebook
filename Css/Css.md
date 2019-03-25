@@ -732,21 +732,31 @@
     非绝对定位元素的宽高百分比则是相对于父元素的 content box 来计算的。
     ```
 
-25. 简单介绍使用图片 Base64 编码的优点和缺点。
+25. 简单介绍使用图片 base64 编码的优点和缺点。
     ```
-    图片的 Base64 编码就是可以将一副图片数据编码成一串字符串，使用该字符串代替图像地址。
+    base64 编码是一种图片处理格式，通过特定的算法将图片编码成一长串字符串，在页面上显示的时候，可以用该字符
+    串来代替图片的 url 属性。
 
-    （1）使用 Base64 不代表性能优化，使用 Base64 的好处是能够减少一个图片的 HTTP 请求，然而，与之同时
-        付出的代价则是 CSS 文件体积的增大。而 CSS 文件体积的增大意味着什么呢？意味着 CRP 关键渲染路径
-        的阻塞。
+    使用 base64 的优点是：
 
-    （2）Base64 跟 CSS 混在一起，大大增加了浏览器需要解析 CSS 树的耗时。其实解析 CSS 树的过程是很快的，
-        一般在几十微妙到几毫秒之间。
+    （1）减少一个图片的 HTTP 请求
+
+    使用 base64 的缺点是：
+
+    （1）根据 base64 的编码原理，编码后的大小会比原文件大小大 1/3，为如果把大图片编码到 html / css 中，不仅
+        会造成文件体积的增加，影响文件的加载速度，还会增加浏览器对 html 或 css 文件解析渲染的时间。
+
+    （2）使用 base64 无法直接缓存，要缓存只能缓存包含 base64 的文件，比如 HTML 或者 CSS，这相比直接缓存图片
+        的效果要差很多。
+
+    （3）兼容性的问题，ie8 以前的浏览器不支持。
 
     一般一些网站的小图标可以使用 base64 图片来引入。
     ```
     详细资料可以参考：
     [玩转图片Base64编码](https://www.cnblogs.com/coco1s/p/4375774.html)
+    [前端开发中，使用base64图片的弊端是什么？](https://www.zhihu.com/question/31155574)
+    [小tip: base64:URL背景图片与web页面性能优化](https://www.zhangxinxu.com/wordpress/2012/04/base64-url-image-%E5%9B%BE%E7%89%87-%E9%A1%B5%E9%9D%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)
 
 
 26. 'display'、'position' 和 'float' 的相互关系？
@@ -1935,3 +1945,128 @@
     ```
     详细资料可以参考：
     [CSS控制前端图片HTTP请求的各种情况示例](https://www.jb51.net/css/469033.html)
+
+
+96. 如何实现单行／多行文本溢出的省略（...）？
+    ```css
+
+    单行文本溢出
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    多行文本溢出
+    p {
+      position: relative;
+      line-height: 1.5em;
+      /* 高度为需要显示的行数*行高，比如这里我们显示两行，则为3 */
+      height: 3em;
+      overflow: hidden;
+    }
+
+    p:after {
+      content: "...";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: #fff;
+    }
+    ```
+    详细资料可以参考：
+    [【CSS/JS】如何实现单行／多行文本溢出的省略](https://zhuanlan.zhihu.com/p/30707916)
+    [CSS 多行文本溢出省略显示](https://juejin.im/entry/587f453e1b69e60058555a5f)
+
+
+97. display: none;、visibility: hidden、opacity=0 区别总结？
+    ```
+     display: none;
+    1、浏览器不会生成属性为 display: none; 的元素。 
+    2、display: none; 不占据空间，所以动态改变此属性时会引起重排。 
+    3、display: none; 不会被子类继承，但是子类是不会显示的。 
+    4、display 是个尴尬的属性，transition 对它无效。（毫无争议）
+
+    visibility: hidden;
+    1、元素会被隐藏，但是不会消失，依然占据空间。 
+    2、visibility: hidden; 会被子类继承，子类也可以通过显示的设置 visibility: visible; 来反隐藏。 
+    3、visibility: hidden; 不会触发该元素已经绑定的事件。 
+    4、visibility: hidden; 动态修改此属性会引起重绘。 
+    5、visibility，transition 对它无效。
+
+    opacity=0
+    1、opacity=0 只是透明度为 100%，元素隐藏，依然占据空间。 
+    2、opacity=0 会被子元素继承,且，子元素并不能通过 opacity=1，进行反隐藏。不能。 
+    3、opacity=0 的元素依然能触发已经绑定的事件。 
+    4、opacity，transition 对它有效。
+    ```
+    详细资料可以参考：
+    [display: none;、visibility: hidden、opacity=0区别总结](https://blog.csdn.net/WRian_Ban/article/details/51958195)
+
+
+98. css 实现上下固定中间自适应布局？
+    ```css
+
+    利用绝对定位实现
+
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100px;
+      background: red;
+    }
+
+    .container {
+      position: absolute;
+      top: 100px;
+      bottom: 100px;
+      width: 100%;
+      background: green;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      height: 100px;
+      width: 100%;
+      background: red;
+    }
+
+
+    利用 flex 布局实现
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    .header {
+      height: 100px;
+      background: red;
+    }
+
+    .container {
+      flex-grow: 1;
+      background: green;
+    }
+
+    .footer {
+      height: 100px;
+      background: red;
+    }
+    ```
+    详细资料可以参考：
+    [css实现上下固定中间自适应布局](https://www.jianshu.com/p/30bc9751e3e8)
