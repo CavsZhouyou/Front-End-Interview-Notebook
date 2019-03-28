@@ -413,7 +413,7 @@
 
 
 27. 如何将浮点数点左边的数每三位添加一个逗号，如12000000.11转化为『12,000,000.11』?
-    ```
+    ```js
     function format(number){
          return number && number.replace(/(?!^)(?=(\d{3})+\.)/g,",")
     }
@@ -425,7 +425,7 @@
     [JS - 生成随机数的方法汇总（不同范围、类型的随机数）](http://www.hangge.com/blog/cache/detail_1872.html)
 
 29. 如何实现数组的随机排序？
-    ```
+    ```js
     （1）使用数组 sort 方法对数组元素随机排序，让 Math.random() 出来的数与 0.5 比较，如果大于就返回 1 
         不交换位置，如果小于就返回 -1，交换位置。
 
@@ -467,6 +467,21 @@
           }
 
           return arr;
+        }
+        
+        // es6
+        function randomSort(array) {
+          let length = array.length;
+
+          if (!Array.isArray(array) || length <= 1) return;
+
+          for (let index = 0; index < length - 1; index++) {
+            let randomIndex = Math.floor(Math.random() * (length - index)) + index;
+
+            [array[index], array[randomIndex]] = [array[randomIndex], array[index]];
+          }
+
+          return array;
         }
 
     ```
@@ -605,7 +620,7 @@
     [Window 对象](http://www.w3school.com.cn/jsref/dom_obj_window.asp)
 
 36. 写一个通用的事件侦听器函数。
-    ```
+    ```js
     const EventUtils = {
 
       // 视能力分别使用dom0||dom2||IE方式 来绑定事件
@@ -801,7 +816,7 @@
     [js 判断一个对象是否属于某一类](https://blog.csdn.net/haitunmin/article/details/78418522)
 
 44. new 操作符具体干了什么呢？如何实现？
-    ```
+    ```js
     （1）首先创建了一个新的空对象
     （2）设置原型，将对象的原型设置为函数的 prototype 对象。
     （3）让函数的 this 指向这个对象，执行构造函数的代码（为这个新对象添加属性）
@@ -810,18 +825,19 @@
     实现:
 
     function objectFactory() {
-      let obj = new Object(), // 新建一个空对象
-        constructor = [].shift.call(arguments),
+
+      let newObject = null,
+        constructor = [].prototype.shift.call(arguments),
         result = null;
 
-      // 将对象的原型指向构造函数的 prototype 对象
-      obj.__proto__ = constructor.prototype;
+      // 新建一个空对象，对象的原型为构造函数的 prototype 对象
+      newObject = Object.create(constructor.prototype);
 
-      // 将构造函数的 this 指向这个对象，并执行构造函数代码
-      result = constructor.apply(obj, arguments);
+      // 将 this 指向新建对象，并执行函数
+      result = constructor.apply(newObject, arguments);
 
-      // 判断返回的值，如果是对象则直接返回，如果不是则返回新建的对象
-      return result instanceof Object ? result : obj;
+      // 判断返回结果
+      return typeof result === "object" ? result : newObject;
     }
 
     // 使用方法
@@ -993,8 +1009,13 @@
       // 创建一个 promise 对象
       let promise = new Promise(function (resolve, reject) {
 
-        // 定义状态的监听函数
-        let handler = function () {
+        let xhr = new XMLHttpRequest();
+
+        // 新建一个 http 请求
+        xhr.open("GET", url, true);
+
+        // 设置状态的监听函数
+        xhr.onreadystatechange = function () {
 
           if (this.readyState !== 4) return;
 
@@ -1006,14 +1027,11 @@
           }
         }
 
-        let xhr = new XMLHttpRequest();
-
-        // 新建一个 http 请求
-        xhr.open("GET", url, true);
-
-        // 设置状态的监听函数
-        xhr.onreadystatechange = handler;
-
+        // 设置错误监听函数
+        xhr.onerror = function () {
+          reject(new Error(this.statusText));
+        }
+        
         // 设置响应的数据类型
         xhr.responseType = "json";
 
@@ -1072,7 +1090,8 @@
     属性，它提供了对资源的缓存的更精确的控制。它有很多不同的值，常用的比如我们可以通过设置 max-age 来指定资源
     能够被缓存的时间的大小，这是一个相对的时间，它会根据这个时间的大小和资源第一次请求时的时间来计算出资源过期的
     时间，因此相对于 Expires 来说，这种方式更加有效一些。常用的还有比如 private ，用来规定资源只能被客户端缓
-    存，不能够代理服务器所缓存。还有如 no-store ，用来指定资源不能够被缓存等。
+    存，不能够代理服务器所缓存。还有如 no-store ，用来指定资源不能够被缓存，no-cache 代表该资源能够被缓存，但
+    是立即失效，每次都需要向服务器发起请求。
 
     一般来说只需要设置其中一种方式就可以实现强缓存策略，当两种方式一起使用时，Cache-Control 的优先级要高于
     Expires 。
@@ -1245,9 +1264,9 @@
     ```
     我的理解是 cookie 是服务器提供的一种用于维护会话状态信息的数据，通过服务器发送到浏览器，浏览器保存在本地，
     当下一次有同源的请求时，将保存的 cookie 值添加到请求头部，发送给服务端。这可以用来实现记录用户登录状态等
-    功能。
+    功能。cookie 一般可以存储 4k 大小的数据，并且只能够被同源的网页所共享访问。
 
-    服务器端可以使用 Set-Cookie 的响应头部来发送 cookie 信息。一条 cookie 包括了5个属性值 expires、domain
+    服务器端可以使用 Set-Cookie 的响应头部来配置 cookie 信息。一条 cookie 包括了5个属性值 expires、domain
     、path、secure、HttpOnly。其中 expires 指定了 cookie 失效的时间，domain 是域名、path 是路径，domain
     和 path一起限制了 cookie 能够被哪些 url 访问。secure 规定了 cookie 只能在确保安全的情况下传输，HttpOnly
     规定了这个 cookie 只能被服务器访问，不能使用 js 脚本访问。
@@ -1380,7 +1399,7 @@
 
 65. DOM 操作——怎样添加、移除、移动、复制、创建和查找节点？
  
-    ```
+    ```js
     （1）创建新节点
         createDocumentFragment(node)    
         createElement(node)   
@@ -1706,8 +1725,7 @@
     ```
     Polyfill 指的是用于实现浏览器并不支持的原生 API 的代码。
     
-    比如说 querySelectorAll 是很多现代浏览器都支持的原生 
-    Web API，但是有些古老的浏览器并不支持，那么假设有
+    比如说 querySelectorAll 是很多现代浏览器都支持的原生 Web API，但是有些古老的浏览器并不支持，那么假设有
     人写了一段代码来实现这个功能使这些浏览器也支持了这个功能，那么这就可以成为一个 Polyfill。
 
     一个 shim 是一个库，有自己的 API，而不是单纯实现原生不支持的 API。
@@ -1735,7 +1753,7 @@
 86. 介绍一下 js 的节流与防抖？
     
     相关知识点：
-    ```
+    ```js
     函数防抖： 在事件被触发 n 秒后再执行回调，如果在这 n 秒内事件又被触发，则重新计时。
 
     函数节流： 规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间
@@ -1886,34 +1904,42 @@
 91. js 中的深浅拷贝实现？
     
     相关资料：
-    ```
+    ```js
     浅拷贝的实现
 
-    var shallowCopy = function(obj) {
-    // 只拷贝对象
-    if (!obj || (typeof obj !== "object")) return;
-    // 根据obj的类型判断是新建一个数组还是对象
-    var newObj = obj instanceof Array ? [] : {};
-    // 遍历obj，并且判断是obj的属性才拷贝
-    for (var key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            newObj[key] = obj[key];
+    function shallowCopy(object) {
+
+      // 只拷贝对象
+      if (!object || typeof object !== "object") return;
+
+      // 根据 object 的类型判断是新建一个数组还是对象
+      let newObject = Array.isArray(object) ? [] : {};
+
+      // 遍历 object，并且判断是 object 的属性才拷贝
+      for (let key in object) {
+        if (object.hasOwnProperty(key)) {
+          newObject[key] = object[key];
         }
-    }
-    return newObj;
+      }
+
+      return newObject;
     }
 
     深拷贝的实现
 
-    var deepCopy = function(obj) {
-    if (!obj || (typeof obj !== "object")) return;
-    var newObj = obj instanceof Array ? [] : {};
-    for (var key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            newObj[key] = typeof obj[key] === 'object' ? deepCopy(obj[key]) : obj[key];
+    function deepCopy(object) {
+
+      if (!object || typeof object !== "object") return;
+
+      let newObject = Array.isArray(object) ? [] : {};
+
+      for (let key in object) {
+        if (object.hasOwnProperty(key)) {
+          newObject[key] = typeof object[key] === "object" ? deepCopy(object[key]) : object[key];
         }
-    }
-    return newObj;
+      }
+
+      return newObject;
     }
     ```
     回答：
@@ -1933,13 +1959,13 @@
 92. 手写 call、apply 及 bind 函数
     
     相关资料：
-    ```
+    ```js
     call函数实现
 
     Function.prototype.myCall = function (context) {
       // 判断调用对象
       if (typeof this !== "function") {
-        throw new TypeError("Error")
+        console.error("type error");
       }
 
       // 获取参数
@@ -2004,10 +2030,10 @@
       var args = [...arguments].slice(1),
         fn = this;
 
-      return function F() {
+      return function Fn() {
 
         // 根据调用方式，传入不同绑定值
-        return fn.apply(this instanceof F ? this : context, args.concat(...arguments));
+        return fn.apply(this instanceof Fn ? this : context, args.concat(...arguments));
       }
 
     }
@@ -2109,7 +2135,7 @@
     存储型指的是恶意代码提交到了网站的数据库中，当用户请求数据的时候，服务器将其拼接为 HTML 后返回给了用户，从而
     导致了恶意代码的执行。
 
-    发射型指的是攻击者构建了特殊的 URL，当服务器接收到请求后，从 URL 中获取数据，拼接到 HTML 后返回，从而导致了
+    反射型指的是攻击者构建了特殊的 URL，当服务器接收到请求后，从 URL 中获取数据，拼接到 HTML 后返回，从而导致了
     代码的执行。
 
     DOM 型指的是攻击者构建了特殊的 URL，用户打开网站后，js 脚本从 URL 中获取数据，从而导致了恶意代码的执行。
@@ -2171,8 +2197,8 @@
     参数中加入服务器端返回的 token ，然后服务器对这个 token 进行验证。这种方法解决了使用 cookie 单一验证方
     式时，可能会被冒用的问题，但是这种方法存在一个缺点就是，我们需要给网站中的所有请求都添加上这个 token，操作
     比较繁琐。还有一个问题是一般不会只有一台网站服务器，如果我们的请求进过负载平衡转移到了其他的服务器，但是这个
-    服务器的 session 中没有保留这个 token 的话，就没有办法验证了。这种情况我们可以通过改变token 的构建方式来
-    解决。
+    服务器的 session 中没有保留这个 token 的话，就没有办法验证了。这种情况我们可以通过改变 token 的构建方式
+    来解决。
 
     第三种方式使用双重 Cookie 验证的办法，服务器在用户访问网站页面时，向请求域名注入一个Cookie，内容为随机字
     符串，然后当用户再次向服务器发送请求的时候，从 cookie 中取出这个字符串，添加到 URL 参数中，然后服务器通过
@@ -2305,7 +2331,7 @@
 
 104. 如何比较两个 DOM 树的差异？
      ```
-     两个数的完全 diff 算法的时间复杂度为 O(n^3) ，但是在前端中，我们很少会跨层级的移动元素，所以我们只需要比较
+     两个树的完全 diff 算法的时间复杂度为 O(n^3) ，但是在前端中，我们很少会跨层级的移动元素，所以我们只需要比较
      同一层级的元素进行比较，这样就可以将算法的时间复杂度降低为 O(n)。
 
      算法首先会对新旧两棵树进行一个深度优先的遍历，这样每个节点都会有一个序号。在深度遍历的时候，每遍历到一个节点，
@@ -2471,7 +2497,7 @@
      URI 指的是统一资源标识符，用唯一的标识来确定一个资源，它是一种抽象的定义，也就是说，不管使用什么方法来
      定义，只要能唯一的标识一个资源，就可以称为 URI。
 
-     URL 指的是统一资源定位符，URN 指的是统一资源化名称。URL 和 URN 是 URI 的子集，URL 可以理解为使用地
+     URL 指的是统一资源定位符，URN 指的是统一资源名称。URL 和 URN 是 URI 的子集，URL 可以理解为使用地
      址来标识资源，URN 可以理解为使用名称来标识资源。
      ```
      详细资料可以参考：
@@ -2571,10 +2597,10 @@
 117. 为什么使用 setTimeout 实现 setInterval？怎么模拟？
      
      相关知识点：
-     ```
+     ```js
      思路是使用递归函数，不断地去执行 setTimeout 从而达到 setInterval 的效果
 
-     function mySetInterval(fn, time) {
+     function mySetInterval(fn, timeout) {
         // 控制器，控制定时器是否继续执行
         var timer = {
           flag: true
@@ -2584,12 +2610,12 @@
         function interval() {
           if (timer.flag) {
             fn();
-            setTimeout(interval, time);
+            setTimeout(interval, timeout);
           }
         }
 
         // 启动定时器
-        setTimeout(interval, time);
+        setTimeout(interval, timeout);
 
         // 返回控制器
         return timer;
@@ -2658,7 +2684,7 @@
      （1）ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。
 
      （2）WeakSet 结构与 Set 类似，也是不重复的值的集合。但是 WeakSet 的成员只能是对象，而不能是其他类型的值。
-          WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，
+         WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，
      ```
 
 123. Map 和 WeakMap 结构？
@@ -2741,7 +2767,7 @@
      [Promise](http://es6.ruanyifeng.com/#docs/promise#Promise-resolve)
 
 128. 手写一个 Promise
-     ```
+     ```js
      const PENDING = 'pending';
      const RESOLVED = 'resolved';
      const REJECTED = 'rejected';
@@ -2783,8 +2809,8 @@
              self.value = value;
 
              // 执行回调函数
-             self.resolvedCallbacks.forEach(fn => {
-               fn(value)
+             self.resolvedCallbacks.forEach(callback => {
+               callback(value)
              });
            }
          }, 0);
@@ -2807,8 +2833,8 @@
              self.value = value;
 
              // 执行回调函数
-             self.rejectedCallbacks.forEach(fn => {
-               fn(value)
+             self.rejectedCallbacks.forEach(callback => {
+               callback(value)
              });
            }
          }, 0);
@@ -3253,3 +3279,29 @@
      [一道考察运算符优先级的JavaScript面试题](https://segmentfault.com/q/1010000008430170)
      [一道常被人轻视的前端JS面试题](https://www.cnblogs.com/xxcanghai/p/5189353.html)
      
+
+153. 如何确定页面的可用性时间，什么是 Performance API？
+     ```
+     Performance API 用于精确度量、控制、增强浏览器的性能表现。这个 API 为测量网站性能，提供以前没有办法做
+     到的精度。
+     
+     使用 getTime 来计算脚本耗时的缺点，首先，getTime方法（以及Date对象的其他方法）都只能精确到毫秒级别（一
+     秒的千分之一），想要得到更小的时间差别就无能为力了。其次，这种写法只能获取代码运行过程中的时间进度，无法知
+     道一些后台事件的时间进度，比如浏览器用了多少时间从服务器加载网页。
+
+     为了解决这两个不足之处，ECMAScript 5引入“高精度时间戳”这个API，部署在performance对象上。它的精度可以达
+     到1毫秒的千分之一（1秒的百万分之一）。
+
+     navigationStart：当前浏览器窗口的前一个网页关闭，发生unload事件时的Unix毫秒时间戳。如果没有前一个网页，
+     则等于 fetchStart 属性。
+
+     loadEventEnd：返回当前网页 load 事件的回调函数运行结束时的 Unix 毫秒时间戳。如果该事件还没有发生，返回
+     0。
+
+     根据上面这些属性，可以计算出网页加载各个阶段的耗时。比如，网页加载整个过程的耗时的计算方法如下：
+
+     var t = performance.timing; 
+     var pageLoadTime = t.loadEventEnd - t.navigationStart;
+     ```
+     详细资料可以参考：
+     [Performance API](http://javascript.ruanyifeng.com/bom/performance.html)
