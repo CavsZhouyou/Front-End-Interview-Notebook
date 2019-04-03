@@ -217,13 +217,13 @@
 
 10. 在 js 中不同进制数字的表示方式
   
-   ```
-   （1）以 0X、0x 开头的表示为十六进制。
+    ```
+    （1）以 0X、0x 开头的表示为十六进制。
 
-   （2）以 0、0O、0o 开头的表示为八进制。
+    （2）以 0、0O、0o 开头的表示为八进制。
 
-   （3）以 0B、0b 开头的表示为二进制格式。
-   ```
+    （3）以 0B、0b 开头的表示为二进制格式。
+    ```
 
 12. js 中整数的安全范围是多少？
     ```
@@ -3077,27 +3077,27 @@
      Vue 一共有8个生命阶段，分别是创建前、创建后、加载前、加载后、更新前、更新后、销毁前和销毁后，每个阶段对
      应了一个生命周期的钩子函数。
 
-    （1）beforeCreate 钩子函数，在实例初始化之后，在数据监听和事件配置之前触发。因此在这个事件中我们是获取
-        不到 data 数据的。
+     （1）beforeCreate 钩子函数，在实例初始化之后，在数据监听和事件配置之前触发。因此在这个事件中我们是获取
+         不到 data 数据的。
 
-    （2）created 钩子函数，在实例创建完成后触发，此时可以访问 data、methods 等属性。但这个时候组件还没有
-        被挂载到页面中去，所以这个时候访问不到 $el 属性。一般我们可以在这个函数中进行一些页面初始化的工作，
-        比如通过 ajax 请求数据来对页面进行初始化。
+     （2）created 钩子函数，在实例创建完成后触发，此时可以访问 data、methods 等属性。但这个时候组件还没有
+         被挂载到页面中去，所以这个时候访问不到 $el 属性。一般我们可以在这个函数中进行一些页面初始化的工作，
+         比如通过 ajax 请求数据来对页面进行初始化。
 
-    （3）beforeMount 钩子函数，在组件被挂载到页面之前触发。在 beforeMount 之前，会找到对应的 template，
-        并编译成 render 函数。
+     （3）beforeMount 钩子函数，在组件被挂载到页面之前触发。在 beforeMount 之前，会找到对应的 template，
+         并编译成 render 函数。
 
-    （4）mounted 钩子函数，在组件挂载到页面之后触发。此时可以通过 DOM API 获取到页面中的 DOM 元素。
+     （4）mounted 钩子函数，在组件挂载到页面之后触发。此时可以通过 DOM API 获取到页面中的 DOM 元素。
 
-    （5）beforeUpdate 钩子函数，在响应式数据更新时触发，发生在虚拟 DOM 重新渲染和打补丁之前，这个时候我们
-        可以对可能会被移除的元素做一些操作，比如移除事件监听器。
+     （5）beforeUpdate 钩子函数，在响应式数据更新时触发，发生在虚拟 DOM 重新渲染和打补丁之前，这个时候我们
+         可以对可能会被移除的元素做一些操作，比如移除事件监听器。
 
-    （6）updated 钩子函数，虚拟 DOM 重新渲染和打补丁之后调用。
+     （6）updated 钩子函数，虚拟 DOM 重新渲染和打补丁之后调用。
 
-    （7）beforeDestroy 钩子函数，在实例销毁之前调用。一般在这一步我们可以销毁定时器、解绑全局事件等。
+     （7）beforeDestroy 钩子函数，在实例销毁之前调用。一般在这一步我们可以销毁定时器、解绑全局事件等。
 
-    （8）destroyed 钩子函数，在实例销毁之后调用，调用后，Vue 实例中的所有东西都会解除绑定，所有的事件监听器
-        会被移除，所有的子实例也会被销毁。
+     （8）destroyed 钩子函数，在实例销毁之后调用，调用后，Vue 实例中的所有东西都会解除绑定，所有的事件监听
+         器会被移除，所有的子实例也会被销毁。
 
      当我们使用 keep-alive 的时候，还有两个钩子函数，分别是 activated 和 deactivated 。用 keep-alive
      包裹的组件在切换时不会进行销毁，而是缓存到内存中并执行 deactivated 钩子函数，命中缓存渲染后会执行 act
@@ -3143,15 +3143,15 @@
 
 142. vue-router 中的导航钩子函数
      ```
-    （1）全局的钩子函数 beforeEach 和 afterEach
+     （1）全局的钩子函数 beforeEach 和 afterEach
 
          beforeEach 有三个参数，to 代表要进入的路由对象，from 代表离开的路由对象。next 是一个必须要执
          行的函数，如果不传参数，那就执行下一个钩子函数，如果传入 false，则终止跳转，如果传入一个路径，则
          导航到对应的路由，如果传入 error ，则导航终止，error 传入错误的监听函数。
 
-    （2）单个路由独享的钩子函数 beforeEnter，它是在路由配置上直接进行定义的。
+     （2）单个路由独享的钩子函数 beforeEnter，它是在路由配置上直接进行定义的。
 
-    （3）组件内的导航钩子主要有这三种：beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave。它们
+     （3）组件内的导航钩子主要有这三种：beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave。它们
         是直接在路由组件内部直接进行定义的。
      ```
      详细资料可以参考：
@@ -3219,22 +3219,22 @@
 
 149. 开发中常用的几种 Content-Type ？
      ```
-    （1）application/x-www-form-urlencoded
+     （1）application/x-www-form-urlencoded
 
         浏览器的原生 form 表单，如果不设置 enctype 属性，那么最终就会以 application/x-www-form-urlencoded 
         方式提交数据。该种方式提交的数据放在 body 里面，数据按照 key1=val1&key2=val2 的方式进
         行编码，key 和 val 都进行了 URL 转码。
 
-    （2）multipart/form-data
-    
+     （2）multipart/form-data
+
         该种方式也是一个常见的 POST 提交方式，通常表单上传文件时使用该种方式。
 
-    （3）application/json
+     （3）application/json
         
         告诉服务器消息主体是序列化后的 JSON 字符串。
 
-    （4）text/xml
-    
+     （4）text/xml
+
         该种方式主要用来提交 XML 格式的数据。
      ```
      详细资料可以参考：
