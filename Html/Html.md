@@ -30,7 +30,7 @@
    兼容的方式显示，模拟老式浏览器的行为以防止站点无法工作。
    ```
 
-3. HTML5 为什么只需要写 <!DOCTYPE HTML>？
+3. HTML5 为什么只需要写 `<!DOCTYPE HTML>`，而不需要引入 DTD？
    ```
    HTML5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 DOCTYPE 来规范浏览器的行为（让浏览器按照它们
    应该的方式来运行）。
@@ -83,10 +83,11 @@
    
    （1） 格式上，默认情况下，行内元素不会以新行开始，而块级元素会新起一行。
    （2） 内容上，默认情况下，行内元素只能包含文本和其他行内元素。而块级元素可以包含行内元素和其他块级元素。
-   （3） 行内元素与块级元素属性的不同，主要是盒模型属性上：行内元素设置 width 无效，height 无效（可以设置           line-height），设置 margin 和 padding 的上下不会对其他元素产生影响。
+   （3） 行内元素与块级元素属性的不同，主要是盒模型属性上：行内元素设置 width 无效，height 无效（可以设
+        置 line-height），设置 margin 和 padding 的上下不会对其他元素产生影响。
    ```
 
-9.  HTML5 元素的分类
+9. HTML5 元素的分类
    ```
    HTML4中，元素被分成两大类: inline（内联元素）与 block（块级元素）。但在实际的开发过程中，因为页面表现
    的需要，前端工程师经常把 inline 元素的 display 值设定为 block （比如 a 标签），也经常把 block 元素
@@ -142,10 +143,10 @@
 
     简单来说浏览器可以分为两部分，shell 和 内核。
 
-    其中 shell 的种类相对比较多，内核则比较少。shell 是指浏览器的外壳：例如菜单，工具栏 等。主要是提供给
-    用户界面操作，参数设置等等。它是调用内核来实现各种功能的。内核才是浏览器的核心。内核是基于标记语言显示内
-    容的程序或模块。也有一些浏览器并不区分外壳和内核。从 Mozilla 将 Gecko 独立出来后，才有了外壳和内核的
-    明确划分。
+    其中 shell 的种类相对比较多，内核则比较少。shell 是指浏览器的外壳：例如菜单，工具栏等。主要是提供给
+    用户界面操作，参数设置等等。它是调用内核来实现各种功能的。内核才是浏览器的核心。内核是基于标记语言显示
+    内容的程序或模块。也有一些浏览器并不区分外壳和内核。从 Mozilla 将 Gecko 独立出来后，才有了外壳和内
+    核的明确划分。
     ```
 
 
@@ -164,9 +165,10 @@
 16. 常见的浏览器内核比较
     ```
     Trident：这种浏览器内核是 IE 浏览器用的内核，因为在早期 IE 占有大量的市场份额，所以这种内核比较流行，
-    以前有很多网页也是根据这个内核的标准来编写的，但是实际上这个内核对真正的网页标准支持不是很好。但是由于 IE 
-    的高市场占有率，微软也很长时间没有更新 Trident 内核，就导致了 Trident 内核和 W3C 标准脱节。还有就是 Trident 内核的大量 Bug 等安全问题没有得到解决，加上一些专家学者公开自己认为 IE 浏览器不安全的观点，使
-    很多用户开始转向其他浏览器。
+    以前有很多网页也是根据这个内核的标准来编写的，但是实际上这个内核对真正的网页标准支持不是很好。但是由于 
+    IE 的高市场占有率，微软也很长时间没有更新 Trident 内核，就导致了 Trident 内核和 W3C 标准脱节。还有
+    就是 Trident 内核的大量 Bug 等安全问题没有得到解决，加上一些专家学者公开自己认为 IE 浏览器不安全的观
+    点，使很多用户开始转向其他浏览器。
 
     Gecko：这是 Firefox 和 Flock 所采用的内核，这个内核的优点就是功能强大、丰富，可以支持很多复杂网页效果
     和浏览器扩展接口，但是代价是也显而易见就是要消耗很多的资源，比如内存。
@@ -186,8 +188,8 @@
 
     ```
     详细的资料可以参考：
-    [浏览器内核的解析和对比](http://www.cnblogs.com/fullhouse/archive/2011/12/19/2293455.html)
-    [五大主流浏览器内核的源起以及国内各大浏览器内核总结](https://blog.csdn.net/Summer_15/article/details/71249203)
+    [《浏览器内核的解析和对比》](http://www.cnblogs.com/fullhouse/archive/2011/12/19/2293455.html)
+    [《五大主流浏览器内核的源起以及国内各大浏览器内核总结》](https://blog.csdn.net/Summer_15/article/details/71249203)
 
 
 17. 常见浏览器所用内核
@@ -237,10 +239,10 @@
      可能还在通过网络下载其余内容。
     ```
     详细资料可以参考：
-    [浏览器渲染原理](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc7207f265da613c09425d)
-    [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)
-    [前端必读：浏览器内部工作原理](https://kb.cnblogs.com/page/129756/)
-    [深入浅出浏览器渲染原理](https://blog.fundebug.com/2019/01/03/understand-browser-rendering/)
+    [《浏览器渲染原理》](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc7207f265da613c09425d)
+    [《浏览器的渲染原理简介》](https://coolshell.cn/articles/9666.html)
+    [《前端必读：浏览器内部工作原理》](https://kb.cnblogs.com/page/129756/)
+    [《深入浅出浏览器渲染原理》](https://blog.fundebug.com/2019/01/03/understand-browser-rendering/)
 
 19. 渲染过程中遇到 JS 文件怎么处理？（浏览器解析过程）
     
@@ -266,7 +268,7 @@
         就是说它的执行仍然会阻塞文档的解析，只是它的加载过程不会阻塞。多个脚本的执行顺序无法保证。
     ```
     详细资料可以参考：
-    [defer 和 async 的区别](https://segmentfault.com/q/1010000000640869)
+    [《defer 和 async 的区别》](https://segmentfault.com/q/1010000000640869)
 
 21. 什么是文档的预解析？（浏览器解析过程）
     ```
@@ -297,8 +299,8 @@
          脚本的加载会阻塞后面文档内容的解析，从而页面迟迟未渲染出来，出现白屏问题。
     ```
     详细资料可以参考：
-    [前端魔法堂：解秘 FOUC](https://juejin.im/entry/58f867045c497d0058e2ff3a)
-    [白屏问题和 FOUC](https://www.jianshu.com/p/6617efa874b0)
+    [《前端魔法堂：解秘 FOUC》](https://juejin.im/entry/58f867045c497d0058e2ff3a)
+    [《白屏问题和 FOUC》](https://www.jianshu.com/p/6617efa874b0)
 
 24. 如何优化关键渲染路径？（浏览器渲染过程）
     ```
@@ -325,7 +327,7 @@
     （4）优化其余关键资源的加载顺序：您需要尽早下载所有关键资产，以缩短关键路径长度。
     ```
     详细资料可以参考：
-    [优化关键渲染路径](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path?hl=zh-cn)
+    [《优化关键渲染路径》](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path?hl=zh-cn)
 
 25. 什么是重绘和回流？（浏览器绘制过程）
   
@@ -354,14 +356,14 @@
     ```
     常见引起重绘属性和方法：
 
-    ![常见引起重绘属性和方法](https://cavszhouyou-1254093697.cos.ap-chongqing.myqcloud.com/note-14.png)
+    ![常见引起重绘属性和方法](https://cavszhouyou-1254093697.cos.ap-chongqing.myqcloud.com/note-13.png)
 
     常见引起回流属性和方法：
 
     ![常见引起回流属性和方法](https://cavszhouyou-1254093697.cos.ap-chongqing.myqcloud.com/note-14.png)
 
     详细资料可以参考：
-    [浏览器的回流与重绘](https://juejin.im/post/5a9923e9518825558251c96a)
+    [《浏览器的回流与重绘》](https://juejin.im/post/5a9923e9518825558251c96a)
 
 26. 如何减少回流？（浏览器绘制过程）
     ```
@@ -389,7 +391,7 @@
     Load 事件是当所有资源加载完成后触发的。
     ```
     详细资料可以参考：
-    [DOMContentLoaded 事件 和 Load 事件的区别？](https://www.jianshu.com/p/ca8dae435a2c)
+    [《DOMContentLoaded 事件 和 Load 事件的区别？》](https://www.jianshu.com/p/ca8dae435a2c)
 
 
 29. HTML5 有哪些新特性、移除了那些元素？
@@ -450,9 +452,9 @@
     、font 这些没有语义的标签。
     ```
     详细资料可以参考：
-    [语义化的 HTML 结构到底有什么好处？](https://www.html.cn/archives/1668)
-    [如何理解 Web 语义化？](https://www.zhihu.com/question/20455165)
-    [我的 HTML 会说话——从实用出发，谈谈 HTML 的语义化](https://juejin.im/post/5a9c8866f265da23741072bf#heading-5)
+    [《语义化的 HTML 结构到底有什么好处？》](https://www.html.cn/archives/1668)
+    [《如何理解 Web 语义化？》](https://www.zhihu.com/question/20455165)
+    [《我的 HTML 会说话——从实用出发，谈谈 HTML 的语义化》](https://juejin.im/post/5a9c8866f265da23741072bf#heading-5)
 
 32. b 与 strong 的区别和 i 与 em 的区别？
     ```
@@ -469,7 +471,7 @@
     ``` 
     
     详细资料可以参考：
-    [HTML5 中的 b/strong，i/em 有什么区别？](https://www.zhihu.com/question/19551271)
+    [《HTML5 中的 b/strong，i/em 有什么区别？》](https://www.zhihu.com/question/19551271)
 
 
 33. 前端需要注意哪些 SEO ？
@@ -549,8 +551,8 @@
     ```
 
     详细的使用可以参考：
-    [HTML5 离线缓存-manifest简介](https://yanhaijing.com/html/2014/12/28/html5-manifest/)
-    [有趣的 HTML5：离线存储](https://segmentfault.com/a/1190000000732617)
+    [《HTML5 离线缓存-manifest 简介》](https://yanhaijing.com/html/2014/12/28/html5-manifest/)
+    [《有趣的 HTML5：离线存储》](https://segmentfault.com/a/1190000000732617)
 
 
 35. 浏览器是怎么对 HTML5 的离线储存资源进行管理和加载的呢？
@@ -571,7 +573,7 @@
 
     IE 支持 userData 存储数据，但是基本很少使用到，除非有很强的浏览器兼容需求。
     ```
-    [很全很全的前端本地存储讲解](https://segmentfault.com/a/1190000012578794#articleHeader0)
+    [《很全很全的前端本地存储讲解》](https://segmentfault.com/a/1190000012578794#articleHeader0)
 
 37. 请描述一下 cookies，sessionStorage 和 localStorage 的区别？
 
@@ -623,8 +625,8 @@
     ```
 
     详细的资料可以参考：
-    [请描述一下 cookies，sessionStorage 和 localStorage 的区别？](https://segmentfault.com/a/1190000017423117)
-    [浏览器数据库 IndexedDB 入门教程](http://www.ruanyifeng.com/blog/2018/07/indexeddb.html)
+    [《请描述一下 cookies，sessionStorage 和 localStorage 的区别？》](https://segmentfault.com/a/1190000017423117)
+    [《浏览器数据库 IndexedDB 入门教程》](http://www.ruanyifeng.com/blog/2018/07/indexeddb.html)
 
 38. iframe 有那些缺点？
     ```
@@ -641,8 +643,8 @@
     （5） 小型的移动设备无法完全显示框架。
     ```
     详细的资料可以参考：
-    [使用 iframe 的优缺点](https://blog.csdn.net/yintianqin/article/details/72625785)
-    [iframe 简单探索以及 iframe 跨域处理](https://segmentfault.com/a/1190000009891683)
+    [《使用 iframe 的优缺点》](https://blog.csdn.net/yintianqin/article/details/72625785)
+    [《iframe 简单探索以及 iframe 跨域处理》](https://segmentfault.com/a/1190000009891683)
 
 39. Label 的作用是什么？是怎么用的？
     ```
@@ -699,12 +701,12 @@
     ```
     详细的资料可以参考：
 
-    [WebSocket 教程](http://www.ruanyifeng.com/blog/2017/05/websocket.html)
-    [WebSocket 协议：5分钟从入门到精通](https://www.cnblogs.com/chyingp/p/websocket-deep-in.html)
-    [WebSocket 学习（一）——基于 socket.io 实现简单多人聊天室](https://segmentfault.com/a/1190000011538416)
-    [使用 Web Storage API](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-    [JavaScript 的多线程，Worker 和 SharedWorker](https://www.zhuwenlong.com/blog/article/590ea64fe55f0f385f9a12e5)
-    [实现多个标签页之间通信的几种方法](https://juejin.im/post/5acdba01f265da23826e5633#heading-1)
+    [《WebSocket 教程》](http://www.ruanyifeng.com/blog/2017/05/websocket.html)
+    [《WebSocket 协议：5分钟从入门到精通》](https://www.cnblogs.com/chyingp/p/websocket-deep-in.html)
+    [《WebSocket 学习（一）——基于 socket.io 实现简单多人聊天室》](https://segmentfault.com/a/1190000011538416)
+    [《使用 Web Storage API》](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+    [《JavaScript 的多线程，Worker 和 SharedWorker》](https://www.zhuwenlong.com/blog/article/590ea64fe55f0f385f9a12e5)
+    [《实现多个标签页之间通信的几种方法》](https://juejin.im/post/5acdba01f265da23826e5633#heading-1)
   
 
 42. webSocket 如何兼容低版本浏览器？(阿里)
@@ -726,7 +728,7 @@
     ```
 
     详细资料可以参考：
-    [Page Visibility API 教程](http://www.ruanyifeng.com/blog/2018/10/page_visibility_api.html)
+    [《Page Visibility API 教程》](http://www.ruanyifeng.com/blog/2018/10/page_visibility_api.html)
 
 44. 如何在页面上实现一个圆形的可点击区域？
     ```
@@ -741,8 +743,8 @@
         位置是否在我们规定的圆形区域内。
     ```
     详细资料可以参考：
-    [如何在页面上实现一个圆形的可点击区域？](https://maizi93.github.io/2017/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%8A%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%9C%86%E5%BD%A2%E7%9A%84%E5%8F%AF%E7%82%B9%E5%87%BB%E5%8C%BA%E5%9F%9F%EF%BC%9F/)
-    [HTML <area><map> 标签及在实际开发中的应用](https://www.zhangxinxu.com/wordpress/2017/05/html-area-map/)
+    [《如何在页面上实现一个圆形的可点击区域？》](https://maizi93.github.io/2017/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%8A%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%9C%86%E5%BD%A2%E7%9A%84%E5%8F%AF%E7%82%B9%E5%87%BB%E5%8C%BA%E5%9F%9F%EF%BC%9F/)
+    [《HTML <area><map> 标签及在实际开发中的应用》](https://www.zhangxinxu.com/wordpress/2017/05/html-area-map/)
 
 
 45. 实现不使用 border 画出 1 px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。
@@ -892,7 +894,7 @@
     <meta http-equiv=”expires” content=”0″>
     ```
     详细资料可以参考：
-    [Meta 标签用法大全](http://www.cnblogs.com/qiumohanyu/p/5431859.html)
+    [《Meta 标签用法大全》](http://www.cnblogs.com/qiumohanyu/p/5431859.html)
 
 58. css reset 和 normalize.css 有什么区别
     
@@ -953,8 +955,8 @@
 
     ```
     详细资料可以参考：
-    [关于CSS Reset 那些事（一）之 历史演变与 Normalize.css](https://segmentfault.com/a/1190000003021766#articleHeader0)
-    [Normalize.css 和 Reset CSS 有什么本质区别没？](https://segmentfault.com/q/1010000000117189)
+    [《关于CSS Reset 那些事（一）之 历史演变与 Normalize.css》](https://segmentfault.com/a/1190000003021766#articleHeader0)
+    [《Normalize.css 和 Reset CSS 有什么本质区别没？》](https://segmentfault.com/q/1010000000117189)
 
 59. 用于预格式化文本的标签是？
     ```
@@ -1070,16 +1072,16 @@
     （4）通过对 JavaScript 和 CSS 的文件进行压缩，来减小文件的体积。
     ```
     详细的资料可以参考：
-    [前端性能优化之雅虎35条军规](https://juejin.im/post/5b73ef38f265da281e048e51#heading-10)
-    [你真的了解 gzip 吗？](https://juejin.im/entry/58709b9a128fe1006b29cd5d)
-    [前端性能优化之 gzip](https://segmentfault.com/a/1190000012571492)
+    [《前端性能优化之雅虎35条军规》](https://juejin.im/post/5b73ef38f265da281e048e51#heading-10)
+    [《你真的了解 gzip 吗？》](https://juejin.im/entry/58709b9a128fe1006b29cd5d)
+    [《前端性能优化之 gzip》](https://segmentfault.com/a/1190000012571492)
 
 
 68. Chrome 中的 Waterfall ？
     详细资料可以参考：
-    [前端性能之Chrome的Waterfall](https://blog.csdn.net/carian_violet/article/details/84954360)
-    [教你读懂网络请求的瀑布图](https://blog.csdn.net/csdn_girl/article/details/54911632)
-    [前端妹子跟我抱怨她们的页面加载很慢的时候，如何在她面前优雅地装逼？](https://www.zhihu.com/question/27085552/answer/35194131)
+    [《前端性能之 Chrome 的 Waterfall》](https://blog.csdn.net/carian_violet/article/details/84954360)
+    [《教你读懂网络请求的瀑布图》](https://blog.csdn.net/csdn_girl/article/details/54911632)
+    [《前端妹子跟我抱怨她们的页面加载很慢的时候，如何在她面前优雅地装逼？》](https://www.zhihu.com/question/27085552/answer/35194131)
 
 
 67. 扫描二维码登录网页是什么原理，前后两个事件是如何联系的？
@@ -1099,4 +1101,4 @@
     络断开、其他设备上登录后，此前获得的令牌或丢失、或失效，对授权过程能够形成有效的安全防护。
     ```
     详细资料可以参考：
-    [微信扫描二维码登录网页](https://www.zhihu.com/question/20368066)
+    [《微信扫描二维码登录网页》](https://www.zhihu.com/question/20368066)
