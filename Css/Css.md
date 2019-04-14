@@ -61,7 +61,7 @@
     比如 :first-line、:first-letter、:before、:after 等，
     而新的在 CSS3 中引入的伪元素则不允许再支持旧的单冒号的写法。
 
-    想让插入的内容出现在其它内容前，使用 ::before，否者，使用 ::after；
+    想让插入的内容出现在其它内容前，使用 ::before，否则，使用 ::after；
     在代码顺序上，::after 生成的内容也比 ::before 生成的内容靠后。
     如果按堆栈视角，::after 生成的内容会在 ::before 生成的内容之上。
     ```
