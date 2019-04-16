@@ -2092,106 +2092,106 @@
     1. 利用浮动，将左边元素宽度设置为 200px ，并且设置向左浮动。将右边元素的 margin-left 设置
        为 200px，宽度设置为 auto （默认为 auto，撑满整个父元素）。
 
-    .outer {
-      height: 100px;
-    }
+       .outer {
+         height: 100px;
+       }
 
-    .left {
-      float: left;
+       .left {
+         float: left;
 
-      height: 100px;
-      width: 200px;
+         height: 100px;
+         width: 200px;
 
-      background: tomato;
-    }
+         background: tomato;
+       }
 
-    .right {
-      margin-left: 200px;
+       .right {
+         margin-left: 200px;
 
-      width: auto;
-      height: 100px;
+         width: auto;
+         height: 100px;
 
-      background: gold;
-    }
+         background: gold;
+       }
 
 
     2. 第二种是利用 flex 布局，将左边元素的放大和缩小比例设置为 0，基础大小设置为 200px。将右边的
        元素的放大比例设置为 1，缩小比例设置为 1，基础大小设置为 auto。
 
-    .outer {
-      display: flex;
+       .outer {
+         display: flex;
 
-      height: 100px;
-    }
+         height: 100px;
+       }
 
-    .left {
-      flex-shrink: 0;
-      flex-grow: 0;
-      flex-basis: 200px;
+       .left {
+         flex-shrink: 0;
+         flex-grow: 0;
+         flex-basis: 200px;
 
-      background: tomato;
-    }
+         background: tomato;
+       }
 
-    .right {
-      flex: auto;
-      /* 1 1 auto */
+       .right {
+         flex: auto;
+         /* 1 1 auto */
 
-      background: gold;
-    }
+         background: gold;
+       }
 
 
     3. 第三种是利用绝对定位布局的方式，将父级元素设置相对定位。左边元素设置为 absolute 定位，并且
        宽度设置为 200px。将右边元素的 margin-left 的值设置为 200px。
 
-    .outer {
-      position: relative;
+       .outer {
+         position: relative;
 
-      height: 100px;
-    }
+         height: 100px;
+       }
 
-    .left {
-      position: absolute;
+       .left {
+         position: absolute;
 
-      width: 200px;
-      height: 100px;
+         width: 200px;
+         height: 100px;
 
-      background: tomato;
-    }
+         background: tomato;
+       }
 
-    .right {
-      margin-left: 200px;
-      height: 100px;
+       .right {
+         margin-left: 200px;
+         height: 100px;
 
-      background: gold;
-    }
+         background: gold;
+       }
 
 
     4. 第四种还是利用绝对定位的方式，将父级元素设置为相对定位。左边元素宽度设置为 200px，右边元素
        设置为绝对定位，左边定位为 200px，其余方向定位为 0。
 
-     .outer {
-       position: relative;
+        .outer {
+          position: relative;
 
-       height: 100px;
-     }
+          height: 100px;
+        }
 
-     .left {
-       width: 200px;
-       height: 100px;
+        .left {
+          width: 200px;
+          height: 100px;
 
-       background: tomato;
-     }
+          background: tomato;
+        }
 
-     .right {
-       position: absolute;
+        .right {
+          position: absolute;
 
-       top: 0;
-       right: 0;
-       bottom: 0;
-       left: 200px;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 200px;
 
-       background: gold;
-     }
+          background: gold;
+        }
     ```
     [两栏布局 demo 展示](http://cavszhouyou.top/Demo-Display/TwoColumnLayout/index.html)
 
@@ -2213,3 +2213,204 @@
     4. 第四种还是利用绝对定位的方式，将父级元素设置为相对定位。左边元素宽度设置为 200px，右边元素
        设置为绝对定位，左边定位为 200px，其余方向定位为 0。
     ```
+
+100. css 三栏布局的实现？
+     
+     相关资料：
+     ```css
+     三栏布局一般指的是页面中一共有三栏，左右两栏宽度固定，中间自适应的布局，一共有五种实现方式。
+
+     这里以左边宽度固定为 100px，右边宽度固定为 200px 为例。
+
+     1. 利用绝对定位的方式，左右两栏设置为绝对定位，中间设置对应方向大小的 margin 的值。
+
+        .outer {
+          position: relative;
+          height: 100px;
+        }
+
+        .left {
+          position: absolute;
+
+          width: 100px;
+          height: 100px;
+          background: tomato;
+        }
+
+        .right {
+          position: absolute;
+          top: 0;
+          right: 0;
+
+          width: 200px;
+          height: 100px;
+          background: gold;
+        }
+
+        .center {
+          margin-left: 100px;
+          margin-right: 200px;
+          height: 100px;
+          background: lightgreen;
+        } 
+
+
+     2. 利用 flex 布局的方式，左右两栏的放大和缩小比例都设置为0，基础大小设置为固定的大小，中间一栏设
+        置为 auto
+
+        .outer {
+          display: flex;
+          height: 100px;
+        }
+
+        .left {
+          flex: 0 0 100px;
+          background: tomato;
+        }
+
+        .right {
+          flex: 0 0 200px;
+          background: gold;
+        }
+
+        .center {
+          flex: auto;
+          background: lightgreen;
+        }
+
+
+     3. 利用浮动的方式，左右两栏设置固定大小，并设置对应方向的浮动。中间一栏设置左右两个方向的 margin 值，
+        注意这种方式，中间一栏必须放到最后
+
+        .outer {
+          height: 100px;
+        }
+
+        .left {
+          float: left;
+          width: 100px;
+          height: 100px;
+          background: tomato;
+        }
+
+        .right {
+          float: right;
+          width: 200px;
+          height: 100px;
+          background: gold;
+        }
+
+        .center {
+          height: 100px;
+          margin-left: 100px;
+          margin-right: 200px;
+          background: lightgreen;
+        }
+
+
+     4. 双飞翼布局，利用浮动和负边距来实现。父级元素设置左右的 pedding，三列均设置向左浮动，中间一列放
+        在最前面，宽度设置为父级元素的宽度，因此后面两列都被挤到了下一行，通过设置 margin 负值将其移动
+        到上一行，再利用相对定位，定位到两边。
+
+        .outer {
+          height: 100px;
+          padding-left: 100px;
+          padding-right: 200px;
+        }
+
+        .left {
+          position: relative;
+          left: -100px;
+
+          float: left;
+          margin-left: -100%;
+
+          width: 100px;
+          height: 100px;
+          background: tomato;
+        }
+
+        .right {
+          position: relative;
+          left: 200px;
+
+          float: right;
+          margin-left: -200px;
+
+          width: 200px;
+          height: 100px;
+          background: gold;
+        }
+
+        .center {
+          float: left;
+
+          width: 100%;
+          height: 100px;
+          background: lightgreen;
+        }
+
+      
+      5. 双飞翼布局，双飞翼布局相对于圣杯布局来说，左右位置的保留是通过中间列的 margin 值来实现的，而不
+         是通过父元素的 pedding 来实现的。本质上来说，也是通过浮动和外边距负值来实现的。
+
+         .outer {
+            height: 100px;
+          }
+
+          .left {
+            float: left;
+            margin-left: -100%;
+
+            width: 100px;
+            height: 100px;
+            background: tomato;
+          }
+
+          .right {
+            float: left;
+            margin-left: -200px;
+
+            width: 200px;
+            height: 100px;
+            background: gold;
+          }
+
+          .wrapper {
+            float: left;
+
+            width: 100%;
+            height: 100px;
+            background: lightgreen;
+          }
+
+          .center {
+            margin-left: 100px;
+            margin-right: 200px;
+            height: 100px;
+          }
+     ```
+     [三栏布局 demo 展示](http://cavszhouyou.top/Demo-Display/ThreeColumnLayout/index.html)
+
+     回答：
+     ```
+     三栏布局一般指的是页面中一共有三栏，左右两栏宽度固定，中间自适应的布局，一共有五种实现方式。
+
+     这里以左边宽度固定为 100px，右边宽度固定为 200px 为例。
+
+     1. 利用绝对定位的方式，左右两栏设置为绝对定位，中间设置对应方向大小的 margin 的值。
+
+     2. 利用 flex 布局的方式，左右两栏的放大和缩小比例都设置为0，基础大小设置为固定的大小，中间一栏设
+        置为 auto。
+
+     3. 利用浮动的方式，左右两栏设置固定大小，并设置对应方向的浮动。中间一栏设置左右两个方向的 margin 
+        值，注意这种方式，中间一栏必须放到最后。
+
+     4. 圣杯布局，利用浮动和负边距来实现。父级元素设置左右的 pedding，三列均设置向左浮动，中间一列放在
+        最前面，宽度设置为父级元素的宽度，因此后面两列都被挤到了下一行，通过设置 margin 负值将其移动到
+        上一行，再利用相对定位，定位到两边。双飞翼布局中间列的宽度不能小于两边任意列的宽度，而双飞翼布局
+        则不存在这个问题。
+
+     5. 双飞翼布局，双飞翼布局相对于圣杯布局来说，左右位置的保留是通过中间列的 margin 值来实现的，而不
+        是通过父元素的 pedding 来实现的。本质上来说，也是通过浮动和外边距负值来实现的。
+     ```
