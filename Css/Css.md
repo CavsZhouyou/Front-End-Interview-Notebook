@@ -2414,3 +2414,39 @@
      5. 双飞翼布局，双飞翼布局相对于圣杯布局来说，左右位置的保留是通过中间列的 margin 值来实现的，而不
         是通过父元素的 pedding 来实现的。本质上来说，也是通过浮动和外边距负值来实现的。
      ```
+
+101. 实现一个宽高自适应的正方形
+     ```css
+     1. 第一种方式是利用 vw 来实现
+
+        .square {
+          width: 10%;
+          height: 10vw;
+          background: tomato;
+        }
+
+
+     2. 第二种方式是利用元素的 margin/padding 百分比是相对父元素 width 的性质来实现
+
+        .square{
+          width: 20%;
+          height: 0;
+          padding-top: 20%;
+          background: orange;
+        }
+
+
+     3. 第三种方式是利用子元素的 margin-top 的值来实现的
+
+        .square {
+          width: 30%;
+          overflow: hidden;
+          background: yellow;
+        }
+
+        .square::after {
+          content: "";
+          display: block;
+          margin-top: 100%;
+        }
+     ```
