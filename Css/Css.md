@@ -2080,3 +2080,136 @@
     ```
     详细资料可以参考：
     [css 实现上下固定中间自适应布局](https://www.jianshu.com/p/30bc9751e3e8)
+
+99. css 两栏布局的实现？
+    
+    相关资料：
+    ```css
+    两栏布局一般指的是页面中一共两栏，左边固定，右边自适应的布局，一共有四种实现的方式。
+
+    以左边宽度固定为 200px 为例
+
+    1. 利用浮动，将左边元素宽度设置为 200px ，并且设置向左浮动。将右边元素的 margin-left 设置
+       为 200px，宽度设置为 auto （默认为 auto，撑满整个父元素）。
+
+    .outer {
+      height: 100px;
+    }
+
+    .left {
+      float: left;
+
+      height: 100px;
+      width: 200px;
+
+      background: tomato;
+    }
+
+    .right {
+      margin-left: 200px;
+
+      width: auto;
+      height: 100px;
+
+      background: gold;
+    }
+
+
+    2. 第二种是利用 flex 布局，将左边元素的放大和缩小比例设置为 0，基础大小设置为 200px。将右边的
+       元素的放大比例设置为 1，缩小比例设置为 1，基础大小设置为 auto。
+
+    .outer {
+      display: flex;
+
+      height: 100px;
+    }
+
+    .left {
+      flex-shrink: 0;
+      flex-grow: 0;
+      flex-basis: 200px;
+
+      background: tomato;
+    }
+
+    .right {
+      flex: auto;
+      /* 1 1 auto */
+
+      background: gold;
+    }
+
+
+    3. 第三种是利用绝对定位布局的方式，将父级元素设置相对定位。左边元素设置为 absolute 定位，并且
+       宽度设置为 200px。将右边元素的 margin-left 的值设置为 200px。
+
+    .outer {
+      position: relative;
+
+      height: 100px;
+    }
+
+    .left {
+      position: absolute;
+
+      width: 200px;
+      height: 100px;
+
+      background: tomato;
+    }
+
+    .right {
+      margin-left: 200px;
+      height: 100px;
+
+      background: gold;
+    }
+
+
+    4. 第四种还是利用绝对定位的方式，将父级元素设置为相对定位。左边元素宽度设置为 200px，右边元素
+       设置为绝对定位，左边定位为 200px，其余方向定位为 0。
+
+     .outer {
+       position: relative;
+
+       height: 100px;
+     }
+
+     .left {
+       width: 200px;
+       height: 100px;
+
+       background: tomato;
+     }
+
+     .right {
+       position: absolute;
+
+       top: 0;
+       right: 0;
+       bottom: 0;
+       left: 200px;
+
+       background: gold;
+     }
+    ```
+    [两栏布局 demo 展示](http://cavszhouyou.top/Demo-Display/TwoColumnLayout/index.html)
+
+    回答：
+    ```
+    两栏布局一般指的是页面中一共两栏，左边固定，右边自适应的布局，一共有四种实现的方式。
+
+    以左边宽度固定为 200px 为例
+
+    1. 利用浮动，将左边元素宽度设置为 200px ，并且设置向左浮动。将右边元素的 margin-left 设置
+       为 200px，宽度设置为 auto （默认为 auto，撑满整个父元素）。 
+
+    2. 第二种是利用 flex 布局，将左边元素的放大和缩小比例设置为 0，基础大小设置为 200px。将右边
+       的元素的放大比例设置为 1，缩小比例设置为 1，基础大小设置为 auto。
+
+    3. 第三种是利用绝对定位布局的方式，将父级元素设置相对定位。左边元素设置为 absolute 定位，并且
+       宽度设置为 200px。将右边元素的 margin-left 的值设置为 200px。
+
+    4. 第四种还是利用绝对定位的方式，将父级元素设置为相对定位。左边元素宽度设置为 200px，右边元素
+       设置为绝对定位，左边定位为 200px，其余方向定位为 0。
+    ```

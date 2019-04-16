@@ -158,6 +158,7 @@
    当我们对两种类型使用 typeof 进行判断的时候，Null 类型化会返回 “object”，这是一个历史遗留的问题。当我们使
    用双等号对两种类型的值进行比较时会返回 true，使用三个等号时会返回 false。
    ```
+   详细资料可以参考：
    [JavaScript 深入理解之 undefined 与 null](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8Bundefined%E4%B8%8Enull.html)
 
 
@@ -532,6 +533,7 @@
 
     嗯我目前了解到的就是这么几种方式。
     ```
+    详细资料可以参考：
     [JavaScript深入理解之对象创建](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA.html)
 
 31. JavaScript 继承的几种实现方式？
@@ -562,6 +564,7 @@
     （6）第六种方式是寄生式组合继承，组合继承的缺点就是使用超类型的实例做为子类型的原型，导致添加了不必要的原
         型属性。寄生式组合继承的方式是使用超类型的原型的副本来作为子类型的原型，这样就避免了创建不必要的属性。
     ```
+    详细资料可以参考： 
     [JavaScript 深入理解之继承](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E7%BB%A7%E6%89%BF.html)
   
 32. 寄生式组合继承的实现？
@@ -600,6 +603,7 @@
 
     作用域链的创建过程跟执行上下文的建立有关....
     ```
+    详细资料可以参考：
     [JavaScript 深入理解之作用域链](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE.html)
 
 34. 谈谈 This 对象的理解。
@@ -2430,8 +2434,8 @@
      阅者推送，订阅者收到通知后更改自己的数据。
 
      ```
-    详细资料可以参考：
-    [Vue.js 双向绑定的实现原理](http://www.cnblogs.com/kidney/p/6052935.html?utm_source=gold_browser_extension)
+     详细资料可以参考：
+     [Vue.js 双向绑定的实现原理](http://www.cnblogs.com/kidney/p/6052935.html?utm_source=gold_browser_extension)
 
 105. 使用 Object.defineProperty() 来进行数据劫持有什么缺点？
      ```
