@@ -2450,3 +2450,17 @@
           margin-top: 100%;
         }
      ```
+     [自适应正方形 demo 展示](http://cavszhouyou.top/Demo-Display/AdaptiveSquare/index.html)
+
+102. 实现一个三角形
+     ```css
+     三角形的实现原理是利用了元素边框连接处的等分原理。
+
+     .triangle{
+        width: 0;
+        height: 0;
+        border-width: 100px;
+        border-style: solid;
+        border-color: tomato transparent transparent transparent;
+     }
+     ```
