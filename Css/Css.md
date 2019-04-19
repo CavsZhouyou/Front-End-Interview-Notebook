@@ -2005,29 +2005,29 @@
     [CSS 多行文本溢出省略显示](https://juejin.im/entry/587f453e1b69e60058555a5f)
 
 
-98. display: none;、visibility: hidden、opacity=0 区别总结？
+98. 常见的元素隐藏方式？
     ```
-     display: none;
-    1、浏览器不会生成属性为 display: none; 的元素。 
-    2、display: none; 不占据空间，所以动态改变此属性时会引起重排。 
-    3、display: none; 不会被子类继承，但是子类是不会显示的。 
-    4、display 是个尴尬的属性，transition 对它无效。（毫无争议）
+    （1）使用 display:none; 隐藏元素，渲染树不会包含该渲染对象，因此该元素不会在页面中占据位置，也不会
+         响应绑定的监听事件。
 
-    visibility: hidden;
-    1、元素会被隐藏，但是不会消失，依然占据空间。 
-    2、visibility: hidden; 会被子类继承，子类也可以通过显示的设置 visibility: visible; 来反隐藏。 
-    3、visibility: hidden; 不会触发该元素已经绑定的事件。 
-    4、visibility: hidden; 动态修改此属性会引起重绘。 
-    5、visibility，transition 对它无效。
+    （2）使用 visibility:hidden; 隐藏元素。元素在页面中仍占据空间，但是不会响应绑定的监听事件。
 
-    opacity=0
-    1、opacity=0 只是透明度为 100%，元素隐藏，依然占据空间。 
-    2、opacity=0 会被子元素继承，且，子元素并不能通过 opacity=1，进行反隐藏。不能。 
-    3、opacity=0 的元素依然能触发已经绑定的事件。 
-    4、opacity，transition 对它有效。
+    （3）使用 opacity: 0; 将元素的透明度设置为 0，以此来实现元素的隐藏。元素在页面中仍然占据空间，并且
+        能够响应元素绑定的监听事件。
+
+    （4）通过使用绝对定位将元素移除可视区域内，以此来实现元素的隐藏。
+    
+    （5）通过 z-index 负值，来使其他元素遮盖住该元素，以此来实现隐藏。
+
+    （6）通过 clip/clip-path 元素裁剪的方法来实现元素的隐藏，这种方法下，元素仍在页面中占据位置，但是
+        不会响应绑定的监听事件。
+
+    （7）通过 transform: scale(0,0) 来将元素缩放为 0，以此来实现元素的隐藏。这种方法下，元素仍在页面
+        中占据位置，但是不会响应绑定的监听事件。
+
     ```
     详细资料可以参考：
-    [display: none;、visibility: hidden、opacity=0区别总结](https://blog.csdn.net/WRian_Ban/article/details/51958195)
+    [CSS 隐藏元素的八种方法](https://juejin.im/post/584b645a128fe10058a0d625#heading-2)
 
 
 99.  css 实现上下固定中间自适应布局？
