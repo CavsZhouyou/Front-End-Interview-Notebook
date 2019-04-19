@@ -113,7 +113,8 @@
        font、font-family、font-weight、font-size、font-style、font-variant、font-stretch、font-size-adjust
     
    （2）文本系列属性
-       text-indent、text-align、text-shadow、line-height、word-spacing、letter-spacing、text-transform、direction、color
+       text-indent、text-align、text-shadow、line-height、word-spacing、letter-spacing、
+       text-transform、direction、color
     
    （3）表格布局属性
        caption-side border-collapse empty-cells
@@ -416,7 +417,7 @@
     ```
   
 10. display 有哪些值？说明他们的作用。
-   ```
+    ```
     block       	块类型。默认宽度为父元素宽度，可设置宽高，换行显示。
     none        	元素不显示，并从文档流中移除。
     inline      	行内元素类型。默认宽度为内容宽度，不可设置宽高，同行显示。
@@ -424,9 +425,9 @@
     list-item   	像块类型元素一样显示，并添加样式列表标记。
     table       	此元素会作为块级表格来显示。
     inherit     	规定应该从父元素继承 display 属性的值。
-   ```
-   详细资料可以参考：
-   [CSS display 属性](http://www.w3school.com.cn/css/pr_class_display.asp)
+    ```
+    详细资料可以参考：
+    [CSS display 属性](http://www.w3school.com.cn/css/pr_class_display.asp)
 
 12. position 的值 relative 和 absolute 定位原点是？
     
@@ -774,14 +775,15 @@
     
     （3） 如果 position 的值不为 absolute 或者 fixed，则判断 float 属性的值是否为 none ，如果不是，则
          display 的值则按上面的规则转换。注意，如果 position 的值为 relative 并且 float 属性的值存在，
-         则 relative 失效。
+         则 relative 相对于浮动后的最终位置定位。
      
     （4） 如果 float 的值为 none ，则判断元素是否为根元素，如果是根元素则 display 属性按照上面的规则转换，
          如果不是，则保持指定的 display 属性值不变。
 
     总的来说，可以把它看作是一个类似优先级的机制， "position:absolute" 和 "position:fixed" 优先级最高，
     有它存在的时候，浮动不起作用，'display' 的值也需要调整；其次，元素的 'float' 特性的值不是 "none" 的
-    时候或者它是根元素的时候，调整 'display' 的值； 最后，非根元素，并且非浮动元素，并且非绝对定位的元素，'display' 特性值同设置值。
+    时候或者它是根元素的时候，调整 'display' 的值； 最后，非根元素，并且非浮动元素，并且非绝对定位的元素，
+    'display' 特性值同设置值。
 
     ```
     详细资料可以参考：
@@ -854,7 +856,7 @@
     也可以将父元素设置为 BFC 来解决。
 
     第三种是高度为 auto 的父元素的 margin-bottom 和子元素的 margin-bottom 发生重叠。它们发生重叠一个
-    是因为它们相邻，一个是因为父元素的高度不固定。因此我们可以为父元素社会 border-bottom、padding-bottom
+    是因为它们相邻，一个是因为父元素的高度不固定。因此我们可以为父元素设置 border-bottom、padding-bottom
     来分隔它们，也可以为父元素设置一个高度，max-height 和 min-height 也能解决这个问题。当然将父元素设置
     为 BFC 是最简单的方法。
 
@@ -1062,13 +1064,13 @@
     只要选择器的子树一直在工作，样式系统就会持续左移，直到和规则匹配，或者是因为不匹配而放弃该规则。
 
     试想一下，如果采用从左至右的方式读取 CSS 规则，那么大多数规则读到最后（最右）才会发现是不匹配的，
-    这样会做费时耗能，最后有很多都是无用的；而如果采取从右向左的方式，那么只要发现最右边选择器不匹配，
+    这样做会费时耗能，最后有很多都是无用的；而如果采取从右向左的方式，那么只要发现最右边选择器不匹配，
     就可以直接舍弃了，避免了许多无效匹配。
     ```
     详细资料可以参考：
     [探究 CSS 解析原理](https://juejin.im/entry/5a123c55f265da432240cc90)
 
-36. 在网页中的应该使用奇数还是偶数的字体？为什么呢？
+36. 在网页中应该使用奇数还是偶数的字体？为什么呢？
     
     ```
     （1）偶数字号相对更容易和 web 设计的其他部分构成比例关系。比如：当我用了 14 px 的正文字号，我可能会
@@ -1161,9 +1163,9 @@
 
 43. 元素竖向的百分比设定是相对于容器的高度吗？
     ```
-    如果是 height 的话，是相对于容器高度。
+    如果是 height 的话，是相对于包含块的高度。
     
-    如果是 padding 或者 margin 竖直方向的属性则是相对于容器的宽度。
+    如果是 padding 或者 margin 竖直方向的属性则是相对于包含块的宽度。
     ```
 
 44. 全屏滚动的原理是什么？用到了 CSS 的哪些属性？（待深入实践）
@@ -1312,7 +1314,8 @@
 
     第三个视口是理想视口，由于 layout viewport 一般比 visual viewport 要大，所以想要看到整个页面必须通
     过拖动和缩放才能实现。所以又提出了 ideal viewport 的概念，ideal viewport 下用户不用缩放和滚动条就能
-    够查看到整个页面，并且页面在不同分辨率下显示的内容大小相同。ideal viewport 其实就是通过修改 layout viewport 的大小，让它等于设备的宽度，这个宽度可以理解为是设备独立像素，因此根据 ideal viewport 设计的
+    够查看到整个页面，并且页面在不同分辨率下显示的内容大小相同。ideal viewport 其实就是通过修改 layout 
+    viewport 的大小，让它等于设备的宽度，这个宽度可以理解为是设备独立像素，因此根据 ideal viewport 设计的
     页面，在不同分辨率的屏幕下，显示应该相同。
     ```
     详细资料可以参考：
@@ -1479,8 +1482,9 @@
 
 62. 阐述一下 CSS Sprites
     ```
-    将一个页面涉及到的所有图片都包含到一张大图中去，然后利用 CSS 的 background-image，background-repeat，background-position 的组合进行背景定位。利用 CSS Sprites 能很好地减少网页的 http 请求，从而很好的
-    提高页面的性能；CSS Sprites 能减少图片的字节。
+    将一个页面涉及到的所有图片都包含到一张大图中去，然后利用 CSS 的 background-image，background-rep
+    eat，background-position 的组合进行背景定位。利用 CSS Sprites 能很好地减少网页的 http 请求，从
+    而很好的提高页面的性能；CSS Sprites 能减少图片的字节。
 
     优点：
 
@@ -2464,3 +2468,25 @@
         border-color: tomato transparent transparent transparent;
      }
      ```
+     [三角形 demo 展示](http://cavszhouyou.top/Demo-Display/Triangle/index.html)
+
+
+103. 一个自适应矩形，水平垂直居中，且宽高比为 2:1
+     ```css
+     实现原理参考自适应正方形和水平居中方式
+
+     .box {
+       position: absolute;
+       top: 0;
+       right: 0;
+       left: 0;
+       bottom: 0;
+       margin: auto;
+
+       width: 10%;
+       height: 0;
+       padding-top: 20%;
+       background: tomato;
+     }
+     ```
+
