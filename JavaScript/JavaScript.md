@@ -3551,4 +3551,18 @@
      详细资料可以参考：
      [JavaScript 前端倒计时纠偏实现](https://juejin.im/post/5badf8305188255c8e728adc)
 
+
+164. 进程间通信的方式？
+     ```
+     （1）管道通信
+     （2）消息队列通信
+     （3）信号量通信
+     （4）信号通信
+     （5）共享内存通信
+     （6）套接字通信
+     ```
+     详细资料可以参考：
+     [进程间8种通信方式详解](https://blog.csdn.net/violet_echo_0908/article/details/51201278)
+     [进程与线程的一个简单解释](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
+
      
