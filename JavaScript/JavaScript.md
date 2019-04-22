@@ -187,8 +187,8 @@
    按惯例我们用 void 0 来获得 undefined。
    ```
 
-9.  说几条写 JavaScript 的基本规范？
-   
+9. 说几条写 JavaScript 的基本规范？
+
    ```
    在平常项目开发中，我们遵守一些这样的基本规范，比如说：
 
@@ -209,27 +209,27 @@
    （7）if 语句必须使用大括号。
    ```
 
-11. JavaScript 原型，原型链？ 有什么特点？
+10. JavaScript 原型，原型链？ 有什么特点？
    
-   ```
-   在 js 中我们是使用构造函数来新建一个对象的，每一个构造函数的内部都有一个 prototype 属性值，这个属性值
-   是一个对象，这个对象包含了可以由该构造函数的所有实例共享的属性和方法。当我们使用构造函数新建一个对象后，
-   在这个对象的内部将包含一个指针，这个指针指向构造函数的 prototype 属性对应的值，在 ES5 中这个指针被称为
-   对象的原型。一般来说我们是不应该能够获取到这个值的，但是现在浏览器中都实现了 __proto__ 属性来让我们访问
-   这个属性，但是我们最好不要使用这个属性，因为它不是规范中规定的。ES5 中新增了一个 Object.getPrototype
-   Of() 方法，我们可以通过这个方法来获取对象的原型。
+    ```
+    在 js 中我们是使用构造函数来新建一个对象的，每一个构造函数的内部都有一个 prototype 属性值，这个属性值
+    是一个对象，这个对象包含了可以由该构造函数的所有实例共享的属性和方法。当我们使用构造函数新建一个对象后，
+    在这个对象的内部将包含一个指针，这个指针指向构造函数的 prototype 属性对应的值，在 ES5 中这个指针被称为
+    对象的原型。一般来说我们是不应该能够获取到这个值的，但是现在浏览器中都实现了 __proto__ 属性来让我们访问
+    这个属性，但是我们最好不要使用这个属性，因为它不是规范中规定的。ES5 中新增了一个 Object.getPrototype
+    Of() 方法，我们可以通过这个方法来获取对象的原型。
 
-   当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么它就会去它的原型对象里找这个属性，这个原型
-   对象又会有自己的原型，于是就这样一直找下去，也就是原型链的概念。原型链的尽头一般来说都是 Object.prototype
-   所以这就是我们新建的对象为什么能够使用 toString() 等方法的原因。
+    当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么它就会去它的原型对象里找这个属性，这个原型
+    对象又会有自己的原型，于是就这样一直找下去，也就是原型链的概念。原型链的尽头一般来说都是 Object.prototype
+    所以这就是我们新建的对象为什么能够使用 toString() 等方法的原因。
 
-   特点：
+    特点：
 
-   JavaScript 对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原
-   型时，与之相关的对象也会继承这一改变。
-   ```
-   详细资料可以参考：
-   [JavaScript 深入理解之原型与原型链](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.html)
+    JavaScript 对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原
+    型时，与之相关的对象也会继承这一改变。
+    ```
+    详细资料可以参考：
+    [JavaScript 深入理解之原型与原型链](http://cavszhouyou.top/JavaScript%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.html)
 
 
 12. 在 js 中不同进制数字的表示方式
@@ -416,8 +416,8 @@
     （6）如果两个操作值都是对象，则比较它们是不是指向同一个对象。如果两个操作数都指向同一个对象，则相等
         操作符返回 true，否则，返回 false。
     ```
-   详细资料可以参考：
-   [JavaScript 字符串间的比较](https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/)
+    详细资料可以参考：
+    [JavaScript 字符串间的比较](https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/)
 
 26. 如何将字符串转化为数字，例如 '12.3b'?
     ```
@@ -2297,7 +2297,7 @@
     toFixed 是对小数点后指定位数取整，从小数点开始数起。
     Math.round 是将一个数字四舍五入到一个整数。
     ```
-99.  什么是 XSS 攻击？如何防范 XSS 攻击？
+99. 什么是 XSS 攻击？如何防范 XSS 攻击？
     ```
     XSS 攻击指的是跨站脚本攻击，是一种代码注入攻击。攻击者通过在网站注入恶意脚本，使之在用户的浏览器上运行，
     从而盗取用户的信息如 cookie 等。
@@ -2335,15 +2335,15 @@
     [前端安全系列（一）：如何防止 XSS 攻击？](https://juejin.im/post/5bad9140e51d450e935c6d64)
 
 100. 什么是 CSP？
-    ```
-    CSP 指的是内容安全策略，它的本质是建立一个白名单，告诉浏览器哪些外部资源可以加载和执行。我们只需要配置规
-    则，如何拦截由浏览器自己来实现。
+     ```
+     CSP 指的是内容安全策略，它的本质是建立一个白名单，告诉浏览器哪些外部资源可以加载和执行。我们只需要配置规
+     则，如何拦截由浏览器自己来实现。
 
-    通常有两种方式来开启 CSP，一种是设置 HTTP 首部中的 Content-Security-Policy，一种是设置 meta 标签
-    的方式 <meta http-equiv="Content-Security-Policy">
-    ```
-    [内容安全策略（CSP）](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 
-    [前端面试之道](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc721851882516c33430a2)
+     通常有两种方式来开启 CSP，一种是设置 HTTP 首部中的 Content-Security-Policy，一种是设置 meta 标签
+     的方式 <meta http-equiv="Content-Security-Policy">
+     ```
+     [内容安全策略（CSP）](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 
+     [前端面试之道](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc721851882516c33430a2)
 
 101. 什么是 CSRF 攻击？如何防范 CSRF 攻击？
      ```
@@ -2485,7 +2485,18 @@
      详细资料可以参考：
      [Vue.js 双向绑定的实现原理](http://www.cnblogs.com/kidney/p/6052935.html?utm_source=gold_browser_extension)
 
-107. 使用 Object.defineProperty() 来进行数据劫持有什么缺点？
+107. Object.defineProperty 介绍？
+     ```
+     Object.defineProperty 函数一共有三个参数，第一个参数是需要定义属性的对象，第二个参数是需要定义的属性，
+     第三个是该属性描述符。
+
+     一个属性的描述符有四个属性，分别是 value 属性的值，writable 属性是否可写，enumerable 属性是否可枚举，
+     configurable 属性是否可配置修改。
+     ```
+     详细资料可以参考：
+     [Object.defineProperty()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+
+108. 使用 Object.defineProperty() 来进行数据劫持有什么缺点？
      ```
      有一些对属性的操作，使用这种方法无法拦截，比如说通过下标方式修改数组数据或者给对象新增属性，vue 内部通
      过重写函数解决了这个问题。在 Vue3.0 中已经不使用这种方式了，而是通过使用 Proxy 对对象进行代理，从而实
@@ -2493,7 +2504,7 @@
      是 ES6 的语法。
      ```
 
-108. 什么是 Virtual DOM？为什么 Virtual DOM 比原生 DOM 快？
+109. 什么是 Virtual DOM？为什么 Virtual DOM 比原生 DOM 快？
      ```
      我对 Virtual DOM 的理解是，
 
@@ -2517,7 +2528,7 @@
      [深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)
      [网上都说操作真实 DOM 慢，但测试结果却比 React 更快，为什么？](https://www.zhihu.com/question/31809713/answer/53544875)
 
-109. 如何比较两个 DOM 树的差异？
+110. 如何比较两个 DOM 树的差异？
      ```
      两个树的完全 diff 算法的时间复杂度为 O(n^3) ，但是在前端中，我们很少会跨层级的移动元素，所以我们只需
      要比较同一层级的元素进行比较，这样就可以将算法的时间复杂度降低为 O(n)。
@@ -2529,13 +2540,13 @@
      加上一个 key，列表对比的时候使用 key 来进行比较，这样我们才能够复用老的 DOM 树上的节点。
      ```
 
-110. 什么是 requestAnimationFrame ？
+111. 什么是 requestAnimationFrame ？
     详细资料可以参考：
     [你需要知道的 requestAnimationFrame](https://juejin.im/post/5a82f0626fb9a06358657c9c)
     [CSS3 动画那么强，requestAnimationFrame 还有毛线用？](https://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/)
 
 
-111. 谈谈你对 webpack 的看法
+112. 谈谈你对 webpack 的看法
      ```
      我当时使用 webpack 的一个最主要原因是为了简化页面依赖的管理，并且通过将其打包为一个文件来降低页面加
      载时请求的资源数。
@@ -2567,7 +2578,7 @@
      [前端构建工具发展及其比较](https://juejin.im/entry/5ae5c8c9f265da0b9f400d8e)
 
 
-112. offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别？
+113. offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别？
      ```
      clientWidth/clientHeight 返回的是元素的内部宽度，它的值只包含 content + padding，如果有滚动条，
      不包含滚动条。
@@ -2587,7 +2598,7 @@
      [最全的获取元素宽高及位置的方法](https://juejin.im/post/5bc9366d5188255c4834e75a)
      [用 Javascript 获取页面元素的位置](http://www.ruanyifeng.com/blog/2009/09/find_element_s_position_using_javascript.html)
 
-113. 谈一谈你理解的函数式编程？
+114. 谈一谈你理解的函数式编程？
      ```
      简单说，"函数式编程"是一种"编程范式"（programming paradigm），也就是如何编写程序的方法论。
 
@@ -2596,7 +2607,7 @@
      详细资料可以参考：
      [函数式编程初探](http://www.ruanyifeng.com/blog/2012/04/functional_programming.html)
 
-114. 异步编程的实现方式？
+115. 异步编程的实现方式？
      
      相关资料：
      ```
@@ -2647,7 +2658,7 @@
      写，并且这个函数可以自动执行。
      ```
 
-115. Js 动画与 CSS 动画区别及相应实现
+116. Js 动画与 CSS 动画区别及相应实现
      ```
      CSS3 的动画的优点
 
@@ -2664,7 +2675,7 @@
      动效的时候，就多考虑考虑 CSS 吧
      ```
 
-116. get 请求传参长度的误区
+117. get 请求传参长度的误区
      ```
      误区：我们经常说 get 请求参数的大小存在限制，而 post 请求的参数大小是无限制的。
 
@@ -2677,7 +2688,7 @@
      （4）要支持 IE，则最大长度为 2083byte，若只支持 Chrome，则最大长度 8182byte
      ```
 
-117. URL 和 URI 的区别？
+118. URL 和 URI 的区别？
      ```
      URI: Uniform Resource Identifier      指的是统一资源标识符
      URL: Uniform Resource Location        指的是统一资源定位符
@@ -2694,7 +2705,7 @@
      [你知道 URL、URI 和 URN 三者之间的区别吗？](http://web.jobbole.com/83452/)
      [URI、URL 和 URN 的区别](https://segmentfault.com/a/1190000006081973)
 
-118. get 和 post 请求在缓存方面的区别
+119. get 和 post 请求在缓存方面的区别
      
      相关知识点：
      ```
@@ -2713,7 +2724,7 @@
      详细资料可以参考：
      [HTML 关于 post 和 get 的区别以及缓存问题的理解](https://blog.csdn.net/qq_27093465/article/details/50479289)
 
-119. 图片的懒加载和预加载
+120. 图片的懒加载和预加载
      
      相关知识点：
      ```
@@ -2745,7 +2756,7 @@
      [网页图片加载优化方案](https://juejin.im/entry/5a73f38cf265da4e99575be3)
      [基于用户行为的图片等资源预加载](https://www.zhangxinxu.com/wordpress/2016/06/image-preload-based-on-user-behavior/)
 
-120. mouseover 和 mouseenter 的区别？
+121. mouseover 和 mouseenter 的区别？
      ```
      当鼠标移动到元素上时就会触发 mouseenter 事件，类似 mouseover，它们两者之间的差别是 mouseenter 
      不会冒泡。
@@ -2757,7 +2768,7 @@
      [mouseenter 与 mouseover 为何这般纠缠不清？](https://github.com/qianlongo/zepto-analysis/issues/1)
 
 
-121. js 拖拽功能的实现
+122. js 拖拽功能的实现
      
      相关知识点：
      ```
@@ -2784,7 +2795,7 @@
      详细资料可以参考：
      [原生 js 实现拖拽功能基本思路](https://blog.csdn.net/LZGS_4/article/details/43523465)
 
-122. 为什么使用 setTimeout 实现 setInterval？怎么模拟？
+123. 为什么使用 setTimeout 实现 setInterval？怎么模拟？
      
      相关知识点：
      ```js
@@ -2827,7 +2838,7 @@
      [setInterval 有什么缺点？](https://zhuanlan.zhihu.com/p/51995737)
 
 
-123. let 和 const 的注意点？
+124. let 和 const 的注意点？
      ```
      （1）声明的变量只在声明时的代码块内有效
 
@@ -2838,12 +2849,12 @@
      （4）不允许重复声明，重复声明会报错
      ```
 
-124. 什么是 rest 参数？
+125. 什么是 rest 参数？
      ```
      rest 参数（形式为...变量名），用于获取函数的多余参数。
      ```
 
-125. 什么是尾调用，使用尾调用有什么好处？
+126. 什么是尾调用，使用尾调用有什么好处？
      ```
      尾调用指的是函数的最后一步调用另一个函数。我们代码执行是基于执行栈的，所以当我们在一个函数里调用另一个
      函数时，我们会保留当前的执行上下文，然后再新建另外一个执行上下文加入栈中。使用尾调用的话，因为已经是函
@@ -2851,7 +2862,7 @@
      S6 的尾调用优化只在严格模式下开启，正常模式是无效的。
      ```
 
-126. Symbol 类型的注意点？
+127. Symbol 类型的注意点？
      ```
      （1）Symbol 函数前不能使用 new 命令，否则会报错。
 
@@ -2869,7 +2880,7 @@
      （6）Symbol.keyFor 方法返回一个已登记的 Symbol 类型值的 key。
      ```
 
-127. Set 和 WeakSet 结构？
+128. Set 和 WeakSet 结构？
      ```
      （1）ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。
 
@@ -2877,7 +2888,7 @@
          型的值。WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，
      ```
 
-128. Map 和 WeakMap 结构？
+129. Map 和 WeakMap 结构？
      ```
      （1）Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）
          都可以当作键。
@@ -2886,7 +2897,7 @@
          除外），不接受其他类型的值作为键名。而且 WeakMap 的键名所指向的对象，不计入垃圾回收机制。
      ```
 
-129. 什么是 Proxy ？
+130. 什么是 Proxy ？
      ```
      Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”，即对编程语言进行编程。
 
@@ -2895,7 +2906,7 @@
      以译为“代理器”。
      ```
 
-130. Reflect 对象的创建目的？
+131. Reflect 对象的创建目的？
      ```
      （1）将 Object 对象的一些明显属于语言内部的方法（比如 Object.defineProperty），放到 Reflect 对象
          上。
@@ -2909,7 +2920,7 @@
          基础。也就是说，不管 Proxy 怎么修改默认行为，你总可以在 Reflect 上获取默认行为。
      ```
 
-131. require 模块引入的查找方式？
+132. require 模块引入的查找方式？
      ```
      当 Node 遇到 require(X) 时，按下面的顺序处理。
 
@@ -2940,7 +2951,7 @@
      详细资料可以参考：
      [require() 源码解读](http://www.ruanyifeng.com/blog/2015/05/require.html)
 
-132. 什么是 Promise 对象，什么是 Promises/A+ 规范？
+133. 什么是 Promise 对象，什么是 Promises/A+ 规范？
      ```
      Promise 对象是异步编程的一种解决方案，最早由社区提出。Promises/A+ 规范是 JavaScript Promise 的
      标准，规定了一个 Promise 所必须具有的特性。
@@ -2956,7 +2967,7 @@
      [Promises/A+ 规范](http://www.ituring.com.cn/article/66566)
      [Promise](http://es6.ruanyifeng.com/#docs/promise#Promise-resolve)
 
-133. 手写一个 Promise
+134. 手写一个 Promise
      ```js
      const PENDING = 'pending';
      const RESOLVED = 'resolved';
@@ -3074,38 +3085,38 @@
 
      ```
     
-134. 如何检测浏览器所支持的最小字体大小？
+135. 如何检测浏览器所支持的最小字体大小？
      ```
      用 JS 设置 DOM 的字体为某一个值，然后再取出来，如果值设置成功，就说明支持。
      ``` 
 
-135. 怎么做 JS 代码 Error 统计？
+136. 怎么做 JS 代码 Error 统计？
      ```
      error 统计使用浏览器的 window.error 事件。
      ```
 
-136. 单例模式模式是什么？
+137. 单例模式模式是什么？
      ```
      单例模式保证了全局只有一个实例来被访问。比如说常用的如弹框组件的实现和全局状态的实现。
      ```
 
-137. 策略模式是什么？
+138. 策略模式是什么？
      ```
      策略模式主要是用来将方法的实现和方法的调用分离开，外部通过不同的参数可以调用不同的策略。我主要在 MVP
      模式解耦的时候用来将视图层的方法定义和方法调用分离。
      ```
 
-138. 代理模式是什么？
+139. 代理模式是什么？
      ```
      代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问。比如说常见的事件代理。
      ```
 
-139. 中介者模式是什么？
+140. 中介者模式是什么？
      ```
      中介者模式指的是，多个对象通过一个中介者进行交流，而不是直接进行交流，这样能够将通信的各个对象解耦。
      ```
 
-140. 适配器模式是什么？
+141. 适配器模式是什么？
      ```
      适配器用来解决两个接口不兼容的情况，不需要改变已有的接口，通过包装一层的方式实现两个接口的正常协作。假如
      我们需要一种新的接口返回方式，但是老的接口由于在太多地方已经使用了，不能随意更改，这个时候就可以使用适配
@@ -3117,14 +3128,27 @@
      [JavaScript 设计模式](https://juejin.im/post/59df4f74f265da430f311909#heading-3)
      [JavaScript 中常见设计模式整理](https://juejin.im/post/5afe6430518825428630bc4d)
 
+142. 观察者模式和发布订阅模式有什么不同？
+     ```
+     发布订阅模式其实属于广义上的观察者模式
 
-141. Vue 的生命周期是什么？
+     在观察者模式中，观察者需要直接订阅目标事件。在目标发出内容改变的事件后，直接接收事件并作出响应。
+
+     而在发布订阅模式中，发布者和订阅者之间多了一个调度中心。调度中心一方面从发布者接收事件，另一方面向订阅者
+     发布事件，订阅者需要在调度中心中订阅事件。通过调度中心实现了发布者和订阅者关系的解耦。使用发布订阅者模式
+     更利于我们代码的可维护性。
+     ```
+     详细资料可以参考：
+     [观察者模式和发布订阅模式有什么不同？](https://www.zhihu.com/question/23486749)
+
+
+143. Vue 的生命周期是什么？
      ```
      Vue 的生命周期指的是组件从创建到销毁的一系列的过程，被称为 Vue 的生命周期。通过提供的 Vue 在生命周期
      各个阶段的钩子函数，我们可以很好的在 Vue 的各个生命阶段实现一些操作。
      ```
 
-142. Vue 的各个生命阶段是什么？
+144. Vue 的各个生命阶段是什么？
      ```
      Vue 一共有8个生命阶段，分别是创建前、创建后、加载前、加载后、更新前、更新后、销毁前和销毁后，每个阶段对
      应了一个生命周期的钩子函数。
@@ -3160,7 +3184,7 @@
      [Vue 实例](https://cn.vuejs.org/v2/guide/instance.html)
 
 
-143. Vue 组件间的参数传递方式？
+145. Vue 组件间的参数传递方式？
      ```
      （1）父子组件间通信
 
@@ -3192,8 +3216,22 @@
      详细资料可以参考：
      [VUE 组件之间数据传递全集](https://juejin.im/entry/5ba215ac5188255c6d0d8345)
 
+146. computed 和 watch 的差异？
+     ```
+     （1）computed 是计算一个新的属性，并将该属性挂载到 Vue 实例上，而 watch 是监听已经存在且已挂载到 
+         Vue 实例上的数据，所以用 watch 同样可以监听 computed 计算属性的变化。
 
-144. vue-router 中的导航钩子函数
+     （2）computed 本质是一个惰性求值的观察者，具有缓存性，只有当依赖变化后，第一次访问 computed 属性，
+         才会计算新的值。而 watch 则是当数据发生变化便会调用执行函数。
+
+     （3）从使用场景上说，computed 适用一个数据被多个数据影响，而 watch 适用一个数据影响多个数据。
+     ```
+     详细资料可以参考：
+     [做面试的不倒翁：浅谈 Vue 中 computed 实现原理](https://juejin.im/post/5b98c4da6fb9a05d353c5fd7)
+     [深入理解 Vue 的 watch 实现原理及其实现方式](https://juejin.im/post/5af908ea5188254265399009)
+     
+
+147. vue-router 中的导航钩子函数
      ```
      （1）全局的钩子函数 beforeEach 和 afterEach
 
@@ -3210,20 +3248,20 @@
      [导航守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%85%A8%E5%B1%80%E5%89%8D%E7%BD%AE%E5%AE%88%E5%8D%AB)
 
 
-145. $route 和 $router 的区别？
+148. $route 和 $router 的区别？
      
      ```
      $route 是“路由信息对象”，包括 path，params，hash，query，fullPath，matched，name 等路由信息参
      数。而 $router 是“路由实例”对象包括了路由的跳转方法，钩子函数等。
      ```
 
-146. vue 常用的修饰符？
+149. vue 常用的修饰符？
      ```
      .prevent: 提交事件不再重载页面；.stop: 阻止单击事件冒泡；.self: 当事件发生在该元素本身而不是子元素
      的时候会触发；
      ```
 
-147. vue中 key 值的作用？
+150. vue中 key 值的作用？
      ```
      vue 中 key 值的作用可以分为两种情况来考虑。
 
@@ -3243,20 +3281,20 @@
      [Vue2.0 v-for 中 :key 到底有什么用？](https://www.zhihu.com/question/61064119)
      [vue 中 key 的作用](https://www.cnblogs.com/RainyBear/p/8563101.html)
 
-148. computed 和 watch 区别？
+151. computed 和 watch 区别？
      ```
      computed 是计算属性，依赖其他属性计算值，并且 computed 的值有缓存，只有当计算值变化才会返回内容。
 
      watch 监听到值的变化就会执行回调，在回调中可以进行一些逻辑操作。
      ```
 
-149. keep-alive 组件有什么作用？
+152. keep-alive 组件有什么作用？
      ```
      如果你需要在组件切换的时候，保存一些组件的状态防止多次渲染，就可以使用 keep-alive 组件包裹需要保存的
      组件。
      ```
 
-150. mixin 和 mixins 区别？
+153. mixin 和 mixins 区别？
      ```
      mixin 用于全局混入，会影响到每个组件实例。
 
@@ -3269,7 +3307,7 @@
      [混入](https://cn.vuejs.org/v2/guide/mixins.html)
      
 
-151. 开发中常用的几种 Content-Type ？
+154. 开发中常用的几种 Content-Type ？
      ```
      （1）application/x-www-form-urlencoded
 
@@ -3293,7 +3331,7 @@
      [常用的几种 Content-Type](https://honglu.me/2015/07/13/%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8DContent-Type/)
 
 
-152. 如何封装一个 javascript 的类型判断函数？
+155. 如何封装一个 javascript 的类型判断函数？
      ```js
      function getType(value) {
 
@@ -3321,7 +3359,7 @@
      详细资料可以参考：
      [JavaScript 专题之类型判断(上)](https://github.com/mqyqingfeng/Blog/issues/28)
 
-153. 如何判断一个对象是否为空对象？
+156. 如何判断一个对象是否为空对象？
      ```js
      function checkNullObj (obj) {
          return Object.keys(obj).length === 0;
@@ -3331,7 +3369,7 @@
      [js 判断一个 object 对象是否为空](https://blog.csdn.net/FungLeo/article/details/78113661)
 
 
-154. 使用闭包实现每隔一秒打印 1,2,3,4
+157. 使用闭包实现每隔一秒打印 1,2,3,4
      ```js
 
      使用闭包实现
@@ -3354,7 +3392,7 @@
      ```
 
 
-155. 手写一个 jsonp
+158. 手写一个 jsonp
      ```js
      function jsonp(url, params, callback) {
 
@@ -3397,7 +3435,7 @@
      [jsonp的原理与实现](https://segmentfault.com/a/1190000007665361#articleHeader1)
 
 
-156. 手写一个观察者模式？
+159. 手写一个观察者模式？
      ```js
      var events = (function () {
 
@@ -3453,7 +3491,7 @@
      [JS事件模型](https://segmentfault.com/a/1190000006934031#articleHeader1)
 
 
-157. 一道常被人轻视的前端JS面试题
+160. 一道常被人轻视的前端JS面试题
      ```js
      function Foo() {
         getName = function () { alert (1); };
@@ -3479,7 +3517,7 @@
      [一道常被人轻视的前端JS面试题](https://www.cnblogs.com/xxcanghai/p/5189353.html)
      
 
-158. 如何确定页面的可用性时间，什么是 Performance API？
+161. 如何确定页面的可用性时间，什么是 Performance API？
      ```
      Performance API 用于精确度量、控制、增强浏览器的性能表现。这个 API 为测量网站性能，提供以前没有办
      法做到的精度。
@@ -3506,7 +3544,7 @@
      [Performance API](http://javascript.ruanyifeng.com/bom/performance.html)
 
 
-159. js 中的命名规则
+162. js 中的命名规则
      ```
      1. 第一个字符必须是字母、下划线（_）或美元符号（$）
      2. 余下的字符可以是下划线、美元符号或任何字母或数字字符
@@ -3515,19 +3553,19 @@
      [ECMAScript 变量](http://www.w3school.com.cn/js/pro_js_variables.asp)
 
 
-160. Object.assign()
+163. Object.assign()
      ```
      Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
      ```
 
-161. Math.ceil 和 Math.floor
+164. Math.ceil 和 Math.floor
      ```
      Math.ceil() === 向上取整，函数返回一个大于或等于给定数字的最小整数。
 
      Math.floor() === 向下取整，函数返回一个小于或等于给定数字的最大整数。
      ```
 
-162. js for 循环注意点
+165. js for 循环注意点
      ```js
      for (var i = 0, j = 0;  i < 5, j < 9; i++, j++) {
        console.log(i, j);
@@ -3537,7 +3575,7 @@
      当判断语句为空时，循环会一直进行。
      ```
 
-163. 一个列表，假设有100000个数据，这个该怎么办？ 
+166. 一个列表，假设有100000个数据，这个该怎么办？ 
      ```
      我们需要思考的问题：该处理是否必须同步完成？数据是否必须按顺序完成？
 
@@ -3551,7 +3589,7 @@
          然后再使用定时器取出下一个要处理的项目进行处理，接着再设置另一个定时器。
      ```
 
-164. js 中倒计时的纠偏实现？
+167. js 中倒计时的纠偏实现？
      ```
      在前端实现中我们一般通过 setTimeout 和 setInterval 方法来实现一个倒计时效果。但是使用这些方法会存
      在时间偏差的问题，这是由于 js 的程序执行机制造成的，setTimeout 和 setInterval 的作用是隔一段时间
@@ -3572,7 +3610,7 @@
      [JavaScript 前端倒计时纠偏实现](https://juejin.im/post/5badf8305188255c8e728adc)
 
 
-165. 进程间通信的方式？
+168. 进程间通信的方式？
      ```
      （1）管道通信
      （2）消息队列通信
@@ -3584,5 +3622,40 @@
      详细资料可以参考：
      [进程间8种通信方式详解](https://blog.csdn.net/violet_echo_0908/article/details/51201278)
      [进程与线程的一个简单解释](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
+
+169. 如何查找一篇英文文章中出现频率最高的单词？
+     ```js
+     function findMostWord(article) {
+
+       // 合法性判断
+       if (!article) return;
+
+       // 参数处理
+       article = article.trim().toLowerCase();
+
+       let wordList = article.match(/[a-z]+/g),
+         visited = [],
+         maxNum = 0,
+         maxWord = "";
+
+       article = " " + wordList.join("  ") + " ";
+
+       // 遍历判断单词出现次数
+       wordList.forEach(function (item) {
+         if (visited.indexOf(item) < 0) {
+           let word = new RegExp(" " + item + " ", "g"),
+             num = article.match(word).length;
+
+           if (num > maxNum) {
+             maxNum = num;
+             maxWord = item;
+           }
+         }
+       });
+
+       return maxWord + "  " + maxNum;
+
+     }
+     ```
 
      
