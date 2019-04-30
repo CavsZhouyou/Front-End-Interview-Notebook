@@ -18,23 +18,24 @@
                       + padding + border。
 
     在 ie8+ 浏览器中使用哪个盒模型可以由 box-sizing （ CSS 新增的属性）控制，默认值为 content-box ，
-    即标准盒模型；如果将 box-sizing 设为 border-box 则用的是 IE 盒模型。如果在 ie6，7，8 中 DOCTYPE
-    缺失会将盒子模型解释为 IE 盒子模型。若在页面中声明了 DOCTYPE 类型，所有的浏览器都会把盒模型解释为 W3C
-    盒模型。
+    即标准盒模型；如果将 box-sizing 设为 border-box 则用的是 IE 盒模型。如果在 ie6，7，8 中 DOCTY
+    PE 缺失会将盒子模型解释为 IE 盒子模型。若在页面中声明了 DOCTYPE 类型，所有的浏览器都会把盒模型解释
+    为 W3C 盒模型。
    ```
 
    回答：
    ```
    盒模型都是由四个部分组成的，分别是 margin、border、padding 和 content。
 
-   标准盒模型和 IE 盒模型的区别在于设置 width 和 height 时，所对应的范围不同。标准盒模型的 width 和 height
-   属性的范围只包含了 content，而 IE 盒模型的 width 和 height 属性的范围包含了 border、padding 和 content
+   标准盒模型和 IE 盒模型的区别在于设置 width 和 height 时，所对应的范围不同。标准盒模型的 width 和 
+   height 属性的范围只包含了 content，而 IE 盒模型的 width 和 height 属性的范围包含了 border、pa
+   dding 和 content。
 
    一般来说，我们可以通过修改元素的 box-sizing 属性来改变元素的盒模型。
    ```
    
    详细的资料可以参考：
-   [CSS 盒模型详解](https://juejin.im/post/59ef72f5f265da4320026f76)
+   [《CSS 盒模型详解》](https://juejin.im/post/59ef72f5f265da4320026f76)
 
 
 2. CSS选择符有哪些？
@@ -71,28 +72,28 @@
     在 css3 中使用单冒号来表示伪类，用双冒号来表示伪元素。但是为了兼容已有的伪元素的写法，在一些浏览其中也
     可以使用单冒号来表示伪元素。
 
-    伪类一般匹配的是元素的一些特殊状态，如 hover 、link 等，而伪元素一般匹配的特殊的位置，比如 after、before
-    等。
+    伪类一般匹配的是元素的一些特殊状态，如 hover 、link 等，而伪元素一般匹配的特殊的位置，比如 after、be
+    fore 等。
     ```
 
 4.  伪类与伪元素的区别
     ```
-    css 引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，
-    比如，一句话中的第一个字母，或者是列表中的第一个元素。
+    css 引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部
+    分，比如，一句话中的第一个字母，或者是列表中的第一个元素。
 
-    伪类用于当已有的元素处于某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户
-    悬停在指定的元素时，我们可以通过 :hover 来描述这个元素的状态。
+    伪类用于当已有的元素处于某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当
+    用户悬停在指定的元素时，我们可以通过 :hover 来描述这个元素的状态。
 
-    伪元素用于创建一些不在文档树中的元素，并为其添加样式。它们允许我们为元素的某些部分设置样式。比如说，我们可
-    以通过 ::before 来在一个元素前增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是这些文本
-    实际上不在文档树中。
+    伪元素用于创建一些不在文档树中的元素，并为其添加样式。它们允许我们为元素的某些部分设置样式。比如说，我
+    们可以通过 ::before 来在一个元素前增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是
+    这些文本实际上不在文档树中。
 
-    有时你会发现伪元素使用了两个冒号 （::） 而不是一个冒号（:）。 这是 CSS3 的一部分，并尝试区分伪类和伪元素。
-    大多数浏览器都支持这两个值。按照规则应该使用（::）而不是（:），从而区分伪类和伪元素。但是，由于在旧版本的 
-    W3C 规范并未对此进行特别区分，因此目前绝大多数的浏览器都支持使用这两种方式表示伪元素。
+    有时你会发现伪元素使用了两个冒号 （::） 而不是一个冒号（:）。 这是 CSS3 的一部分，并尝试区分伪类和伪
+    元素。大多数浏览器都支持这两个值。按照规则应该使用（::）而不是（:），从而区分伪类和伪元素。但是，由于在
+    旧版本的 W3C 规范并未对此进行特别区分，因此目前绝大多数的浏览器都支持使用这两种方式表示伪元素。
     ```
     详细资料可以参考：
-    [总结伪类与伪元素](http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/)
+    [《总结伪类与伪元素》](http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/)
 
 5. CSS 中哪些属性可以继承？
    
@@ -149,8 +150,8 @@
    ```
 
    详细的资料可以参考：
-   [继承属性](https://developer.mozilla.org/zh-CN/docs/Web/CSS/inheritance)
-   [CSS 有哪些属性可以继承？](https://www.jianshu.com/p/34044e3c9317)
+   [《继承属性》](https://developer.mozilla.org/zh-CN/docs/Web/CSS/inheritance)
+   [《CSS 有哪些属性可以继承？》](https://www.jianshu.com/p/34044e3c9317)
 
 
 6. CSS 优先级算法如何计算？
@@ -210,8 +211,8 @@
    0999的规则高。如果两个规则的特殊性值相等的时候，那么就会根据它们引入的顺序，后出现的规则的优先级最高。
    ```
    对于组合声明的特殊性值计算可以参考：
-   [CSS 优先级计算及应用](https://www.jianshu.com/p/1c4e639ff7d5)
-   [CSS 优先级计算规则](http://www.cnblogs.com/wangmeijian/p/4207433.html)
+   [《CSS 优先级计算及应用》](https://www.jianshu.com/p/1c4e639ff7d5)
+   [《CSS 优先级计算规则》](http://www.cnblogs.com/wangmeijian/p/4207433.html)
 
 
 7. 关于伪类 LVHA 的解释
@@ -233,8 +234,8 @@
 
 8. CSS3 新增伪类有那些？
    ```
-   （1）elem:nth-child(n)        选中父元素下的第 n 个子元素，并且这个子元素的标签名为 elem ， n 可以
-                                接受具体的数值，也可以接受函数。
+   （1）elem:nth-child(n)        选中父元素下的第 n 个子元素，并且这个子元素的标签名为 elem ， n 可
+                                以接受具体的数值，也可以接受函数。
 
    （2）elem:nth-last-child(n)   作用同上，不过是从后开始查找。
 
@@ -265,8 +266,8 @@
  
    ```
    详细的资料可以参考：
-   [CSS3 新特性总结(伪类)](https://www.cnblogs.com/SKLthegoodman/p/css3.html)
-   [浅谈 CSS 伪类和伪元素及 CSS3 新增伪类](https://blog.csdn.net/zhouziyu2011/article/details/58605705)
+   [《CSS3 新特性总结(伪类)》](https://www.cnblogs.com/SKLthegoodman/p/css3.html)
+   [《浅谈 CSS 伪类和伪元素及 CSS3 新增伪类》](https://blog.csdn.net/zhouziyu2011/article/details/58605705)
    
   
 9.  如何居中 div ？
@@ -407,11 +408,11 @@
     （3）利用绝对定位，先将元素的左上角通过 top: 50% 和 left: 50% 定位到页面的中心，然后再通过 margin 
         负值来调整元素的中心点到页面的中心。
 
-    （4）利用绝对定位，先将元素的左上角通过 top: 50% 和 left: 50% 定位到页面的中心，然后再通过 translate
-        来调整元素的中心点到页面的中心。
+    （4）利用绝对定位，先将元素的左上角通过 top: 50% 和 left: 50% 定位到页面的中心，然后再通过 transl
+        ate 来调整元素的中心点到页面的中心。
 
-    （5）使用 flex 布局，通过 align-items: center 和 justify-content: center 设置容器的垂直和水平方
-        向上为居中对齐，然后它的子元素也可以实现垂直和水平的居中。
+    （5）使用 flex 布局，通过 align-items: center 和 justify-content: center 设置容器的垂直和水平
+        方向上为居中对齐，然后它的子元素也可以实现垂直和水平的居中。
 
     对于宽高不定的元素，上面的后面两种方法，可以实现元素的垂直和水平的居中。
     ```
@@ -427,7 +428,7 @@
     inherit     	规定应该从父元素继承 display 属性的值。
     ```
     详细资料可以参考：
-    [CSS display 属性](http://www.w3school.com.cn/css/pr_class_display.asp)
+    [《CSS display 属性》](http://www.w3school.com.cn/css/pr_class_display.asp)
 
 12. position 的值 relative 和 absolute 定位原点是？
     
@@ -535,8 +536,8 @@
     有剩余的时候，项目的放大比例。还可以使用 flex-shrink 来指定当排列空间不足时，项目的缩小比例。 
     ```
     详细资料可以参考：
-    [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
-    [Flex 布局教程：实例篇](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
+    [《Flex 布局教程：语法篇》](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+    [《Flex 布局教程：实例篇》](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
 
 
 15. 用纯 CSS 创建一个三角形的原理是什么？
@@ -577,8 +578,8 @@
     ```
 
     详细资料可以参考：
-    [前端应该掌握的 CSS 实现多列等高布局](https://juejin.im/post/5b0fb34151882515662238fd)
-    [CSS：多列等高布局](https://codepen.io/yangbo5207/post/equh)
+    [《前端应该掌握的 CSS 实现多列等高布局》](https://juejin.im/post/5b0fb34151882515662238fd)
+    [《CSS：多列等高布局》](https://codepen.io/yangbo5207/post/equh)
 
 18. 经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用 hack 的技巧 ？
     ```
@@ -649,7 +650,7 @@
         <li> 内的字符间隔设为默认 letter-spacing: normal。 
     ```
     详细资料可以参考：
-    [li 与 li 之间有看不见的空白间隔是什么原因引起的？](https://blog.csdn.net/sjinsa/article/details/70919546)
+    [《li 与 li 之间有看不见的空白间隔是什么原因引起的？》](https://blog.csdn.net/sjinsa/article/details/70919546)
 
 20. 为什么要初始化 CSS 样式？
     ```
@@ -713,12 +714,12 @@
 
     在谷歌浏览器里，使用 collapse 值和使用 hidden 值没有什么区别。
 
-    在火狐浏览器、 Opera 和 IE11 里，使用 collapse 值的效果就如它的字面意思：table 的行会消失，它的下
-    面一行会补充它的位置。
+    在火狐浏览器、 Opera 和 IE11 里，使用 collapse 值的效果就如它的字面意思：table 的行会消失，它的
+    下面一行会补充它的位置。
 
     ```
     详细资料可以参考：
-    [CSS 里的 visibility 属性有个鲜为人知的属性值：collapse](http://www.webhek.com/post/visibility-collapse.html)
+    [《CSS 里的 visibility 属性有个鲜为人知的属性值：collapse》](http://www.webhek.com/post/visibility-collapse.html)
 
 
 23. width:auto 和 width:100% 的区别
@@ -739,8 +740,8 @@
 
 25. 简单介绍使用图片 base64 编码的优点和缺点。
     ```
-    base64 编码是一种图片处理格式，通过特定的算法将图片编码成一长串字符串，在页面上显示的时候，可以用该字符
-    串来代替图片的 url 属性。
+    base64 编码是一种图片处理格式，通过特定的算法将图片编码成一长串字符串，在页面上显示的时候，可以用该
+    字符串来代替图片的 url 属性。
 
     使用 base64 的优点是：
 
@@ -751,17 +752,17 @@
     （1）根据 base64 的编码原理，编码后的大小会比原文件大小大 1/3，为如果把大图片编码到 html / css 中，
         不仅会造成文件体积的增加，影响文件的加载速度，还会增加浏览器对 html 或 css 文件解析渲染的时间。
 
-    （2）使用 base64 无法直接缓存，要缓存只能缓存包含 base64 的文件，比如 HTML 或者 CSS，这相比域直接缓
-        存图片的效果要差很多。
+    （2）使用 base64 无法直接缓存，要缓存只能缓存包含 base64 的文件，比如 HTML 或者 CSS，这相比域直接
+        缓存图片的效果要差很多。
 
     （3）兼容性的问题，ie8 以前的浏览器不支持。
 
     一般一些网站的小图标可以使用 base64 图片来引入。
     ```
     详细资料可以参考：
-    [玩转图片 base64 编码](https://www.cnblogs.com/coco1s/p/4375774.html)
-    [前端开发中，使用 base64 图片的弊端是什么？](https://www.zhihu.com/question/31155574)
-    [小 tip: base64:URL 背景图片与 web 页面性能优化](https://www.zhangxinxu.com/wordpress/2012/04/base64-url-image-%E5%9B%BE%E7%89%87-%E9%A1%B5%E9%9D%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)
+    [《玩转图片 base64 编码》](https://www.cnblogs.com/coco1s/p/4375774.html)
+    [《前端开发中，使用 base64 图片的弊端是什么？》](https://www.zhihu.com/question/31155574)
+    [《小 tip: base64:URL 背景图片与 web 页面性能优化》](https://www.zhangxinxu.com/wordpress/2012/04/base64-url-image-%E5%9B%BE%E7%89%87-%E9%A1%B5%E9%9D%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/)
 
 
 26. 'display'、'position' 和 'float' 的相互关系？
@@ -787,7 +788,7 @@
 
     ```
     详细资料可以参考：
-    [position 跟 display、margin collapse、overflow、float 这些特性相互叠加后会怎么样？](https://www.cnblogs.com/jackyWHJ/p/3756087.html)
+    [《position 跟 display、margin collapse、overflow、float 这些特性相互叠加后会怎么样？》](https://www.cnblogs.com/jackyWHJ/p/3756087.html)
 
 27. margin 重叠问题的理解。
     相关知识点：
@@ -856,9 +857,9 @@
     也可以将父元素设置为 BFC 来解决。
 
     第三种是高度为 auto 的父元素的 margin-bottom 和子元素的 margin-bottom 发生重叠。它们发生重叠一个
-    是因为它们相邻，一个是因为父元素的高度不固定。因此我们可以为父元素设置 border-bottom、padding-bottom
-    来分隔它们，也可以为父元素设置一个高度，max-height 和 min-height 也能解决这个问题。当然将父元素设置
-    为 BFC 是最简单的方法。
+    是因为它们相邻，一个是因为父元素的高度不固定。因此我们可以为父元素设置 border-bottom、padding-bott
+    om 来分隔它们，也可以为父元素设置一个高度，max-height 和 min-height 也能解决这个问题。当然将父元素
+    设置为 BFC 是最简单的方法。
 
     第四种情况，是没有内容的元素，自身的 margin-top 和 margin-bottom 发生的重叠。我们可以通过为其设置 
     border、padding 或者高度来解决这个问题。
@@ -898,8 +899,8 @@
 
 
     详细资料可以参考：
-    [深入理解 BFC 和 Margin Collapse](https://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html)
-    [前端面试题-BFC （块格式化上下文）](https://segmentfault.com/a/1190000013647777)
+    [《深入理解 BFC 和 Margin Collapse》](https://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html)
+    [《前端面试题-BFC （块格式化上下文）》](https://segmentfault.com/a/1190000013647777)
 
 29. IFC 是什么？
     ```
@@ -910,8 +911,8 @@
     （3） 行级上下文的高度由内部最高的内联盒子的高度决定。
     ```
     详细资料可以参考：
-    [[译]:BFC 与 IFC](https://segmentfault.com/a/1190000004466536#articleHeader5)
-    [BFC 和 IFC 的理解（布局）](https://blog.csdn.net/paintandraw/article/details/80401741)
+    [《[译]:BFC 与 IFC》](https://segmentfault.com/a/1190000004466536#articleHeader5)
+    [《BFC 和 IFC 的理解（布局）》](https://blog.csdn.net/paintandraw/article/details/80401741)
 
 
 30. 请解释一下为什么需要清除浮动？清除浮动的方式
@@ -994,8 +995,8 @@
     查询使得无需修改内容便可以使样式应用于某些特定的设备范围。
     ```
     详细资料可以参考：
-    [CSS3 @media 查询](http://www.runoob.com/cssref/css3-pr-mediaquery.html)
-    [响应式布局和自适应布局详解](http://caibaojian.com/356.html)
+    [《CSS3 @media 查询》](http://www.runoob.com/cssref/css3-pr-mediaquery.html)
+    [《响应式布局和自适应布局详解》](http://caibaojian.com/356.html)
 
 34. 使用 CSS 预处理器吗？喜欢哪个？
     ```
@@ -1067,8 +1068,8 @@
     ```
 
     详细资料可以参考：
-    [CSS 优化、提高性能的方法有哪些？](https://www.zhihu.com/question/19886806)
-    [CSS 优化，提高性能的方法](https://www.jianshu.com/p/4e673bf24a3b)
+    [《CSS 优化、提高性能的方法有哪些？》](https://www.zhihu.com/question/19886806)
+    [《CSS 优化，提高性能的方法》](https://www.jianshu.com/p/4e673bf24a3b)
 
 36. 浏览器是怎样解析 CSS 选择器的？
     ```
@@ -1080,21 +1081,21 @@
     就可以直接舍弃了，避免了许多无效匹配。
     ```
     详细资料可以参考：
-    [探究 CSS 解析原理](https://juejin.im/entry/5a123c55f265da432240cc90)
+    [《探究 CSS 解析原理》](https://juejin.im/entry/5a123c55f265da432240cc90)
 
 37. 在网页中应该使用奇数还是偶数的字体？为什么呢？
     
     ```
-    （1）偶数字号相对更容易和 web 设计的其他部分构成比例关系。比如：当我用了 14 px 的正文字号，我可能会
-        在一些地方  用 14 × 0.5 = 7 px 的 margin，在另一些地方用 14 × 1.5 = 21 px 的标题字号。
+    （1）偶数字号相对更容易和 web 设计的其他部分构成比例关系。比如：当我用了 14 px 的正文字号，我可能
+        会在一些地方  用 14 × 0.5 = 7 px 的 margin，在另一些地方用 14 × 1.5 = 21 px 的标题字号。
     
     （2）浏览器缘故，低版本的浏览器 ie6 会把奇数字体强制转化为偶数，即 13px 渲染为 14px。
 
     （3）系统差别，早期的 Windows 里，中易宋体点阵只有 12 和 14、15、16 px，唯独缺少 13 px。
     ```
     详细资料可以参考：
-    [谈谈网页中使用奇数字体和偶数字体](https://blog.csdn.net/jian_xi/article/details/79346477)
-    [现在网页设计中的为什么少有人用 11px、13px、15px 等奇数的字体？](https://www.zhihu.com/question/20440679)
+    [《谈谈网页中使用奇数字体和偶数字体》](https://blog.csdn.net/jian_xi/article/details/79346477)
+    [《现在网页设计中的为什么少有人用 11px、13px、15px 等奇数的字体？》](https://www.zhihu.com/question/20440679)
 
 38. margin 和 padding 分别适合什么场景使用？
     ```
@@ -1121,7 +1122,7 @@
     业务相关的，放进业务相关的库里面做成对应功能的模块儿。
     ```
     详细资料可以参考：
-    [CSS 规范 - 分类方法](http://nec.netease.com/standard/css-sort.html)
+    [《CSS 规范 - 分类方法》](http://nec.netease.com/standard/css-sort.html)
 
 40. 简单说一下 css3 的 all 属性。
     ```
@@ -1139,7 +1140,7 @@
 
     ```
     详细资料可以参考：
-    [简单了解 CSS3 的 all 属性](https://www.zhangxinxu.com/wordpress/2016/03/know-about-css3-all/)
+    [《简单了解 CSS3 的 all 属性》](https://www.zhangxinxu.com/wordpress/2016/03/know-about-css3-all/)
 
 
 41. 为什么不建议使用统配符初始化 css 样式。
@@ -1170,8 +1171,8 @@
 
     ```
     详细资料可以参考：
-    [CSS 基础篇-- CSS 中 IE 浏览器的 hasLayout，IE 低版本的 bug 根源](https://segmentfault.com/a/1190000010883974)
-    [CSS 魔法堂：hasLayout 原来是这样的！](https://segmentfault.com/a/1190000004632071)
+    [《CSS 基础篇-- CSS 中 IE 浏览器的 hasLayout，IE 低版本的 bug 根源》](https://segmentfault.com/a/1190000010883974)
+    [《CSS 魔法堂：hasLayout 原来是这样的！》](https://segmentfault.com/a/1190000004632071)
 
 44. 元素竖向的百分比设定是相对于容器的高度吗？
     ```
@@ -1182,15 +1183,15 @@
 
 45. 全屏滚动的原理是什么？用到了 CSS 的哪些属性？（待深入实践）
     ```
-    原理：有点类似于轮播，整体的元素一直排列下去，假设有5个需要展示的全屏页面，那么高度是500%，只是展示100%，
-         容器及容器内的页面取当前可视区高度，同时容器的父级元素 overflow 属性值设为 hidden，通过更改容器 
-         容器可视区的位置来实现全屏滚动效果。主要是响应鼠标事件，页面通过 CSS 的动画效果，进行移动。
+    原理：有点类似于轮播，整体的元素一直排列下去，假设有5个需要展示的全屏页面，那么高度是500%，只是展示
+         100%，容器及容器内的页面取当前可视区高度，同时容器的父级元素 overflow 属性值设为 hidden，通
+         过更改容器可视区的位置来实现全屏滚动效果。主要是响应鼠标事件，页面通过 CSS 的动画效果，进行移动。
 
     overflow：hidden；transition：all 1000ms ease；
     ```
     详细资料可以参考：
-    [js 实现网页全屏切换（平滑过渡），鼠标滚动切换](https://blog.csdn.net/liona_koukou/article/details/52680409)
-    [用 ES6 写全屏滚动插件](https://juejin.im/post/5aeef41cf265da0ba0630de0)
+    [《js 实现网页全屏切换（平滑过渡），鼠标滚动切换》](https://blog.csdn.net/liona_koukou/article/details/52680409)
+    [《用 ES6 写全屏滚动插件》](https://juejin.im/post/5aeef41cf265da0ba0630de0)
 
 
 46. 什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的 IE？（待深入了解）
@@ -1199,15 +1200,15 @@
     检测不同的设备屏幕尺寸做处理。页面头部必须有 meta 声明的 viewport。
     ```
     详细资料可以参考：
-    [响应式布局原理](https://blog.csdn.net/dreamerframework/article/details/8994741)
-    [响应式布局的实现方法和原理](http://www.mahaixiang.cn/wzsj/278.html)
+    [《响应式布局原理》](https://blog.csdn.net/dreamerframework/article/details/8994741)
+    [《响应式布局的实现方法和原理》](http://www.mahaixiang.cn/wzsj/278.html)
 
 47. 视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）
     ```
     视差滚动是指多层背景以不同的速度移动，形成立体的运动效果，带来非常出色的视觉体验。
     ```
     详细资料可以参考：
-    [如何实现视差滚动效果的网页？](https://www.zhihu.com/question/20990029)
+    [《如何实现视差滚动效果的网页？》](https://www.zhihu.com/question/20990029)
 
 
 48. 如何修改 chrome 记住密码后自动填充表单的黄色背景 ？
@@ -1233,8 +1234,8 @@
 
     ```
     详细资料可以参考：
-    [去掉 chrome 记住密码后的默认填充样式](https://blog.csdn.net/zsl_955200/article/details/78276209)
-    [修改谷歌浏览器 chrome 记住密码后自动填充表单的黄色背景](https://blog.csdn.net/M_agician/article/details/73381706)
+    [《去掉 chrome 记住密码后的默认填充样式》](https://blog.csdn.net/zsl_955200/article/details/78276209)
+    [《修改谷歌浏览器 chrome 记住密码后自动填充表单的黄色背景》](https://blog.csdn.net/M_agician/article/details/73381706)
 
 
 49. 怎么让 Chrome 支持小于12px 的文字？
@@ -1248,14 +1249,15 @@
         就不可以用了。所以高版本 chrome 谷歌浏览器已经不再支持 -webkit-text-size-adjust 样式，
         所以要使用时候慎用。
 
-    （2）还可以使用 css3 的 transform 缩放属性 -webkit-transform: scale(0.5);注意-webkit-transform:
-        scale(0.75);  收缩的是整个元素的大小，这时候，如果是内联元素，必须要将内联元素转换成块元素，可以使用
-        display：block/inline-block/...；
+    （2）还可以使用 css3 的 transform 缩放属性 -webkit-transform: scale(0.5);注意-webkit-
+        transform:scale(0.75);  收缩的是整个元素的大小，这时候，如果是内联元素，必须要将内联元素
+        转换成块元素，可以使用 display：block/inline-block/...；
 
-    （3）使用图片：如果是内容固定不变情况下，使用将小于 12px 文字内容切出做图片，这样不影响兼容也不影响美观。
+    （3）使用图片：如果是内容固定不变情况下，使用将小于 12px 文字内容切出做图片，这样不影响兼容也不
+        影响美观。
     ```
     详细资料可以参考：
-    [谷歌浏览器不支持 CSS 设置小于12px的文字怎么办？](https://570109268.iteye.com/blog/2406562)
+    [《谷歌浏览器不支持 CSS 设置小于12px的文字怎么办？》](https://570109268.iteye.com/blog/2406562)
 
 
 50. 让页面里的字体变清晰，变细用 CSS 怎么做？
@@ -1266,22 +1268,22 @@
      其他操作系统设置后无效。
     ```
     详细资料可以参考：
-    [让字体变的更清晰 CSS 中 -webkit-font-smoothing](https://blog.csdn.net/huo_bao/article/details/50251585)
+    [《让字体变的更清晰 CSS 中 -webkit-font-smoothing》](https://blog.csdn.net/huo_bao/article/details/50251585)
 
 51. font-style 属性中 italic 和 oblique 的区别？
     ```
     italic 和 oblique 这两个关键字都表示“斜体”的意思。
 
-    它们的区别在于， italic 是使用当前字体的斜体字体，而 oblique 只是单纯地让文字倾斜。如果当前字体没有对
-    应的斜体字体，则退而求其次，解析为 oblique，也就是单纯形状倾斜。
+    它们的区别在于， italic 是使用当前字体的斜体字体，而 oblique 只是单纯地让文字倾斜。如果当前字体没
+    有对应的斜体字体，则退而求其次，解析为 oblique，也就是单纯形状倾斜。
     ```
 
 52. 设备像素、css 像素、设备独立像素、dpr、ppi 之间的区别？
     ```
     设备像素指的是物理像素，一般手机的分辨率指的就是设备像素，一个设备的设备像素是不可变的。
 
-    css 像素和设备独立像素是等价的，不管在何种分辨率的设备上，css 像素的大小应该是一致的，css 像素是一个相
-    对单位，它是相对于设备像素的，一个 css 像素的大小取决于页面缩放程度和 dpr 的大小。
+    css 像素和设备独立像素是等价的，不管在何种分辨率的设备上，css 像素的大小应该是一致的，css 像素是一
+    个相对单位，它是相对于设备像素的，一个 css 像素的大小取决于页面缩放程度和 dpr 的大小。
 
     dpr 指的是设备像素和设备独立像素的比值，一般的 pc 屏幕，dpr = 1。在 iphone4 时，苹果推出了 retina 
     屏幕，它的 dpr 为2。屏幕的缩放会改变 dpr 的值。
@@ -1289,10 +1291,10 @@
     ppi 指的是每英寸的物理像素的密度，ppi 越大，屏幕的分辨率越大。
     ```
     详细资料可以参考：
-    [什么是物理像素、虚拟像素、逻辑像素、设备像素，什么又是 PPI, DPI, DPR 和 DIP](https://www.cnblogs.com/libin-1/p/7148377.html)
-    [前端工程师需要明白的「像素」](https://www.jianshu.com/p/af6dad66e49a)
-    [CSS 像素、物理像素、逻辑像素、设备像素比、PPI、Viewport](https://github.com/jawil/blog/issues/21)
-    [前端开发中像素的概念](https://github.com/wujunchuan/wujunchuan.github.io/issues/15)
+    [《什么是物理像素、虚拟像素、逻辑像素、设备像素，什么又是 PPI, DPI, DPR 和 DIP》](https://www.cnblogs.com/libin-1/p/7148377.html)
+    [《前端工程师需要明白的「像素」》](https://www.jianshu.com/p/af6dad66e49a)
+    [《CSS 像素、物理像素、逻辑像素、设备像素比、PPI、Viewport》](https://github.com/jawil/blog/issues/21)
+    [《前端开发中像素的概念》](https://github.com/wujunchuan/wujunchuan.github.io/issues/15)
 
 53. layout viewport 、visual viewport 和 ideal viewport 的区别？
     
@@ -1315,35 +1317,35 @@
     ```
     移动端一共需要理解三个 viewport 的概念的理解。
 
-    第一个视口是布局视口，在移动端显示网页时，由于移动端的屏幕尺寸比较小，如果网页使用移动端的屏幕尺寸进行布
-    局的话，那么整个页面的布局都会显示错乱。所以移动端浏览器提供了一个 layout viewport 布局视口的概念，使
-    用这个视口来对页面进行布局展示，一般 layout viewport 的大小为 980px，因此页面布局不会有太大的变化，我
-    们可以通过拖动和缩放来查看到这个页面。
+    第一个视口是布局视口，在移动端显示网页时，由于移动端的屏幕尺寸比较小，如果网页使用移动端的屏幕尺寸进行
+    布局的话，那么整个页面的布局都会显示错乱。所以移动端浏览器提供了一个 layout viewport 布局视口的概念，
+    使用这个视口来对页面进行布局展示，一般 layout viewport 的大小为 980px，因此页面布局不会有太大的变化，
+    我们可以通过拖动和缩放来查看到这个页面。
     
-    第二个视口指的是视觉视口，visual viewport 指的是移动设备上我们可见的区域的视口大小，一般为屏幕的分辨率
-    的大小。visual viewport 和 layout viewport 的关系，就像是我们通过窗户看外面的风景，视觉视口就是窗户
-    ，而外面的风景就是布局视口中的网页内容。
+    第二个视口指的是视觉视口，visual viewport 指的是移动设备上我们可见的区域的视口大小，一般为屏幕的分辨
+    率的大小。visual viewport 和 layout viewport 的关系，就像是我们通过窗户看外面的风景，视觉视口就是
+    窗户，而外面的风景就是布局视口中的网页内容。
 
-    第三个视口是理想视口，由于 layout viewport 一般比 visual viewport 要大，所以想要看到整个页面必须通
-    过拖动和缩放才能实现。所以又提出了 ideal viewport 的概念，ideal viewport 下用户不用缩放和滚动条就能
-    够查看到整个页面，并且页面在不同分辨率下显示的内容大小相同。ideal viewport 其实就是通过修改 layout 
-    viewport 的大小，让它等于设备的宽度，这个宽度可以理解为是设备独立像素，因此根据 ideal viewport 设计的
-    页面，在不同分辨率的屏幕下，显示应该相同。
+    第三个视口是理想视口，由于 layout viewport 一般比 visual viewport 要大，所以想要看到整个页面必须
+    通过拖动和缩放才能实现。所以又提出了 ideal viewport 的概念，ideal viewport 下用户不用缩放和滚动条
+    就能够查看到整个页面，并且页面在不同分辨率下显示的内容大小相同。ideal viewport 其实就是通过修改 lay
+    out viewport 的大小，让它等于设备的宽度，这个宽度可以理解为是设备独立像素，因此根据 ideal viewport
+    设计的页面，在不同分辨率的屏幕下，显示应该相同。
     ```
     详细资料可以参考：
-    [移动前端开发之 viewport 的深入理解](https://www.cnblogs.com/2050/p/3877280.html)
-    [说说移动前端中 viewport （视口）](https://www.html.cn/archives/5975)
-    [移动端适配知识你到底知多少](https://juejin.im/post/5b6d21daf265da0f9d1a2ed7#heading-14)
+    [《移动前端开发之 viewport 的深入理解》](https://www.cnblogs.com/2050/p/3877280.html)
+    [《说说移动前端中 viewport （视口）》](https://www.html.cn/archives/5975)
+    [《移动端适配知识你到底知多少》](https://juejin.im/post/5b6d21daf265da0f9d1a2ed7#heading-14)
 
 
 54. position:fixed; 在 android 下无效怎么处理？
     ```
-    因为移动端浏览器默认的 viewport 叫做 layout viewport。在移动端显示时，因为 layout viewport 的宽
-    度大于移动端屏幕的宽度，所以页面会出现滚动条左右移动，fixed 的元素是相对 layout viewport 来固定位置
-    的，而不是移动端屏幕来固定位置的，所以会出现感觉 fixed 无效的情况。
+    因为移动端浏览器默认的 viewport 叫做 layout viewport。在移动端显示时，因为 layout viewport 的
+    宽度大于移动端屏幕的宽度，所以页面会出现滚动条左右移动，fixed 的元素是相对 layout viewport 来固定
+    位置的，而不是移动端屏幕来固定位置的，所以会出现感觉 fixed 无效的情况。
 
-    如果想实现 fixed 相对于屏幕的固定效果，我们需要改变的是 viewport 的大小为 ideal viewport，可以如下
-    设置：
+    如果想实现 fixed 相对于屏幕的固定效果，我们需要改变的是 viewport 的大小为 ideal viewport，可以如
+    下设置：
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
     ```
@@ -1358,32 +1360,32 @@
     移除空格、使用 margin 负值、使用 font-size:0、letter-spacing、word-spacing
     ```
     详细资料可以参考：
-    [去除 inline-block 元素间间距的 N 种方法](https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/)
+    [《去除 inline-block 元素间间距的 N 种方法》](https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/)
 
 57. overflow: scroll 时不能平滑滚动的问题怎么处理？
     ```
-    以下代码可解决这种卡顿的问题：-webkit-overflow-scrolling: touch; 是因为这行代码启用了硬件加速特性，
-    所以滑动很流畅。
+    以下代码可解决这种卡顿的问题：-webkit-overflow-scrolling: touch; 是因为这行代码启用了硬件加速特
+    性，所以滑动很流畅。
     ```
     详细资料可以参考：
-    [解决页面使用 overflow: scroll 在 iOS 上滑动卡顿的问题](https://www.jianshu.com/p/1f4693d0ad2d)
+    [《解决页面使用 overflow: scroll 在 iOS 上滑动卡顿的问题》](https://www.jianshu.com/p/1f4693d0ad2d)
 
 58. 有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度。
     ```
-    1. 外层 div 使用 position：relative；高度要求自适应的 div 使用 position: absolute; top: 100px;
-       bottom: 0; left: 0; right: 0;
+    1. 外层 div 使用 position：relative；高度要求自适应的 div 使用 position: absolute; top: 100
+       px;bottom: 0; left: 0; right: 0;
 
-    2. 使用 flex 布局，设置主轴为竖轴，第二个 div 的 flex-grow 为1。
+    1. 使用 flex 布局，设置主轴为竖轴，第二个 div 的 flex-grow 为1。
     ```
     详细资料可以参考：
-    [有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度(三种方案)](https://blog.csdn.net/xutongbao/article/details/79408522)
+    [《有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度(三种方案)》](https://blog.csdn.net/xutongbao/article/details/79408522)
 
 59. png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过 webp？
     
     相关知识点：
     ```
-    （1）BMP，是无损的、既支持索引色也支持直接色的、点阵图。这种图片格式几乎没有对数据进行压缩，所以 BMP 格
-        式的图片通常具有较大的文件大小。
+    （1）BMP，是无损的、既支持索引色也支持直接色的、点阵图。这种图片格式几乎没有对数据进行压缩，所以 BMP 
+        格式的图片通常具有较大的文件大小。
 
     （2）GIF 是无损的、采用索引色的、点阵图。采用 LZW 压缩算法进行编码。文件小，是 GIF 格式的优点，同时，
         GIF 格式还具有支持动画以及透明的优点。但，GIF 格式仅支持 8bit 的索引色，所以 GIF 格式适用于对色
@@ -1432,8 +1434,8 @@
         存储照片。但由于使用的是直接色，可能文件的体积相对于 GIF 格式来说更大。
 
     （4）第四种是 PNG-8 格式，它是无损压缩的使用索引色的点阵图。它是 GIF 的一种很好的替代格式，它也支持透
-        明度的调整，并且文件的体积相对于 GIF 格式更小。一般来说如果不是需要动画的情况，我们都可以使用 PNG-8
-        格式代替 GIF 格式。
+        明度的调整，并且文件的体积相对于 GIF 格式更小。一般来说如果不是需要动画的情况，我们都可以使用 PNG
+        -8 格式代替 GIF 格式。
 
     （5）第五种是 PNG-24 格式，它是无损压缩的使用直接色的点阵图。PNG-24 的优点是它使用了压缩算法，所以它的
         体积比 BMP 格式的文件要小得多，但是相对于其他的几种格式，还是要大一些。
@@ -1446,7 +1448,7 @@
         意味着请求时间的减小，这样会提高用户的体验。这是谷歌开发的一种新的图片格式，目前在兼容性上还不是太好。
     ```
     详细资料可以参考：
-    [图片格式那么多，哪种更适合你？](https://www.cnblogs.com/xinzhao/p/5130410.html)
+    [《图片格式那么多，哪种更适合你？》](https://www.cnblogs.com/xinzhao/p/5130410.html)
 
 
 60. 浏览器如何判断是否支持 webp 格式图片
@@ -1459,8 +1461,8 @@
         格式，然后判断返回值中是否含有 image/webp 字段，如果包含则说明支持 WebP，反之则不支持。
     ```
     详细资料可以参考：
-    [判断浏览器是否支持 WebP 图片](https://blog.csdn.net/jesslu/article/details/82495061)
-    [toDataURL()](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL)
+    [《判断浏览器是否支持 WebP 图片》](https://blog.csdn.net/jesslu/article/details/82495061)
+    [《toDataURL()》](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL)
 
 
 61. 什么是 Cookie 隔离？（或者说：请求资源的时候不要让它带 cookie 怎么做）
@@ -1477,21 +1479,21 @@
      webserver 的 http 请求的解析速度。
     ```
     详细资料可以参考：
-    [CDN 是什么？使用 CDN 有什么优势？](https://www.zhihu.com/question/36514327?rf=37353035)
+    [《CDN 是什么？使用 CDN 有什么优势？》](https://www.zhihu.com/question/36514327?rf=37353035)
 
 
 62.  style 标签写在 body 后与 body 前有什么区别？
      ```
-     页面加载自上而下 当然是先加载样式。写在 body 标签后由于浏览器以逐行方式对 HTML 文档进行解析，当解析到
-     写在尾部的样式表（外联或写在 style 标签）会导致浏览器停止之前的渲染，等待加载且解析样式表完成之后重新渲
-     染，在 windows 的 IE 下可能会出现 FOUC 现象（即样式失效导致的页面闪烁问题）
+     页面加载自上而下 当然是先加载样式。写在 body 标签后由于浏览器以逐行方式对 HTML 文档进行解析，当解析
+     到写在尾部的样式表（外联或写在 style 标签）会导致浏览器停止之前的渲染，等待加载且解析样式表完成之后重
+     新渲染，在 windows 的 IE 下可能会出现 FOUC 现象（即样式失效导致的页面闪烁问题）
      ```
 
 63. 什么是 CSS 预处理器 / 后处理器？
     ```
-    CSS 预处理器定义了一种新的语言，其基本思想是，用一种专门的编程语言，为 CSS 增加了一些编程的特性，将 CSS
-    作为目标生成文件，然后开发者就只要使用这种语言进行编码工作。通俗的说，CSS 预处理器用一种专门的编程语言，
-    进行 Web 页面样式设计，然后再编译成正常的 CSS 文件。
+    CSS 预处理器定义了一种新的语言，其基本思想是，用一种专门的编程语言，为 CSS 增加了一些编程的特性，将
+    CSS 作为目标生成文件，然后开发者就只要使用这种语言进行编码工作。通俗的说，CSS 预处理器用一种专门的编
+    程语言，进行 Web 页面样式设计，然后再编译成正常的 CSS 文件。
 
     预处理器例如：LESS、Sass、Stylus，用来预编译 Sass 或 lesscss sprite，增强了 css 代码的复用性，
     还有层级、mixin、变量、循环、函数等，具有很方便的 UI 组件模块化开发能力，极大的提高工作效率。
@@ -1504,7 +1506,7 @@
     是给 CSS 属性添加浏览器私有前缀，实现跨浏览器兼容性的问题。
     ```
     详细资料可以参考：
-    [CSS 预处理器和后处理器](https://blog.csdn.net/yushuangyushuang/article/details/79209752)
+    [《CSS 预处理器和后处理器》](https://blog.csdn.net/yushuangyushuang/article/details/79209752)
 
 64. 阐述一下 CSS Sprites
     ```
@@ -1535,18 +1537,18 @@
 
     （2）使用 iframe 引用也会出现问题。
 
-    （3）rem 在多屏幕尺寸适配上与当前两大平台的设计哲学不一致。即大屏的出现到底是为了看得又大又清楚，还是为了
-        看的更多的问题。
+    （3）rem 在多屏幕尺寸适配上与当前两大平台的设计哲学不一致。即大屏的出现到底是为了看得又大又清楚，还是为
+        了看的更多的问题。
     ```
     详细资料可以参考：
-    [css3 的字体大小单位 rem 到底好在哪？](https://www.zhihu.com/question/21504656)
-    [VW: 是时候放弃 REM 布局了](https://www.jianshu.com/p/e8ae1c3861dc)
-    [为什么设计稿是 750px](https://blog.csdn.net/Honeymao/article/details/76795089)
-    [使用 Flexible 实现手淘 H5 页面的终端适配](https://github.com/amfe/article/issues/17)
+    [《css3 的字体大小单位 rem 到底好在哪？》](https://www.zhihu.com/question/21504656)
+    [《VW: 是时候放弃 REM 布局了》](https://www.jianshu.com/p/e8ae1c3861dc)
+    [《为什么设计稿是 750px》](https://blog.csdn.net/Honeymao/article/details/76795089)
+    [《使用 Flexible 实现手淘 H5 页面的终端适配》](https://github.com/amfe/article/issues/17)
 
 66. 几种常见的 CSS 布局
     详细的资料可以参考：
-    [几种常见的 CSS 布局](https://juejin.im/post/5bbcd7ff5188255c80668028#heading-12)
+    [《几种常见的 CSS 布局》](https://juejin.im/post/5bbcd7ff5188255c80668028#heading-12)
     
 67. 画一条 0.5 px 的线
     ```
@@ -1557,7 +1559,7 @@
     采用 transform: scale() 的方式
     ```
     详细资料可以参考：
-    [怎么画一条0.5px的边（更新）](https://juejin.im/post/5ab65f40f265da2384408a95)
+    [《怎么画一条0.5px的边（更新）》](https://juejin.im/post/5ab65f40f265da2384408a95)
 
 68. transition 和 animation 的区别
     ```
@@ -1566,10 +1568,10 @@
     animation 作用于元素本身而不是样式属性，可以使用关键帧的概念，应该说可以实现更自由的动画效果。 
     ```
     详细资料可以参考：
-    [CSS animation 与 CSS transition 有何区别？](https://www.zhihu.com/question/19749045)
-    [CSS3 Transition 和 Animation 区别及比较](https://blog.csdn.net/cddcj/article/details/53582334)
-    [CSS 动画简介](http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html)
-    [CSS 动画：animation、transition、transform、translate](https://juejin.im/post/5b137e6e51882513ac201dfb)
+    [《CSS animation 与 CSS transition 有何区别？》](https://www.zhihu.com/question/19749045)
+    [《CSS3 Transition 和 Animation 区别及比较》](https://blog.csdn.net/cddcj/article/details/53582334)
+    [《CSS 动画简介》](http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html)
+    [《CSS 动画：animation、transition、transform、translate》](https://juejin.im/post/5b137e6e51882513ac201dfb)
 
 69. 什么是首选最小宽度？
     ```
@@ -1612,8 +1614,8 @@
         就是元素的“外在盒子”，用来决定元素是内联还是块级。该盒子又可以细分为“内联盒子”和“匿名内联盒子”
         两类。
 
-    （3）行框盒子（line box），每一行就是一个“行框盒子”（实线框标注），每个“行框盒子”又是由一个一个“内联
-        盒子”组成的。
+    （3）行框盒子（line box），每一行就是一个“行框盒子”（实线框标注），每个“行框盒子”又是由一个一个“内
+        联盒子”组成的。
 
     （4）包含块（containing box），由一行一行的“行框盒子”组成。
     ```
@@ -1633,16 +1635,17 @@
 
     替换元素除了内容可替换这一特性以外，还有以下一些特性。
 
-    （1）内容的外观不受页面上的 CSS 的影响。用专业的话讲就是在样式表现在 CSS 作用域之外。如何更改替换元素
-        本身的外观需要类似 appearance 属性，或者浏览器自身暴露的一些样式接口，
+    （1）内容的外观不受页面上的 CSS 的影响。用专业的话讲就是在样式表现在 CSS 作用域之外。如何更改替换元
+        素本身的外观需要类似 appearance 属性，或者浏览器自身暴露的一些样式接口，
 
     （2）有自己的尺寸。在 Web 中，很多替换元素在没有明确尺寸设定的情况下，其默认的尺寸（不包括边框）是
-        300 像素 ×150 像素，如 <video>、<iframe> 或者 <canvas> 等，也有少部分替换元素为 0 像素，如
-        <img> 图片，而表单元素的替换元素的尺寸则和浏览器有关，没有明显的规律。
+        300 像素 ×150 像素，如 <video>、<iframe> 或者 <canvas> 等，也有少部分替换元素为 0 像素，
+        如 <img> 图片，而表单元素的替换元素的尺寸则和浏览器有关，没有明显的规律。
 
     （3）在很多 CSS 属性上有自己的一套表现规则。比较具有代表性的就是 vertical-align 属性，对于替换元素
-        和非替换元素，vertical-align 属性值的解释是不一样的。比方说 vertical-align 的默认值的 baseline，
-        很简单的属性值，基线之意，被定义为字符 x 的下边缘，而替换元素的基线却被硬生生定义成了元素的下边缘。
+        和非替换元素，vertical-align 属性值的解释是不一样的。比方说 vertical-align 的默认值的 base
+        line，很简单的属性值，基线之意，被定义为字符 x 的下边缘，而替换元素的基线却被硬生生定义成了元素的
+        下边缘。
 
     （4）所有的替换元素都是内联水平元素，也就是替换元素和替换元素、替换元素和文字都是可以在一行显示的。但是，
         替换元素默认的 display 值却是不一样的，有的是 inline，有的是 inline-block。
@@ -1706,8 +1709,8 @@
     （1）display 计算值 inline 的非替换元素的垂直 margin 是无效的。对于内联替换元素，垂直 margin 有效，
         并且没有 margin 合并的问题。
 
-    （2）表格中的 <tr> 和 <td> 元素或者设置 display 计算值是 table-cell 或 table-row 的元素的 margin
-        都是无效的。
+    （2）表格中的 <tr> 和 <td> 元素或者设置 display 计算值是 table-cell 或 table-row 的元素的 marg
+        in 都是无效的。
 
     （3）绝对定位元素非定位方位的 margin 值“无效”。
 
@@ -1733,12 +1736,12 @@
     字母 x 的下边缘（线）就是我们的基线。
 
     x-height 指的就是小写字母 x 的高度，术语描述就是基线和等分线（mean line）（也称作中线，midline）之
-    间的距离。在 CSS 世界中，middle 指的是基线往上 1/2 x-height 高度。我们可以近似理解为字母 x 交叉点那
-    个位置。
+    间的距离。在 CSS 世界中，middle 指的是基线往上 1/2 x-height 高度。我们可以近似理解为字母 x 交叉点
+    那个位置。
 
-    ex 是 CSS 中的一个相对单位，指的是小写字母 x 的高度，没错，就是指 x-height。ex 的价值就在其副业上—不
-    受字体和字号影响的内联元素的垂直居中对齐效果。内联元素默认是基线对齐的，而基线就是 x 的底部，而 1ex 就是
-    一个 x 的高度。
+    ex 是 CSS 中的一个相对单位，指的是小写字母 x 的高度，没错，就是指 x-height。ex 的价值就在其副业上不
+    受字体和字号影响的内联元素的垂直居中对齐效果。内联元素默认是基线对齐的，而基线就是 x 的底部，而 1ex 就
+    是一个 x 的高度。
     ```
 
 81. line-height 的特殊性？
@@ -1746,33 +1749,34 @@
     （1）对于非替换元素的纯内联元素，其可视高度完全由 line-height 决定。对于文本这样的纯内联元素，
         line-height 就是高度计算的基石，用专业说法就是指定了用来计算行框盒子高度的基础高度。
 
-    （2）内联元素的高度由固定高度和不固定高度组成，这个不固定的部分就是这里的“行距”。换句话说，line-height 
-        之所以起作用，就是通过改变“行距”来实现的。在 CSS 中，“行距”分散在当前文字的上方和下方，也就是即使是
-        第一行文字，其上方也是有“行距”的，只不过这个“行距”的高度仅仅是完整“行距”高度的一半，因此，也被称为
-        “半行距”。‘
+    （2）内联元素的高度由固定高度和不固定高度组成，这个不固定的部分就是这里的“行距”。换句话说，line-heig
+         ht 
+        之所以起作用，就是通过改变“行距”来实现的。在 CSS 中，“行距”分散在当前文字的上方和下方，也就是即使
+        是第一行文字，其上方也是有“行距”的，只不过这个“行距”的高度仅仅是完整“行距”高度的一半，因此，也被称
+        为“半行距”。
 
     （3）行距 = line-height - font-size。
 
-    （4）border 以及 line-height 等传统 CSS 属性并没有小数像素的概念。如果标注的是文字上边距，则向下取整；
-        如果是文字下边距，则向上取整。
+    （4）border 以及 line-height 等传统 CSS 属性并没有小数像素的概念。如果标注的是文字上边距，则向下取
+        整；如果是文字下边距，则向上取整。
     
-    （5）对于纯文本元素，line-height 直接决定了最终的高度。但是，如果同时有替换元素，则 line-height 只能
-        决定最小高度。
+    （5）对于纯文本元素，line-height 直接决定了最终的高度。但是，如果同时有替换元素，则 line-height 只
+        能决定最小高度。
 
-    （6）对于块级元素，line-height 对其本身是没有任何作用的，我们平时改变 line-height，块级元素的高度跟着
-        变化实际上是通过改变块级元素里面内联级别元素占据的高度实现的。
+    （6）对于块级元素，line-height 对其本身是没有任何作用的，我们平时改变 line-height，块级元素的高度跟
+        着变化实际上是通过改变块级元素里面内联级别元素占据的高度实现的。
 
     （7）line-height 的默认值是 normal，还支持数值、百分比值以及长度值。为数值类型时，其最终的计算值是和
-        当前 font-size 相乘后的值。为百分比值时，其最终的计算值是和当前 font-size 相乘后的值。为长度值时
-        原意不变。
+        当前 font-size 相乘后的值。为百分比值时，其最终的计算值是和当前 font-size 相乘后的值。为长度值
+        时原意不变。
 
-    （8）如果使用数值作为 line-height 的属性值，那么所有的子元素继承的都是这个值；但是，如果使用百分比值或
-        者长度值作为属性值，那么所有的子元素继承的是最终的计算值。
+    （8）如果使用数值作为 line-height 的属性值，那么所有的子元素继承的都是这个值；但是，如果使用百分比值
+        或者长度值作为属性值，那么所有的子元素继承的是最终的计算值。
 
     （9）无论内联元素 line-height 如何设置，最终父级元素的高度都是由数值大的那个 line-height 决定的。
 
-    （10）只要有“内联盒子”在，就一定会有“行框盒子”，就是每一行内联元素外面包裹的一层看不见的盒子。然后，重点
-         来了，在每个“行框盒子”前面有一个宽度为 0 的具有该元素的字体和行高属性的看不见的“幽灵空白节点”。
+    （10）只要有“内联盒子”在，就一定会有“行框盒子”，就是每一行内联元素外面包裹的一层看不见的盒子。然后，重
+         点来了，在每个“行框盒子”前面有一个宽度为 0 的具有该元素的字体和行高属性的看不见的“幽灵空白节点”。
     ```
 
 82. vertical-align 的特殊性？
@@ -1782,14 +1786,14 @@
         inline-block 元素，如果里面没有内联元素，或者 overflow 不是 visible，则该元素的基线就是其
         margin 底边缘；否则其基线就是元素里面最后一行内联元素的基线。
 
-    （2）vertical-align:top 就是垂直上边缘对齐，如果是内联元素，则和这一行位置最高的内联元素的顶部对齐；如
-        果 display 计算值是 table-cell 的元素，我们不妨脑补成 <td> 元素，则和 <tr> 元素上边缘对齐。
+    （2）vertical-align:top 就是垂直上边缘对齐，如果是内联元素，则和这一行位置最高的内联元素的顶部对齐；
+        如果 display 计算值是 table-cell 的元素，我们不妨脑补成 <td> 元素，则和 <tr> 元素上边缘对齐。
 
-    （3）vertical-align:middle 是中间对齐，对于内联元素，元素的垂直中心点和行框盒子基线往上 1/2 x-height
-        处对齐。对于 table-cell 元素，单元格填充盒子相对于外面的表格行居中对齐。
+    （3）vertical-align:middle 是中间对齐，对于内联元素，元素的垂直中心点和行框盒子基线往上 1/2 x-hei
+        ght 处对齐。对于 table-cell 元素，单元格填充盒子相对于外面的表格行居中对齐。
 
-    （4）vertical-align 支持数值属性，根据数值的不同，相对于基线往上或往下偏移，如果是负值，往下偏移，如果
-        是正值，往上偏移。
+    （4）vertical-align 支持数值属性，根据数值的不同，相对于基线往上或往下偏移，如果是负值，往下偏移，如
+        果是正值，往上偏移。
 
     （5）vertical-align 属性的百分比值则是相对于 line-height 的计算值计算的。
 
@@ -1802,8 +1806,8 @@
 
 83. overflow 的特殊性？
     ```
-    （1）一个设置了 overflow:hidden 声明的元素，假设同时存在 border 属性和 padding 属性，则当子元素内
-        容超出容器宽度高度限制的时候，剪裁的边界是 border box 的内边缘，而非 padding box 的内边缘。
+    （1）一个设置了 overflow:hidden 声明的元素，假设同时存在 border 属性和 padding 属性，则当子元素
+        内容超出容器宽度高度限制的时候，剪裁的边界是 border box 的内边缘，而非 padding box 的内边缘。
 
     （2）HTML 中有两个标签是默认可以产生滚动条的，一个是根元素 <html>，另一个是文本域 <textarea>。
 
@@ -1840,22 +1844,22 @@
 
 87. relative 的特殊性？
     ```
-    （1）相对定位元素的 left/top/right/bottom 的百分比值是相对于包含块计算的，而不是自身。注意，虽然定位
-        位移是相对自身，但是百分比值的计算值不是。
+    （1）相对定位元素的 left/top/right/bottom 的百分比值是相对于包含块计算的，而不是自身。注意，虽然定
+        位位移是相对自身，但是百分比值的计算值不是。
 
-    （2）top 和 bottom 这两个垂直方向的百分比值计算跟 height 的百分比值是一样的，都是相对高度计算的。同时，
-        如果包含块的高度是 auto，那么计算值是 0，偏移无效，也就是说，如果父元素没有设定高度或者不是“格式化高
-        度”，那么 relative 类似 top:20% 的代码等同于 top:0。
+    （2）top 和 bottom 这两个垂直方向的百分比值计算跟 height 的百分比值是一样的，都是相对高度计算的。同
+        时，如果包含块的高度是 auto，那么计算值是 0，偏移无效，也就是说，如果父元素没有设定高度或者不是“格
+        式化高度”，那么 relative 类似 top:20% 的代码等同于 top:0。
 
-    （3）当相对定位元素同时应用对立方向定位值的时候，也就是 top/bottom 和 left/right 同时使用的时候，只有
-        一个方向的定位属性会起作用。而谁起作用则是与文档流的顺序有关的，默认的文档流是自上而下、从左往右，因此
-         top/bottom 同时使用的时候，bottom 失效；left/right 同时使用的时候，right 失效。
+    （3）当相对定位元素同时应用对立方向定位值的时候，也就是 top/bottom 和 left/right 同时使用的时候，只
+        有一个方向的定位属性会起作用。而谁起作用则是与文档流的顺序有关的，默认的文档流是自上而下、从左往右，
+        因此 top/bottom 同时使用的时候，bottom 失效；left/right 同时使用的时候，right 失效。
     ```
 
 88. 什么是层叠上下文？
     ```
-    层叠上下文，英文称作 stacking context，是 HTML 中的一个三维的概念。如果一个元素含有层叠上下文，我们可
-    以理解为这个元素在 z 轴上就“高人一等”。
+    层叠上下文，英文称作 stacking context，是 HTML 中的一个三维的概念。如果一个元素含有层叠上下文，我们
+    可以理解为这个元素在 z 轴上就“高人一等”。
 
     层叠上下文元素有如下特性：
 
@@ -1883,8 +1887,8 @@
     ```
     层叠水平，英文称作 stacking level，决定了同一个层叠上下文中元素在 z 轴上的显示顺序。
 
-    显而易见，所有的元素都有层叠水平，包括层叠上下文元素，也包括普通元素。然而，对普通元素的层叠水平探讨只局限
-    在当前层叠上下文元素中。
+    显而易见，所有的元素都有层叠水平，包括层叠上下文元素，也包括普通元素。然而，对普通元素的层叠水平探讨只局
+    限在当前层叠上下文元素中。
     ```
 
 90. 元素的层叠顺序？
@@ -1938,15 +1942,15 @@
 
 95. word-spacing 与单词间距？
     ```
-    letter-spacing 作用于所有字符，但 word-spacing 仅作用于空格字符。换句话说，word-spacing 的作用就
-    是增加空格的间隙宽度。
+    letter-spacing 作用于所有字符，但 word-spacing 仅作用于空格字符。换句话说，word-spacing 的作用
+    就是增加空格的间隙宽度。
     ```
 
 96. white-space 与换行和空格的控制？
     ```
     white-space 属性声明了如何处理元素内的空白字符，这类空白字符包括 Space（空格）键、Enter（回车）键、
-    Tab（制表符）键产生的空白。因此，white-space 可以决定图文内容是否在一行显示（回车空格是否生效），是否
-    显示大段连续空白（空格是否生效）等。
+    Tab（制表符）键产生的空白。因此，white-space 可以决定图文内容是否在一行显示（回车空格是否生效），是
+    否显示大段连续空白（空格是否生效）等。
 
     其属性值包括下面这些。
     • normal：合并空白字符和换行符。
@@ -1965,7 +1969,8 @@
     设置了 background-image，则图片依然会去加载；如果是父元素的 display 计算值为 none，则背景图不会请
     求，此时浏览器或许放心地认为这个背景图暂时是不会使用的。
 
-    如果不是 background-image ，而是<img>元素，则设置 display:none 在所有浏览器下依旧都会请求图片资源。
+    如果不是 background-image ，而是<img>元素，则设置 display:none 在所有浏览器下依旧都会请求图片资
+    源。
 
     还需要注意的是如果设置的样式没有对应的元素，则 background-image 也不会加载。hover 情况下的background-image ，在触发时加载。
     ```
@@ -1984,7 +1989,7 @@
         任何情况下都会请求图片
     ```
     详细资料可以参考：
-    [CSS 控制前端图片 HTTP 请求的各种情况示例](https://www.jb51.net/css/469033.html)
+    [《CSS 控制前端图片 HTTP 请求的各种情况示例》](https://www.jb51.net/css/469033.html)
 
 
 98. 如何实现单行／多行文本溢出的省略（...）？
@@ -2015,8 +2020,8 @@
     }
     ```
     详细资料可以参考：
-    [【CSS/JS】如何实现单行／多行文本溢出的省略](https://zhuanlan.zhihu.com/p/30707916)
-    [CSS 多行文本溢出省略显示](https://juejin.im/entry/587f453e1b69e60058555a5f)
+    [《【CSS/JS】如何实现单行／多行文本溢出的省略》](https://zhuanlan.zhihu.com/p/30707916)
+    [《CSS 多行文本溢出省略显示》](https://juejin.im/entry/587f453e1b69e60058555a5f)
 
 
 99.  常见的元素隐藏方式？
@@ -2041,7 +2046,7 @@
 
     ```
     详细资料可以参考：
-    [CSS 隐藏元素的八种方法](https://juejin.im/post/584b645a128fe10058a0d625#heading-2)
+    [《CSS 隐藏元素的八种方法》](https://juejin.im/post/584b645a128fe10058a0d625#heading-2)
 
 
 100. css 实现上下固定中间自适应布局？
@@ -2109,7 +2114,7 @@
     }
     ```
     详细资料可以参考：
-    [css 实现上下固定中间自适应布局](https://www.jianshu.com/p/30bc9751e3e8)
+    [《css 实现上下固定中间自适应布局》](https://www.jianshu.com/p/30bc9751e3e8)
 
 101. css 两栏布局的实现？
     
@@ -2223,7 +2228,7 @@
           background: gold;
         }
      ```
-     [两栏布局 demo 展示](http://cavszhouyou.top/Demo-Display/TwoColumnLayout/index.html)
+     [《两栏布局 demo 展示》](http://cavszhouyou.top/Demo-Display/TwoColumnLayout/index.html)
 
      回答：
      ```
@@ -2420,7 +2425,7 @@
             height: 100px;
           }
      ```
-     [三栏布局 demo 展示](http://cavszhouyou.top/Demo-Display/ThreeColumnLayout/index.html)
+     [《三栏布局 demo 展示》](http://cavszhouyou.top/Demo-Display/ThreeColumnLayout/index.html)
 
      回答：
      ```
@@ -2480,7 +2485,7 @@
           margin-top: 100%;
         }
      ```
-     [自适应正方形 demo 展示](http://cavszhouyou.top/Demo-Display/AdaptiveSquare/index.html)
+     [《自适应正方形 demo 展示》](http://cavszhouyou.top/Demo-Display/AdaptiveSquare/index.html)
 
 104. 实现一个三角形
      ```css
@@ -2494,7 +2499,7 @@
         border-color: tomato transparent transparent transparent;
      }
      ```
-     [三角形 demo 展示](http://cavszhouyou.top/Demo-Display/Triangle/index.html)
+     [《三角形 demo 展示》](http://cavszhouyou.top/Demo-Display/Triangle/index.html)
 
 
 105. 一个自适应矩形，水平垂直居中，且宽高比为 2:1
