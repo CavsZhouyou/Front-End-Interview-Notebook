@@ -14,11 +14,11 @@
 
 > [剑指 offer 思路总结](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer.md)
 
-本部分主要是笔者在练习常见面试智力题所做的笔记，如果出现错误，希望大家指出！
+本部分主要是笔者在练习剑指 offer 时所做的笔记，如果出现错误，希望大家指出！
 
 > [智力题总结](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E6%99%BA%E5%8A%9B%E9%A2%98.md)
 
-本部分主要是笔者在练习剑指 offer 时所做的笔记，如果出现错误，希望大家指出！
+本部分主要是笔者在练习常见面试智力题所做的笔记，如果出现错误，希望大家指出！
 
 ## 操作系统 :computer:
 
@@ -48,13 +48,19 @@
 
 > [Html 基础](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/Html/Html.md)
 
+本部分主要是笔者在学习 Html 相关知识和一些相关面试题所做的笔记，如果出现错误，希望大家指出！
+
 ## Css :cat:
 
 > [Css 基础](https://github.com/CavsZhouyou/Interview-Notebook/tree/master/Css/Css.md)
 
+本部分主要是笔者在学习 Css 相关知识和一些相关面试题所做的笔记，如果出现错误，希望大家指出！
+
 ## JavaScript :koala:
 
 > [JavaScript 基础](https://github.com/CavsZhouyou/Interview-Notebook/tree/master/JavaScript/JavaScript.md) 
+
+本部分主要是笔者在学习 JavaScript 相关知识和一些相关面试题所做的笔记，如果出现错误，希望大家指出！
 
 ## 工具 :hammer:
 
