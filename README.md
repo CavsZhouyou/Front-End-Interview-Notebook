@@ -9,6 +9,8 @@
 ## 算法 :pencil2:
 
 > [基本数据结构和算法](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95.md) 
+> [剑指 offer 思路总结](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer.md)
+> [智力题总结](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E6%99%BA%E5%8A%9B%E9%A2%98.md)
 
 ## 操作系统 :computer:
 
