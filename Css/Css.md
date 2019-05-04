@@ -8,12 +8,12 @@
    
    相关知识点：
    ```
-   （1）有两种盒子模型： IE 盒模型（border-box）、W3C 标准盒模型（content-box）。
+   （1）有两种盒子模型： IE 盒模型（border-box）、W3C 标准盒模型（content-box）
    （2）盒模型：分为 内容（content）、填充（padding）、边界（margin）、 边框（border） 四个部分
     
     IE 盒模型和 W3C 标准盒模型的区别：
 
-   （1）W3C 标准盒模型： 属性 width ，height 只包含内容 content ，不包含 border 和 padding 。
+   （1）W3C 标准盒模型： 属性 width ，height 只包含内容 content ，不包含 border 和 padding 
    （2）IE 盒模型：     属性 width ，height 包含 content、border 和 padding ，指的是 content 
                       + padding + border。
 
@@ -67,7 +67,7 @@
 
     回答：
     ```
-    在 css3 中使用单冒号来表示伪类，用双冒号来表示伪元素。但是为了兼容已有的伪元素的写法，在一些浏览其中也可以使用单冒号
+    在 css3 中使用单冒号来表示伪类，用双冒号来表示伪元素。但是为了兼容已有的伪元素的写法，在一些浏览器中也可以使用单冒号
     来表示伪元素。
 
     伪类一般匹配的是元素的一些特殊状态，如 hover 、link 等，而伪元素一般匹配的特殊的位置，比如 after、before 等。
@@ -445,7 +445,7 @@
     relative 定位的元素，是相对于元素本身的正常位置来进行定位的。
 
     absolute 定位的元素，是相对于它的第一个 position 值不为 static 的祖先元素的 padding box 来进行定位的。这句话
-    我们可以这样来理解，我们首先需要找到绝对定位元素的一个 position 的值不为 static 的祖先元素，然后相对与这个祖先元
+    我们可以这样来理解，我们首先需要找到绝对定位元素的一个 position 的值不为 static 的祖先元素，然后相对于这个祖先元
     素的 padding box 来定位，也就是说在计算定位距离的时候，padding 的值也要算进去。
     ```
 
@@ -732,8 +732,8 @@
 
     使用 base64 的缺点是：
 
-    （1）根据 base64 的编码原理，编码后的大小会比原文件大小大 1/3，为如果把大图片编码到 html / css 中，不仅会造成文件
-        体积的增加，影响文件的加载速度，还会增加浏览器对 html 或 css 文件解析渲染的时间。
+    （1）根据 base64 的编码原理，编码后的大小会比原文件大小大 1/3，如果把大图片编码到 html / css 中，不仅会造成文件体
+        积的增加，影响文件的加载速度，还会增加浏览器对 html 或 css 文件解析渲染的时间。
 
     （2）使用 base64 无法直接缓存，要缓存只能缓存包含 base64 的文件，比如 HTML 或者 CSS，这相比域直接缓存图片的效果要
         差很多。
@@ -873,7 +873,7 @@
     不会影响到 BFC 中的内部元素。一个 BFC 就像是一个隔离区域，和其他区域互不影响。
 
     一般来说根元素是一个 BFC 区域，浮动和绝对定位的元素也会形成 BFC，display 属性的值为 inline-block 、flex 这些
-    属性时也会创建 BFC。还有就是元素的 over-flow 的值不为 visible 时都会创建 BFC。
+    属性时也会创建 BFC。还有就是元素的 overflow 的值不为 visible 时都会创建 BFC。
     ```
 
 
@@ -925,10 +925,10 @@
     对该元素的影响，而不是清除掉浮动。
 
     还需要注意的一点是 clear 属性指的是元素盒子的边不能和前面的浮动元素相邻，注意这里“前面的”3 个字，也就是 clear 属
-    性对“后面的”浮动元素是不闻不问的。考虑到 float 属性要么就 left 要么就 right，不可能同时存在同时由于 clear 属性
-    对“后面的”浮动元素不闻不问，因此，当 clear:left 有效的时候，clear:right 必定无效，也就是此时 clear:left 等同
-    于设 置clear:both；同样地，clear:right 如果有效也是等同于设置 clear:both。由此可见，clear:left 和 clear:r
-    ight 这两个声明就没有任何使用的价值，至少在 CSS 世界中是如此，直接使用 clear:both 吧。
+    性对“后面的”浮动元素是不闻不问的。考虑到 float 属性要么是 left ，要么是 right，不可能同时存在，同时由于 clear
+    属性对“后面的”浮动元素不闻不问，因此，当 clear:left 有效的时候，clear:right 必定无效，也就是此时 clear:left
+    等同于设置 clear:both；同样地，clear:right 如果有效也是等同于设置 clear:both。由此可见，clear:left 和 cle
+    ar:right 这两个声明就没有任何使用的价值，至少在 CSS 世界中是如此，直接使用 clear:both 吧。
 
     一般使用伪元素的方式清除浮动
 
@@ -1135,7 +1135,6 @@
     行计算大小和组织，要么依赖于父元素来计算尺寸和组织内容。当一个元素的 hasLayout 属性值为 true 时，它负责对自己和可
     能的子孙元素进行尺寸计算和定位。虽然这意味着这个元素需要花更多的代价来维护自身和里面的内容，而不是依赖于祖先元素来完
     成这些工作。
-
     ```
     详细资料可以参考：
     [《CSS 基础篇-- CSS 中 IE 浏览器的 hasLayout，IE 低版本的 bug 根源》](https://segmentfault.com/a/1190000010883974)
@@ -1387,7 +1386,7 @@
     （1）第一种是 BMP 格式，它是无损压缩的，支持索引色和直接色的点阵图。由于它基本上没有进行压缩，因此它的文件体积一般比
         较大。
 
-    （2）第二种是 GIF 格式，它是无损压缩的使用索引色的点阵图。由于使用了 LWZ 压缩方法，因此文件的体积很小。并且 GIF 还
+    （2）第二种是 GIF 格式，它是无损压缩的使用索引色的点阵图。由于使用了 LZW 压缩方法，因此文件的体积很小。并且 GIF 还
         支持动画和透明度。但因为它使用的是索引色，所以它适用于一些对颜色要求不高且需要文件体积小的场景。
 
     （3）第三种是 JPEG 格式，它是有损压缩的使用直接色的点阵图。由于使用了直接色，色彩较为丰富，一般适用于来存储照片。但
@@ -2089,58 +2088,32 @@
          background: gold;
        }
 
-    （2）第二种是利用 flex 布局，将左边元素的放大和缩小比例设置为 0，基础大小设置为 200px。将右边的元素的放大比例设置为
-        1，缩小比例设置为 1，基础大小设置为 auto。
+     （2）第二种是利用 flex 布局，将左边元素的放大和缩小比例设置为 0，基础大小设置为 200px。将右边的元素的放大比例设置为
+         1，缩小比例设置为 1，基础大小设置为 auto。
 
-       .outer {
-         display: flex;
+        .outer {
+          display: flex;
 
-         height: 100px;
-       }
+          height: 100px;
+        }
 
-       .left {
-         flex-shrink: 0;
-         flex-grow: 0;
-         flex-basis: 200px;
+        .left {
+          flex-shrink: 0;
+          flex-grow: 0;
+          flex-basis: 200px;
 
-         background: tomato;
-       }
+          background: tomato;
+        }
 
-       .right {
-         flex: auto;
-         /* 1 1 auto */
+        .right {
+          flex: auto;
+          /* 1 1 auto */
 
-         background: gold;
-       }
+          background: gold;
+        }
 
-    （3）第三种是利用绝对定位布局的方式，将父级元素设置相对定位。左边元素设置为 absolute 定位，并且宽度设置为 200px。将
-        右边元素的 margin-left 的值设置为 200px。
-
-       .outer {
-         position: relative;
-
-         height: 100px;
-       }
-
-       .left {
-         position: absolute;
-
-         width: 200px;
-         height: 100px;
-
-         background: tomato;
-       }
-
-       .right {
-         margin-left: 200px;
-         height: 100px;
-
-         background: gold;
-       }
-
-
-     （4）第四种还是利用绝对定位的方式，将父级元素设置为相对定位。左边元素宽度设置为 200px，右边元素设置为绝对定位，左边定
-         位为 200px，其余方向定位为 0。
+     （3）第三种是利用绝对定位布局的方式，将父级元素设置相对定位。左边元素设置为 absolute 定位，并且宽度设置为 200px。将
+         右边元素的 margin-left 的值设置为 200px。
 
         .outer {
           position: relative;
@@ -2149,6 +2122,8 @@
         }
 
         .left {
+          position: absolute;
+
           width: 200px;
           height: 100px;
 
@@ -2156,15 +2131,39 @@
         }
 
         .right {
-          position: absolute;
-
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 200px;
+          margin-left: 200px;
+          height: 100px;
 
           background: gold;
         }
+
+
+      （4）第四种还是利用绝对定位的方式，将父级元素设置为相对定位。左边元素宽度设置为 200px，右边元素设置为绝对定位，左边定
+          位为 200px，其余方向定位为 0。
+
+         .outer {
+           position: relative;
+
+           height: 100px;
+         }
+
+         .left {
+           width: 200px;
+           height: 100px;
+
+           background: tomato;
+         }
+
+         .right {
+           position: absolute;
+
+           top: 0;
+           right: 0;
+           bottom: 0;
+           left: 200px;
+
+           background: gold;
+         }
      ```
      [《两栏布局 demo 展示》](http://cavszhouyou.top/Demo-Display/TwoColumnLayout/index.html)
 
