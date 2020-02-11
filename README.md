@@ -2,47 +2,9 @@
 
 [![gitter](https://img.shields.io/badge/_-gitter-blue.svg)]() [![gitbook](https://img.shields.io/badge/>-gitbook-blue.svg)]() 
 
-|               Ⅰ                |                    Ⅱ                     |                   Ⅲ                    |                     Ⅳ                      |                     Ⅴ                      |                   Ⅵ                   |           Ⅶ           |                   Ⅷ                    |              Ⅸ               |            Ⅹ             |
-| :----------------------------: | :--------------------------------------: | :------------------------------------: | :----------------------------------------: | :----------------------------------------: | :-----------------------------------: | :-------------------: | :------------------------------------: | :--------------------------: | :----------------------: |
-| 算法[:pencil2:](#算法-pencil2) | 操作系统[:computer:](#操作系统-computer) | 计算机网络[:cloud:](#计算机网络-cloud) | 计算机体系结构[:zap:](#计算机体系结构-zap) | 数据库[:floppy_disk:](#数据库-floppy_disk) | Html [:baby_chick:](#Html-baby_chick) | Css [:cat:](#Css-cat) | JavaScript[:koala:](#JavaScript-koala) | 工具[:hammer:](#工具-hammer) | 后记[:memo:](#后记-memo) |
-
-## 算法 :pencil2:
-
-> [基本数据结构和算法](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95.md) 
-
-本部分主要是笔者在学习算法知识和一些相关面试题所做的笔记，如果出现错误，希望大家指出！
-
-> [剑指 offer 思路总结](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer.md)
-
-本部分主要是笔者在练习剑指 offer 时所做的笔记，如果出现错误，希望大家指出！
-
-> [智力题总结](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E6%99%BA%E5%8A%9B%E9%A2%98.md)
-
-本部分主要是笔者在练习常见面试智力题所做的笔记，如果出现错误，希望大家指出！
-
-## 操作系统 :computer:
-
-> [计算机操作系统](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.md) 
-
-参考 现代操作系统、深入理解计算机系统。
-
-## 计算机网络 :cloud:
-
-> [计算机网络](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md) 
-
-参考 计算机网络 自顶向下方法。
-
-## 计算机体系结构 :zap:
-
-> [计算机体系结构]() 待完善......
-
-参考 深入理解计算机系统、编码。
-
-## 数据库 :floppy_disk:
-
-> [数据库系统原理]() 待完善......
-
-参考 数据库系统原理。
+|               Ⅰ                |                    Ⅱ                     |                   Ⅲ                    |                     Ⅳ                      |                     Ⅴ                      |                   Ⅵ                   |           Ⅶ           |    
+| :----------------------------: | :--------------------------------------: | :------------------------------------: | :----------------------------------------: | :----------------------------------------: | :-----------------------------------: | :-------------------: | 
+| Html [:baby_chick:](#Html-baby_chick) | Css [:cat:](#Css-cat) | JavaScript[:koala:](#JavaScript-koala)| 算法[:pencil2:](#算法-pencil2) |  计算机网络[:cloud:](#计算机网络-cloud) | 工具[:hammer:](#工具-hammer) | 后记[:memo:](#后记-memo) |
 
 ## Html :baby_chick:
 
@@ -62,16 +24,31 @@
 
 本部分主要是笔者在学习 JavaScript 相关知识和一些相关面试题所做的笔记，如果出现错误，希望大家指出！
 
+## 算法 :pencil2:
+
+> [基本数据结构和算法](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95.md) 
+
+本部分主要是笔者在学习算法知识和一些相关面试题所做的笔记，如果出现错误，希望大家指出！
+
+> [剑指 offer 思路总结](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer.md)
+
+本部分主要是笔者在练习剑指 offer 时所做的笔记，如果出现错误，希望大家指出！
+
+> [智力题总结](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E6%99%BA%E5%8A%9B%E9%A2%98.md)
+
+本部分主要是笔者在练习常见面试智力题所做的笔记，如果出现错误，希望大家指出！
+
+## 计算机网络 :cloud:
+
+> [计算机网络](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md) 
+
+参考 计算机网络 自顶向下方法。
+
 ## 工具 :hammer:
 
 > [Git](https://github.com/CavsZhouyou/Interview-Notebook/blob/master/%E5%B7%A5%E5%85%B7/%E5%B7%A5%E5%85%B7.md) 
 
 一些 Git 的使用和概念。
-
-> [正则表达式]() 待完善......
-
-参考 正则表达式必知必会。
-
 
 ## 后记 :memo:
 

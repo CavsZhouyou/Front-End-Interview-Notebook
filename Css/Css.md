@@ -205,7 +205,7 @@
    [《CSS 优先级计算规则》](http://www.cnblogs.com/wangmeijian/p/4207433.html)
 
 
-7. 关于伪类 LVHA 的解释
+7. 关于伪类 LVHA 的解释?
    ```
    a 标签有四种状态：链接访问前、链接访问后、鼠标滑过、激活，分别对应四种伪类:link、:visited、:hover、:active；
 
