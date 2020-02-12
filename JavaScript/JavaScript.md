@@ -3417,16 +3417,16 @@
    ```
 
 #### 156. vue 中 mixin 和 mixins 区别？
-    ```
+   ```
      mixin 用于全局混入，会影响到每个组件实例。
 
      mixins 应该是我们最常使用的扩展组件的方式了。如果多个组件中有相同的业务逻辑，就可以将这些逻辑剥离出来，通过 mixins
      混入代码，比如上拉下拉加载数据这种逻辑等等。另外需要注意的是 mixins 混入的钩子函数会先于组件内的钩子函数执行，并且在
      遇到同名选项的时候也会有选择性的进行合并，
-    ```
-    详细资料可以参考：
-    [《前端面试之道》](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc731b51882516c56ced6f)
-    [《混入》](https://cn.vuejs.org/v2/guide/mixins.html)
+   ```
+   详细资料可以参考：
+   [《前端面试之道》](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc731b51882516c56ced6f)
+   [《混入》](https://cn.vuejs.org/v2/guide/mixins.html)
      
 
 #### 157. 开发中常用的几种 Content-Type ？
