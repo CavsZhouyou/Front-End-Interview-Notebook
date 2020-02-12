@@ -159,7 +159,7 @@
 * [153. vue中 key 值的作用？](#153-vue中-key-值的作用)
 * [154. computed 和 watch 区别？](#154-computed-和-watch-区别)
 * [155. keep-alive 组件有什么作用？](#155-keep-alive-组件有什么作用)
-* [156.vue 中 mixin 和 mixins 区别？](#156vue-中-mixin-和-mixins-区别)
+* [156. vue 中 mixin 和 mixins 区别？](#156-vue-中-mixin-和-mixins-区别)
 * [157. 开发中常用的几种 Content-Type ？](#157-开发中常用的几种-content-type-)
 * [158. 如何封装一个 javascript 的类型判断函数？](#158-如何封装一个-javascript-的类型判断函数)
 * [159. 如何判断一个对象是否为空对象？](#159-如何判断一个对象是否为空对象)
@@ -3416,7 +3416,7 @@
     如果你需要在组件切换的时候，保存一些组件的状态防止多次渲染，就可以使用 keep-alive 组件包裹需要保存的组件。
    ```
 
-#### 156.vue 中 mixin 和 mixins 区别？
+#### 156. vue 中 mixin 和 mixins 区别？
     ```
      mixin 用于全局混入，会影响到每个组件实例。
 
