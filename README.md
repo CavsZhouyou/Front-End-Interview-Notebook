@@ -6,7 +6,7 @@
 
 |               Ⅰ                |                    Ⅱ                     |                   Ⅲ                    |                     Ⅳ                      |                     Ⅴ                      |                   Ⅵ                   |           Ⅶ           |               Ⅷ          |
 | :----------------------------: | :--------------------------------------: | :------------------------------------: | :----------------------------------------: | :----------------------------------------: | :-----------------------------------: | :-------------------: | :-------------------: | 
-| [Html 总结:baby_chick:](#Html总结-baby_chick) | [Css 总结:cat:](#Css总结-cat) | [JavaScript 总结:koala:](#JavaScript总结-koala)| [算法总结:pencil2:](#算法总结-pencil2) |  [计算机网络总结:cloud:](#计算机网络总结-cloud) | [工具总结:hammer:](#工具总结-hammer) | [面试记录总结:goat:](#面试记录总结-goat) | [后记:memo:](#后记-memo) |
+| [Html :baby_chick:](#Html总结-baby_chick) | [Css :cat:](#Css总结-cat) | [JavaScript :koala:](#JavaScript总结-koala)| [算法:pencil2:](#算法总结-pencil2) |  [计算机网络:cloud:](#计算机网络总结-cloud) | [工具:hammer:](#工具总结-hammer) | [面试记录:goat:](#面试记录总结-goat) | [后记:memo:](#后记-memo) |
 
 ## Html总结 :baby_chick:
 
