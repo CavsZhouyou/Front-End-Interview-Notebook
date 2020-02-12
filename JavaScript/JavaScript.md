@@ -2424,7 +2424,7 @@
    [《JavaScript 中奇特的~运算符》](https://juejin.im/entry/59cdd7fb6fb9a00a600f8eef)
   
 #### 100. 原码、反码和补码的介绍
-    ```
+   ```
      原码是计算机中对数字的二进制的定点表示方法，最高位表示符号位，其余位表示数值位。优点是易于分辨，缺点是不能够直接参与运
      算。
 
@@ -2438,16 +2438,16 @@
 
      之所以在计算机中使用补码来表示负数的原因是，这样可以将加法运算扩展到所有的数值计算上，因此在数字电路中
      我们只需要考虑加法器的设计就行了，而不用再为减法设置新的数字电路。
-    ```
-    详细资料可以参考：
-    [《关于2的补码》](http://www.ruanyifeng.com/blog/2009/08/twos_complement.html)
+   ```
+   详细资料可以参考：
+   [《关于2的补码》](http://www.ruanyifeng.com/blog/2009/08/twos_complement.html)
 
 #### 101. toPrecision 和 toFixed 和 Math.round 的区别？
-    ```
-     toPrecision 用于处理精度，精度是从左至右第一个不为 0 的数开始数起。
-     toFixed 是对小数点后指定位数取整，从小数点开始数起。
-     Math.round 是将一个数字四舍五入到一个整数。
-    ```
+   ```
+    toPrecision 用于处理精度，精度是从左至右第一个不为 0 的数开始数起。
+    toFixed 是对小数点后指定位数取整，从小数点开始数起。
+    Math.round 是将一个数字四舍五入到一个整数。
+   ```
 #### 102. 什么是 XSS 攻击？如何防范 XSS 攻击？
    ```
      XSS 攻击指的是跨站脚本攻击，是一种代码注入攻击。攻击者通过在网站注入恶意脚本，使之在用户的浏览器上运行，从而盗取用户
@@ -2492,6 +2492,7 @@
      通常有两种方式来开启 CSP，一种是设置 HTTP 首部中的 Content-Security-Policy，一种是设置 meta 标签的方式 <meta
      http-equiv="Content-Security-Policy">
    ```
+   详细资料可以参考：
    [《内容安全策略（CSP）》](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 
    [《前端面试之道》](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc721851882516c33430a2)
 
@@ -2711,6 +2712,7 @@
     使用 webpack 的确能够提供我们对于项目的管理，但是它的缺点就是调试和配置起来太麻烦了。但现在 webpack4.0 的免配置一
     定程度上解决了这个问题。但是我感觉就是对我来说，就是一个黑盒，很多时候出现了问题，没有办法很好的定位。
    ```
+   详细资料可以参考：
    [《不聊 webpack 配置，来说说它的原理》](https://juejin.im/post/5b38d27451882574d87aa5d5#heading-0)
    [《前端工程化——构建工具选型：grunt、gulp、webpack》](https://juejin.im/entry/5b5724d05188251aa01647fd)
    [《浅入浅出 webpack》](https://juejin.im/post/5afa9cd0f265da0b981b9af9#heading-0)
