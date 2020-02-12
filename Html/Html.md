@@ -1,6 +1,6 @@
 ## Html 知识总结
 
-本部分主要是笔者在复习 Html 相关知识和一些相关面试题时所做的笔记，如果出现错误，希望大家指出！v
+本部分主要是笔者在复习 Html 相关知识和一些相关面试题时所做的笔记，如果出现错误，希望大家指出！
 
 ### 目录
 
@@ -300,11 +300,11 @@
      html 都解析完成之后再去构建和布局 render 树。它是解析完一部分内容就显示一部分内容，同时，可能还在通过网络下载其
      余内容。
    ```
-    详细资料可以参考：
-    [《浏览器渲染原理》](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc7207f265da613c09425d)
-    [《浏览器的渲染原理简介》](https://coolshell.cn/articles/9666.html)
-    [《前端必读：浏览器内部工作原理》](https://kb.cnblogs.com/page/129756/)
-    [《深入浅出浏览器渲染原理》](https://blog.fundebug.com/2019/01/03/understand-browser-rendering/)
+   详细资料可以参考：
+   [《浏览器渲染原理》](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdc7207f265da613c09425d)
+   [《浏览器的渲染原理简介》](https://coolshell.cn/articles/9666.html)
+   [《前端必读：浏览器内部工作原理》](https://kb.cnblogs.com/page/129756/)
+   [《深入浅出浏览器渲染原理》](https://blog.fundebug.com/2019/01/03/understand-browser-rendering/)
 
 #### 18. 渲染过程中遇到 JS 文件怎么处理？（浏览器解析过程）
    ```
@@ -411,7 +411,7 @@
     回流。
 
    ```
-    常见引起重绘属性和方法：
+   常见引起重绘属性和方法：
 
    ![常见引起重绘属性和方法](https://cavszhouyou-1254093697.cos.ap-chongqing.myqcloud.com/note-13.png)
 
@@ -604,9 +604,9 @@
 
    ```
 
-    详细的使用可以参考：
-    [《HTML5 离线缓存-manifest 简介》](https://yanhaijing.com/html/2014/12/28/html5-manifest/)
-    [《有趣的 HTML5：离线存储》](https://segmentfault.com/a/1190000000732617)
+   详细的使用可以参考：
+   [《HTML5 离线缓存-manifest 简介》](https://yanhaijing.com/html/2014/12/28/html5-manifest/)
+   [《有趣的 HTML5：离线存储》](https://segmentfault.com/a/1190000000732617)
 
 
 #### 34. 浏览器是怎么对 HTML5 的离线储存资源进行管理和加载的呢？
@@ -627,6 +627,7 @@
 
     IE 支持 userData 存储数据，但是基本很少使用到，除非有很强的浏览器兼容需求。
    ```
+   详细的资料可以参考：
    [《很全很全的前端本地存储讲解》](https://segmentfault.com/a/1190000012578794#articleHeader0)
 
 #### 36. 请描述一下 cookies，sessionStorage 和 localStorage 的区别？
@@ -653,10 +654,10 @@
         sessionStorage  只在同源的同窗口（或标签页）中共享数据，也就是只在当前会话中共享。
         localStorage    在所有同源窗口中都是共享的。
         cookie          在所有同源窗口中都是共享的。
-    ```
+   ```
 
-    回答：
-    ```
+   回答：
+   ```
     浏览器端常用的存储技术是 cookie 、localStorage 和 sessionStorage。
 
     cookie 其实最开始是服务器端用于记录用户状态的一种方式，由服务器设置，在客户端存储，然后每次发起同源请求时，发送给服
@@ -855,7 +856,7 @@
     二是代码是否容易被人理解，是否容易修改和增强功能。
    ```
 
-#### 52. ie 各版本和 chrome 可以并行下载多少个资源？
+#### 52. IE 各版本和 Chrome 可以并行下载多少个资源？
    ```
     （1）  IE6 2 个并发
     （2）  iE7 升级之后的 6 个并发，之后版本也是 6 个
