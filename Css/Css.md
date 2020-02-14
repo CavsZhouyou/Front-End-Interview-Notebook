@@ -72,7 +72,7 @@
 * [66. 画一条 0.5 px 的线](#66-画一条-05-px-的线)
 * [67. transition 和 animation 的区别](#67-transition-和-animation-的区别)
 * [68. 什么是首选最小宽度？](#68-什么是首选最小宽度)
-* [69. 为什么 height:100\x 会无效？](#69-为什么-height100-会无效)
+* [69. 为什么 height:100% 会无效？](#69-为什么-height100-会无效)
 * [70. min-width/max-width 和 min-height/max-height 属性间的覆盖规则？](#70-min-widthmax-width-和-min-heightmax-height-属性间的覆盖规则)
 * [71. 内联盒模型基本概念](#71-内联盒模型基本概念)
 * [72. 什么是幽灵空白节点？](#72-什么是幽灵空白节点)
