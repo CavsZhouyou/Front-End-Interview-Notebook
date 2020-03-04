@@ -413,11 +413,11 @@
    ```
    常见引起重绘属性和方法：
 
-   ![常见引起重绘属性和方法](https://cavszhouyou-1254093697.cos.ap-chongqing.myqcloud.com/note-13.png)
+   ![常见引起回流属性和方法](https://cavszhouyou-1254093697.cos.ap-chongqing.myqcloud.com/note-14.png)
 
    常见引起回流属性和方法：
 
-   ![常见引起回流属性和方法](https://cavszhouyou-1254093697.cos.ap-chongqing.myqcloud.com/note-14.png)
+   ![常见引起重绘属性和方法](https://cavszhouyou-1254093697.cos.ap-chongqing.myqcloud.com/note-13.png)
 
    详细资料可以参考：
    [《浏览器的回流与重绘》](https://juejin.im/post/5a9923e9518825558251c96a)
@@ -1059,7 +1059,7 @@
    ```
     HTML 的注释方法 <!--注释内容--> 
     
-    CSS 的注释方法 /*注释内容*/ 
+    CSS 的��释方法 /*注释内容*/ 
     
     JavaScript 的注释方法 /* 多行注释方式 */ //单行注释方式
    ```
