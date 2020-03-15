@@ -17,6 +17,12 @@
 
 欢迎提交对本仓库的改进建议~
 
+Contributors: 
+
+<a href="https://github.com/Wscats">
+    <img src="https://avatars3.githubusercontent.com/u/17243165?s=400&u=e7e4c2011ce0486f58a53f3dead46e0152833c3f&v=4" width="50px">
+</a> 
+
 ### 授权相关
 
 虽然没有加开源协议，但是允许非商业性使用。
