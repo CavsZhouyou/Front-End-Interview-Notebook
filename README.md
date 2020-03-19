@@ -34,6 +34,9 @@ Contributors:
 <a href="https://github.com/Wscats">
     <img src="https://avatars3.githubusercontent.com/u/17243165?s=400&u=e7e4c2011ce0486f58a53f3dead46e0152833c3f&v=4" width="50px">
 </a> 
+<a href="https://github.com/ScarboroughCoral">
+    <img src="https://avatars2.githubusercontent.com/u/26180429?s=400&u=03a95e31349f1e457389a3f0565bf3a8e1657920&v=4" width="50px">
+</a>
 
 ### 授权相关
 
