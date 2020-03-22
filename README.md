@@ -37,6 +37,9 @@ Contributors:
 <a href="https://github.com/ScarboroughCoral">
     <img src="https://avatars2.githubusercontent.com/u/26180429?s=400&u=03a95e31349f1e457389a3f0565bf3a8e1657920&v=4" width="50px">
 </a>
+<a href="https://github.com/icecxh">
+    <img src="https://avatars2.githubusercontent.com/u/19871501?s=400&u=820c1acdf77f9672838cbcfeb97f5f210bc9b588&v=4" width="50px">
+</a>
 
 ### 授权相关
 
