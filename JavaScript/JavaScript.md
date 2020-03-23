@@ -2060,7 +2060,7 @@
           nowTime = Date.now();
 
         // 如果两次时间间隔超过了指定时间，则执行函数。
-        if (preTime - nowTime >= delay) {
+        if (nowTime - preTime >= delay) {
           fn.apply(context, args);
           preTime = Date.now();
         }
