@@ -2061,8 +2061,8 @@
 
         // 如果两次时间间隔超过了指定时间，则执行函数。
         if (nowTime - preTime >= delay) {
-          fn.apply(context, args);
           preTime = Date.now();
+          return fn.apply(context, args);
         }
       }
     }
