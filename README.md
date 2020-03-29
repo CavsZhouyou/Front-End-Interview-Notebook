@@ -40,6 +40,12 @@ Contributors:
 <a href="https://github.com/icecxh">
     <img src="https://avatars2.githubusercontent.com/u/19871501?s=400&u=820c1acdf77f9672838cbcfeb97f5f210bc9b588&v=4" width="50px">
 </a>
+<a href="https://github.com/CaZn">
+    <img src="https://avatars0.githubusercontent.com/u/43467382?s=400&u=2223974928e239e4bf3bde67693daf143f9f43bf&v=4" width="50px">
+</a>
+<a href="https://github.com/guahunyo">
+    <img src="https://avatars1.githubusercontent.com/u/18573180?s=400&u=b6d826bcf6ce2a4aa48636e0fde04d355e1730d4&v=4" width="50px">
+</a>
 
 ### 授权相关
 
