@@ -3653,6 +3653,10 @@ function findMostWord(article) {
   // 遍历判断单词出现次数
   wordList.forEach(function(item) {
     if (visited.indexOf(item) < 0) {
+
+      // 加入 visited 
+      visited.push(item);
+
       let word = new RegExp(" " + item + " ", "g"),
         num = article.match(word).length;
 
