@@ -73,6 +73,7 @@
 * [67. Chrome 中的 Waterfall ？](#67-chrome-中的-waterfall-)
 * [68. 扫描二维码登录网页是什么原理，前后两个事件是如何联系的？](#68-扫描二维码登录网页是什么原理前后两个事件是如何联系的)
 
+
 #### 1. DOCTYPE 的作用是什么？
    
    相关知识点：
@@ -1145,3 +1146,18 @@
    ```
    详细资料可以参考：
    [《微信扫描二维码登录网页》](https://www.zhihu.com/question/20368066)
+
+#### 69. Html 规范中为什么要求引用资源不加协议头`http`或者`https`？
+   ```
+    如果用户当前访问的页面是通过 HTTPS 协议来浏览的，那么网页中的资源也只能通过 HTTPS 协议来引用，否则浏览器会出现
+    警告信息，不同浏览器警告信息展现形式不同。
+
+    为了解决这个问题，我们可以省略 URL 的协议声明，省略后浏览器照样可以正常引用相应的资源，这项解决方案称为
+     protocol-relative URL，暂且可译作协议相对 URL。
+
+    如果使用协议相对 URL，无论是使用 HTTPS，还是 HTTP 访问页面，浏览器都会以相同的协议请求页面中的资源，避免弹出类似
+    的警告信息，同时还可以节省5字节的数据量。
+   ```
+   详细资料可以参考：
+   [《协议相对 URL》](https://www.ludou.org/the-protocol-relative-url.html)
+   [《Why you need protocol-relative URLs *now*》](https://www.tuicool.com/articles/nEjU7b)
