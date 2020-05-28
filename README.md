@@ -49,6 +49,9 @@ Contributors:
 <a href="https://github.com/zzusunjs">
     <img src="https://avatars1.githubusercontent.com/u/22544339?s=400&u=b0f084de58baa01e93cbf0139d96544ecab89d93&v=4" width="50px">
 </a>
+<a href="https://github.com/caicaishmily">
+    <img src="https://avatars2.githubusercontent.com/u/19269210?s=400&u=934919f0fde1d1a253648a1b6102161953e02a58&v=4" width="50px">
+</a>
 
 ### 授权相关
 
