@@ -52,6 +52,9 @@ Contributors:
 <a href="https://github.com/caicaishmily">
     <img src="https://avatars2.githubusercontent.com/u/19269210?s=400&u=934919f0fde1d1a253648a1b6102161953e02a58&v=4" width="50px">
 </a>
+<a href="https://github.com/AkiyamaMinami">
+    <img src="https://avatars3.githubusercontent.com/u/31888190?s=400&u=a447155ed58dca80cd6d8f8511dc525a01599c2c&v=4" width="50px">
+</a>
 
 ### 授权相关
 
