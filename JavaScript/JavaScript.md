@@ -409,7 +409,7 @@ JavaScript 对象是通过引用来传递的，我们创建的每个新对象实
 
 #### 11. js 获取原型的方法？
 
-- p.**proto**
+- p.**__proto__**
 - p.constructor.prototype
 - Object.getPrototypeOf(p)
 
