@@ -248,6 +248,18 @@ Object.prototype.toString.call( [1,2,3] );
 
 Object.prototype.toString.call( /regex-literal/i );
 // "[object RegExp]"
+
+// 我们自己创建的类就不会有这份特殊待遇，因为 toString() 找不到 toStringTag 属性时只好返回默认的 Object 标签
+// 默认情况类的[[Class]]返回[object Object]
+class Class1 {}
+Object.prototype.toString.call(new Class1()); // "[object Object]"
+// 需要定制[[Class]]
+class Class2 {
+  get [Symbol.toStringTag]() {
+    return "Class2";
+  }
+}
+Object.prototype.toString.call(new Class2()); // "[object Class2]"
 ```
 
 #### 5. 介绍 js 有哪些内置对象？
