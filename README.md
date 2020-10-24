@@ -55,6 +55,9 @@ Contributors:
 <a href="https://github.com/AkiyamaMinami">
     <img src="https://avatars3.githubusercontent.com/u/31888190?s=400&u=a447155ed58dca80cd6d8f8511dc525a01599c2c&v=4" width="50px">
 </a>
+<a href="https://github.com/fanerge">
+    <img src="https://avatars3.githubusercontent.com/u/17136707?s=400&u=d7250b0655c87b8e8e1cdaf826754fe5e6f68e80&v=4" width="50px">
+</a>
 
 ### 授权相关
 
