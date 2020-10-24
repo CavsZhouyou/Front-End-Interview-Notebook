@@ -16,7 +16,7 @@
 - [10.display 有哪些值？说明他们的作用。](#10display-有哪些值说明他们的作用)
 - [11.position 的值 relative 和 absolute 定位原点是？](#11position-的值-relative-和-absolute-定位原点是)
 - [12.CSS3 有哪些新特性？（根据项目回答）](#12css3-有哪些新特性根据项目回答)
-- [13.请解释一下 CSS3 的 Flexbox（弹性盒布局模型），以及适用场景？](#13请解释一下-css3-的-flexbox弹性盒布局模型以及适用场景)
+- [13.请解释一下 CSS3 的 Flex box（弹性盒布局模型），以及适用场景？](#13请解释一下-css3-的-flex-box弹性盒布局模型以及适用场景)
 - [14.用纯 CSS 创建一个三角形的原理是什么？](#14用纯-css-创建一个三角形的原理是什么)
 - [15.一个满屏品字布局如何设计?](#15一个满屏品字布局如何设计)
 - [16.CSS 多列等高如何实现？](#16css-多列等高如何实现)
@@ -30,7 +30,7 @@
 - [24.简单介绍使用图片 base64 编码的优点和缺点。](#24简单介绍使用图片-base64-编码的优点和缺点)
 - [25.'display'、'position'和'float'的相互关系？](#25displayposition和float的相互关系)
 - [26.margin 重叠问题的理解。](#26margin-重叠问题的理解)
-- [27.对 BFC 规范（块级格式化上下文：blockformattingcontext）的理解？](#27对-bfc-规范块级格式化上下文blockformattingcontext的理解)
+- [27.对 BFC 规范（块级格式化上下文：block formatting context）的理解？](#27对-bfc-规范块级格式化上下文block-formatting-context的理解)
 - [28.IFC 是什么？](#28ifc-是什么)
 - [29.请解释一下为什么需要清除浮动？清除浮动的方式](#29请解释一下为什么需要清除浮动清除浮动的方式)
 - [30.使用 clear 属性清除浮动的原理？](#30使用-clear-属性清除浮动的原理)
@@ -55,7 +55,7 @@
 - [49.让页面里的字体变清晰，变细用 CSS 怎么做？](#49让页面里的字体变清晰变细用-css-怎么做)
 - [50.font-style 属性中 italic 和 oblique 的区别？](#50font-style-属性中-italic-和-oblique-的区别)
 - [51.设备像素、css 像素、设备独立像素、dpr、ppi 之间的区别？](#51设备像素css-像素设备独立像素dprppi-之间的区别)
-- [52.layoutviewport、visualviewport 和 idealviewport 的区别？](#52layoutviewportvisualviewport-和-idealviewport-的区别)
+- [52.layout viewport、visual viewport 和 ideal viewport 的区别？](#52layout-viewportvisual-viewport-和-ideal-viewport-的区别)
 - [53.position:fixed;在 android 下无效怎么处理？](#53positionfixed在-android-下无效怎么处理)
 - [54.如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）](#54如果需要手动写动画你认为最小时间间隔是多久为什么阿里)
 - [55.如何让去除 inline-block 元素间间距？](#55如何让去除-inline-block-元素间间距)
@@ -108,7 +108,7 @@
 - [102.实现一个宽高自适应的正方形](#102实现一个宽高自适应的正方形)
 - [103.实现一个三角形](#103实现一个三角形)
 - [104.一个自适应矩形，水平垂直居中，且宽高比为 2:1](#104一个自适应矩形水平垂直居中且宽高比为-21)
--[105.你知道CSS中不同属性设置为百分比%时对应的计算基准？](#105.你知道CSS中不同属性设置为百分比%时对应的计算基准？)
+- [105.你知道 CSS 中不同属性设置为百分比\x 时对应的计算基准？](#105你知道-css-中不同属性设置为百分比时对应的计算基准)
 
 #### 1.介绍一下标准的 CSS 的盒子模型？低版本 IE 的盒子模型有什么不同的？
 
@@ -2624,17 +2624,18 @@ body {
 }
 ```
 
-####  105.你知道CSS中不同属性设置为百分比%时对应的计算基准？
-```
-公式：当前元素某CSS属性值 = 基准 * 对应的百分比 
-元素的 position 为 relative 和 absolute 时，top和bottom、left和right基准分别为包含块的 height、width 
-元素的 position 为 fixed 时，top和bottom、left和right基准分别为初始包含块（也就是视口）的 height、width，移动设备较为复杂，基准为 Layout viewport 的 height、width
-元素的 height 和 width 设置为百分比时，基准分别为包含块的 height 和 width 
-元素的 margin 和 padding 设置为百分比时，基准为包含块的 width（易错） 
-元素的 border-width，不支持百分比 
-元素的 text-indent，基准为包含块的 width 
+#### 105.你知道 CSS 中不同属性设置为百分比%时对应的计算基准？
 
-元素的 border-radius，基准为分别为自身的height、width 
+```
+公式：当前元素某CSS属性值 = 基准 * 对应的百分比
+元素的 position 为 relative 和 absolute 时，top和bottom、left和right基准分别为包含块的 height、width
+元素的 position 为 fixed 时，top和bottom、left和right基准分别为初始包含块（也就是视口）的 height、width，移动设备较为复杂，基准为 Layout viewport 的 height、width
+元素的 height 和 width 设置为百分比时，基准分别为包含块的 height 和 width
+元素的 margin 和 padding 设置为百分比时，基准为包含块的 width（易错）
+元素的 border-width，不支持百分比
+元素的 text-indent，基准为包含块的 width
+
+元素的 border-radius，基准为分别为自身的height、width
 元素的 background-size，基准为分别为自身的height、width
 元素的 translateX、translateY，基准为分别为自身的height、width
 元素的 line-height，基准为自身的 font-size
