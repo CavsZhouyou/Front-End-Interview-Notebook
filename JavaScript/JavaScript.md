@@ -1879,9 +1879,9 @@ v8 的垃圾回收机制基于分代回收机制，这个机制又基于世代�
 #### 83. 如何判断当前脚本运行在浏览器还是 node 环境中？（阿里）
 
 ```
-this === window ? 'browser' : 'node';
+typeof window === 'undefined' ? console.log('node') : console.log('browser');
 
-通过判断 Global 对象是否为 window，如果不为 window，当前脚本没有运行在浏览器中。
+通过判断 window 对象是否为 undefined ，来判断当前脚本没有运行在浏览器中。
 ```
 
 #### 84. 把 script 标签放在页面的最底部的 body 封闭之前和封闭之后有什么区别？浏览器会如何解析它们？
