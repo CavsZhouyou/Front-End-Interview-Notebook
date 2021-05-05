@@ -56,7 +56,7 @@
 - [50. new 操作符具体干了什么呢？如何实现？](#50-new-操作符具体干了什么呢如何实现)
 - [51. Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？](#51-javascript中有一个函数执行时对象查找时永远不会去查找原型这个函数是)
 - [52. 对于 JSON 的了解？](#52-对于-json-的了解)
-- [53. [].forEach.call(\$\$("<em>"),function(a){a.style.outline="1px solid #" (~~(Math.random()</em>(1&lt;&lt;24))).toString(16)}) 能解释一下这段代码的意思吗？](#53-foreachcallfunctionaastyleoutline1px-solid-mathrandom124tostring16-能解释一下这段代码的意思吗)
+- [53. `[].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})` 能解释一下这段代码的意思吗？](#53-foreachcallfunctionaastyleoutline1px-solid-mathrandom124tostring16-能解释一下这段代码的意思吗)
 - [54. js 延迟加载的方式有哪些？](#54-js-延迟加载的方式有哪些)
 - [55. Ajax 是什么? 如何创建一个 Ajax？](#55-ajax-是什么-如何创建一个ajax)
 - [56. 谈一谈浏览器的缓存机制？](#56-谈一谈浏览器的缓存机制)
@@ -1178,7 +1178,7 @@ JSON 是一种基于文本的轻量级的数据交换格式。它可以被任何
 详细资料可以参考：
 [《深入了解 JavaScript 中的 JSON 》](https://my.oschina.net/u/3284240/blog/874368)
 
-#### 53. [].forEach.call(\$\$("_"),function(a){a.style.outline="1px solid #"+(~~(Math.random()_(1<<24))).toString(16)}) 能解释一下这段代码的意思吗？
+#### 53. `[].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})` 能解释一下这段代码的意思吗？
 
 ```
 （1）选取页面所有 DOM 元素。在浏览器的控制台中可以使用$$()方法来获取页面中相应的元素，这是现代浏览器提供的一个命令行 API 相当于 document.querySelectorAll 方法。
