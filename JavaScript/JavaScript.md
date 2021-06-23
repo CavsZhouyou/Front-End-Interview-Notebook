@@ -3494,7 +3494,7 @@ class EventEmitter {
   }
 
   once(event, callback) {
-    let wrapFun = function(...args) {
+    let wrapFun = (...args) => {
       callback(...args);
 
       this.off(event, wrapFun);
