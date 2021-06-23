@@ -3369,7 +3369,7 @@ for (let i = 0; i < 5; i++) {
 ```js
 function jsonp(url, params, callback) {
   // 判断是否含有参数
-  let queryString = url.indexOf("?") === "-1" ? "?" : "&";
+  let queryString = url.indexOf("?") === -1 ? "?" : "&";
 
   // 添加参数
   for (var k in params) {
