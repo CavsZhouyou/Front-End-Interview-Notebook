@@ -13,7 +13,7 @@
 
 ### 内推信息
 
-阿里巴巴淘系前端 2020 年春季校招，本次招聘面向 2021 年应届毕业生，base 为杭州西溪园区。
+阿里巴巴淘系前端 2021 年春季校招，本次招聘面向 2022 年应届毕业生，base 为杭州西溪园区。
 
 需要内推的同学请将简历发送至 zhouyou.world@outlook.com 
 
@@ -54,6 +54,18 @@ Contributors:
 </a>
 <a href="https://github.com/AkiyamaMinami">
     <img src="https://avatars3.githubusercontent.com/u/31888190?s=400&u=a447155ed58dca80cd6d8f8511dc525a01599c2c&v=4" width="50px">
+</a>
+<a href="https://github.com/fanerge">
+    <img src="https://avatars3.githubusercontent.com/u/17136707?s=400&u=d7250b0655c87b8e8e1cdaf826754fe5e6f68e80&v=4" width="50px">
+</a>
+<a href="https://github.com/sakura-flutter">
+    <img src="https://avatars.githubusercontent.com/u/28331128?s=400&u=efa2dac6738dc597c33a8935c4d706729ebfabcf&v=4" width="50px">
+</a>
+<a href="https://github.com/Lgowen">
+    <img src="https://avatars.githubusercontent.com/u/62790161?s=460&v=4" width="50px">
+</a>
+<a href="https://github.com/YooHoeh">
+    <img src="https://avatars.githubusercontent.com/u/33681610?s=460&u=476c45236abfabd1cf15d7770ea12923bd11b2fa&v=4" width="50px">
 </a>
 
 ### 授权相关

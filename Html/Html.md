@@ -479,9 +479,9 @@
     （1） IE8/IE7/IE6 支持通过 document.createElement 方法产生的标签，可以利用这一特性让这些浏览器
         支持 HTML5 新标签，浏览器支持新标签后，还需要添加标签默认的样式。
 
-    （2） 当然也可以直接使用成熟的框架，比如 html5shim ;
+    （2） 当然也可以直接使用成熟的框架，比如 html5shiv ;
          `<!--[if lt IE 9]>
-         <script> src="http://html5shim.googlecode.com/svn/trunk/html5.js"</script>
+         <script> src="https://cdn.jsdelivr.net/npm/html5shiv/dist/html5shiv.min.js"</script>
          <![endif]-->`
 
          [if lte IE 9]……[endif] 判断 IE 的版本，限定只有 IE9 以下浏览器版本需要执行的语句。
@@ -910,37 +910,37 @@
     <meta> 标签位于文档的头部，不包含任何内容。<meta> 标签的属性定义了与文档相关联的名称/值对。
 
     <!DOCTYPE html>  H5标准声明，使用 HTML5 doctype，不区分大小写
-    <head lang=”en”> 标准的 lang 属性写法
-    <meta charset=’utf-8′>    声明文档使用的字符编码
-    <meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>   优先使用 IE 最新版本和 Chrome
-    <meta name=”description” content=”不超过150个字符”/>       页面描述
-    <meta name=”keywords” content=””/>      页面关键词者
-    <meta name=”author” content=”name, email@gmail.com”/>    网页作
-    <meta name=”robots” content=”index,follow”/>      搜索引擎抓取
-    <meta name=”viewport” content=”initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no”> 为移动设备添加 viewport
-    <meta name=”apple-mobile-web-app-title” content=”标题”> iOS 设备 begin
-    <meta name=”apple-mobile-web-app-capable” content=”yes”/>  添加到主屏后的标题（iOS 6 新增）
+    <head lang="en"> 标准的 lang 属性写法
+    <meta charset="utf-8">    声明文档使用的字符编码
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>   优先使用 IE 最新版本和 Chrome
+    <meta name="description" content="不超过150个字符"/>       页面描述
+    <meta name="keywords" content=""/>      页面关键词者
+    <meta name="author" content="name, email@gmail.com"/>    网页作
+    <meta name="robots" content="index,follow"/>      搜索引擎抓取
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no"> 为移动设备添加 viewport
+    <meta name="apple-mobile-web-app-title" content="标题"> iOS 设备 begin
+    <meta name="apple-mobile-web-app-capable" content="yes"/>  添加到主屏后的标题（iOS 6 新增）
     是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏
-    <meta name=”apple-itunes-app” content=”app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL”>
+    <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
     添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）
-    <meta name=”apple-mobile-web-app-status-bar-style” content=”black”/>
-    <meta name=”format-detection” content=”telphone=no, email=no”/>  设置苹果工具栏颜色
-    <meta name=”renderer” content=”webkit”>  启用360浏览器的极速模式(webkit)
-    <meta http-equiv=”X-UA-Compatible” content=”IE=edge”>     避免IE使用兼容模式
-    <meta http-equiv=”Cache-Control” content=”no-siteapp” />    不让百度转码
-    <meta name=”HandheldFriendly” content=”true”>     针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓
-    <meta name=”MobileOptimized” content=”320″>   微软的老式浏览器
-    <meta name=”screen-orientation” content=”portrait”>   uc强制竖屏
-    <meta name=”x5-orientation” content=”portrait”>    QQ强制竖屏
-    <meta name=”full-screen” content=”yes”>              UC强制全屏
-    <meta name=”x5-fullscreen” content=”true”>       QQ强制全屏
-    <meta name=”browsermode” content=”application”>   UC应用模式
-    <meta name=”x5-page-mode” content=”app”>    QQ应用模式
-    <meta name=”msapplication-tap-highlight” content=”no”>    windows phone 点击无高光
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telphone=no, email=no"/>  设置苹果工具栏颜色
+    <meta name="renderer" content="webkit">  启用360浏览器的极速模式(webkit)
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">     避免IE使用兼容模式
+    <meta http-equiv="Cache-Control" content="no-siteapp" />    不让百度转码
+    <meta name="HandheldFriendly" content="true">     针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓
+    <meta name="MobileOptimized" content="320">   微软的老式浏览器
+    <meta name="screen-orientation" content="portrait">   uc强制竖屏
+    <meta name="x5-orientation" content="portrait">    QQ强制竖屏
+    <meta name="full-screen" content="yes">              UC强制全屏
+    <meta name="x5-fullscreen" content="true">       QQ强制全屏
+    <meta name="browsermode" content="application">   UC应用模式
+    <meta name="x5-page-mode" content="app">    QQ应用模式
+    <meta name="msapplication-tap-highlight" content="no">    windows phone 点击无高光
     设置页面不缓存
-    <meta http-equiv=”pragma” content=”no-cache”>
-    <meta http-equiv=”cache-control” content=”no-cache”>
-    <meta http-equiv=”expires” content=”0″>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
    ```
    详细资料可以参考：
    [《Meta 标签用法大全》](http://www.cnblogs.com/qiumohanyu/p/5431859.html)

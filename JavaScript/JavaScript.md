@@ -56,7 +56,7 @@
 - [50. new 操作符具体干了什么呢？如何实现？](#50-new-操作符具体干了什么呢如何实现)
 - [51. Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？](#51-javascript中有一个函数执行时对象查找时永远不会去查找原型这个函数是)
 - [52. 对于 JSON 的了解？](#52-对于-json-的了解)
-- [53. [].forEach.call(\$\$("<em>"),function(a){a.style.outline="1px solid #" (~~(Math.random()</em>(1&lt;&lt;24))).toString(16)}) 能解释一下这段代码的意思吗？](#53-foreachcallfunctionaastyleoutline1px-solid-mathrandom124tostring16-能解释一下这段代码的意思吗)
+- [53. `[].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})` 能解释一下这段代码的意思吗？](#53-foreachcallfunctionaastyleoutline1px-solid-mathrandom124tostring16-能解释一下这段代码的意思吗)
 - [54. js 延迟加载的方式有哪些？](#54-js-延迟加载的方式有哪些)
 - [55. Ajax 是什么? 如何创建一个 Ajax？](#55-ajax-是什么-如何创建一个ajax)
 - [56. 谈一谈浏览器的缓存机制？](#56-谈一谈浏览器的缓存机制)
@@ -178,12 +178,14 @@
 - [172. js 中倒计时的纠偏实现？](#172-js-中倒计时的纠偏实现)
 - [173. 进程间通信的方式？](#173-进程间通信的方式)
 - [174. 如何查找一篇英文文章中出现频率最高的单词？](#174-如何查找一篇英文文章中出现频率最高的单词)
+- [175. ele.getElementsByClassName 和 ele.querySelectorAll 区别](#175-ele.getElementsByClassName 和 ele.querySelectorAll 区别)
 
 #### 1. 介绍 js 的基本数据类型。
 
 ```
-js 一共有六种基本数据类型，分别是 Undefined、Null、Boolean、Number、String，还有在 ES6 中新增的 Symbol 类型，
-代表创建后独一无二且不可变的数据类型，它的出现我认为主要是为了解决可能出现的全局变量冲突的问题。
+js 一共有六种基本数据类型，分别是 Undefined、Null、Boolean、Number、String，还有在 ES6 中新增的 Symbol 和 ES10 中新增的 BigInt 类型。
+Symbol 代表创建后独一无二且不可变的数据类型，它的出现我认为主要是为了解决可能出现的全局变量冲突的问题。
+BigInt 是一种数字类型的数据，它可以表示任意精度格式的整数，使用 BigInt 可以安全地存储和操作大整数，即使这个数已经超出了 Number 能够表示的安全整数范围。
 ```
 
 #### 2. JavaScript 有几种类型的值？你能画一下他们的内存图吗？
@@ -248,6 +250,18 @@ Object.prototype.toString.call( [1,2,3] );
 
 Object.prototype.toString.call( /regex-literal/i );
 // "[object RegExp]"
+
+// 我们自己创建的类就不会有这份特殊待遇，因为 toString() 找不到 toStringTag 属性时只好返回默认的 Object 标签
+// 默认情况类的[[Class]]返回[object Object]
+class Class1 {}
+Object.prototype.toString.call(new Class1()); // "[object Object]"
+// 需要定制[[Class]]
+class Class2 {
+  get [Symbol.toStringTag]() {
+    return "Class2";
+  }
+}
+Object.prototype.toString.call(new Class2()); // "[object Class2]"
 ```
 
 #### 5. 介绍 js 有哪些内置对象？
@@ -477,7 +491,7 @@ Array 构造函数只带一个数字参数的时候，该参数会被作为数�
 
 （4）Symbol 类型的值直接转换，但是只允许显式强制类型转换，使用隐式强制类型转换会产生错误。
 
-（3）对普通对象来说，除非自行定义 toString() 方法，否则会调用 toString()（Object.prototype.toString()）
+（5）对普通对象来说，除非自行定义 toString() 方法，否则会调用 toString()（Object.prototype.toString()）
     来返回内部属性 [[Class]] 的值，如"[object Object]"。如果对象有自己的 toString() 方法，字符串化时就会
     调用该方法并使用其返回值。
 ```
@@ -623,7 +637,7 @@ Symbol 值不能够被强制类型转换为数字（显式和隐式都会产生�
 
 （3）使用 parseFloat() 方法，该函数解析一个字符串参数并返回一个浮点数。
 
-（4）使用 + 操作符的隐式转换。
+（4）使用 + 操作符的隐式转换，前提是所包含的字符串不包含不合法字符。
 ```
 
 详细资料可以参考：
@@ -632,8 +646,17 @@ Symbol 值不能够被强制类型转换为数字（显式和隐式都会产生�
 #### 30. 如何将浮点数点左边的数每三位添加一个逗号，如 12000000.11 转化为『12,000,000.11』?
 
 ```js
+// 方法一
 function format(number) {
   return number && number.replace(/(?!^)(?=(\d{3})+\.)/g, ",");
+}
+// 方法二
+function format1(number) {
+  return Intl.NumberFormat().format(number)
+}
+// 方法三
+function format2(number) {
+  return number.toLocaleString('en')
 }
 ```
 
@@ -1156,7 +1179,7 @@ JSON 是一种基于文本的轻量级的数据交换格式。它可以被任何
 详细资料可以参考：
 [《深入了解 JavaScript 中的 JSON 》](https://my.oschina.net/u/3284240/blog/874368)
 
-#### 53. [].forEach.call(\$\$("_"),function(a){a.style.outline="1px solid #"+(~~(Math.random()_(1<<24))).toString(16)}) 能解释一下这段代码的意思吗？
+#### 53. `[].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})` 能解释一下这段代码的意思吗？
 
 ```
 （1）选取页面所有 DOM 元素。在浏览器的控制台中可以使用$$()方法来获取页面中相应的元素，这是现代浏览器提供的一个命令行 API 相当于 document.querySelectorAll 方法。
@@ -1475,7 +1498,7 @@ script 脚本请求都不会有跨域的限制，这是因为这些操作都不�
 ```
 我的理解是 cookie 是服务器提供的一种用于维护会话状态信息的数据，通过服务器发送到浏览器，浏览器保存在本地，当下一次有同源的请求时，将保存的 cookie 值添加到请求头部，发送给服务端。这可以用来实现记录用户登录状态等功能。cookie 一般可以存储 4k 大小的数据，并且只能够被同源的网页所共享访问。
 
-服务器端可以使用 Set-Cookie 的响应头部来配置 cookie 信息。一条cookie 包括了5个属性值 expires、domain、path、secure、HttpOnly。其中 expires 指定了 cookie 失效的时间，domain 是域名、path是路径，domain 和 path 一起限制了 cookie 能够被哪些 url 访问。secure 规定了 cookie 只能在确保安全的情况下传输，HttpOnly 规定了这个 cookie 只能被服务器访问，不能使用 js 脚本访问。
+服务器端可以使用 Set-Cookie 的响应头部来配置 cookie 信息。一条cookie 包括了9个属性值 name、value、expires、domain、path、secure、HttpOnly、SameSite、Priority。其中 name 和 value 分别是 cookie 的名字和值。expires 指定了 cookie 失效的时间，domain 是域名、path是路径，domain 和 path 一起限制了 cookie 能够被哪些 url 访问。secure 规定了 cookie 只能在确保安全的情况下传输，HttpOnly 规定了这个 cookie 只能被服务器访问，不能使用 js 脚本访问。SameSite 属性用来限制第三方 cookie，可以有效防止 CSRF 攻击，从而减少安全风险。Priority 是 chrome 的提案，定义了三种优先级，当 cookie 数量超出时低优先级的 cookie 会被优先清除。
 
 在发生 xhr 的跨域请求的时候，即使是同源下的 cookie，也不会被自动添加到请求头部，除非显示地规定。
 ```
@@ -1857,9 +1880,9 @@ v8 的垃圾回收机制基于分代回收机制，这个机制又基于世代�
 #### 83. 如何判断当前脚本运行在浏览器还是 node 环境中？（阿里）
 
 ```
-this === window ? 'browser' : 'node';
+typeof window === 'undefined' ? 'node' : 'browser';
 
-通过判断 Global 对象是否为 window，如果不为 window，当前脚本没有运行在浏览器中。
+通过判断当前环境的 window 对象类型是否为 undefined，如果是undefined，则说明当前脚本运行在node环境，否则说明运行在window环境。
 ```
 
 #### 84. 把 script 标签放在页面的最底部的 body 封闭之前和封闭之后有什么区别？浏览器会如何解析它们？
@@ -2130,14 +2153,13 @@ function shallowCopy(object) {
 // 深拷贝的实现;
 
 function deepCopy(object) {
-  if (!object || typeof object !== "object") return;
+  if (!object || typeof object !== "object") return object;
 
   let newObject = Array.isArray(object) ? [] : {};
 
   for (let key in object) {
     if (object.hasOwnProperty(key)) {
-      newObject[key] =
-        typeof object[key] === "object" ? deepCopy(object[key]) : object[key];
+      newObject[key] = deepCopy(object[key]);
     }
   }
 
@@ -3315,7 +3337,7 @@ function getType(value) {
 
 ```js
 function checkNullObj(obj) {
-  return Object.keys(obj).length === 0;
+  return Object.keys(obj).length === 0 && Object.getOwnPropertySymbols(obj).length === 0;
 }
 ```
 
@@ -3348,7 +3370,7 @@ for (let i = 0; i < 5; i++) {
 ```js
 function jsonp(url, params, callback) {
   // 判断是否含有参数
-  let queryString = url.indexOf("?") === "-1" ? "?" : "&";
+  let queryString = url.indexOf("?") === -1 ? "?" : "&";
 
   // 添加参数
   for (var k in params) {
@@ -3473,7 +3495,7 @@ class EventEmitter {
   }
 
   once(event, callback) {
-    let wrapFun = function(...args) {
+    let wrapFun = (...args) => {
       callback(...args);
 
       this.off(event, wrapFun);
@@ -3670,3 +3692,31 @@ function findMostWord(article) {
   return maxWord + "  " + maxNum;
 }
 ```
+####  175. ele.getElementsByClassName 和 ele.querySelectorAll 区别
+```
+element.getElementsByClassName 返回一个即时更新（动态的）HTMLCollection
+element.querySelectorAll 返回一个非即时更新（静态的） NodeList
+// 先说什么叫即时更新，（前者是动态的，改变 DOM 结构会同步，后者只会记录调用 api 时的结果，不懂可以看下面的例子）
+<div id="parent">
+  <p class="p">1</p>
+  <p class="p">2</p>
+  <p class="p">3</p>
+</div>
+<script>
+let list1 = parent.getElementsByClassName('p');
+let list2 = parent.querySelectorAll('.p');
+console.log(list1.length1); // 3
+console.log(list2.length1); // 3
+let newP = docuemnt.createElement("p")
+newP.classList.add('p');
+parent.appendChild(newP);
+console.log(list1.length1); // 4 (即时更新)
+console.log(list2.length1); // 3（非即时更新）
+</script>
+// 在说下返回值
+// HTMLCollection 和 NodeList 都是类数组形式
+如下一个 div 可以看成是 HTMLDivElement 的实例，其中 Node 的集合为 NodeList；Element 的集合为 HTMLCollection
+EventTarget - Node - Element - HTMLElement - HTMLDivElement<br>
+EventTarget - Node - Element - SVGElement - SVGPathElement<br>
+```
+[MDN 上元素 div 继承关系](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLDivElement)
