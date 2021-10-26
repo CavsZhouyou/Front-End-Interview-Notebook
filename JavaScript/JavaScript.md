@@ -178,7 +178,7 @@
 - [172. js 中倒计时的纠偏实现？](#172-js-中倒计时的纠偏实现)
 - [173. 进程间通信的方式？](#173-进程间通信的方式)
 - [174. 如何查找一篇英文文章中出现频率最高的单词？](#174-如何查找一篇英文文章中出现频率最高的单词)
-- [175. ele.getElementsByClassName和ele.querySelectorAll的区别？](#175-ele.getElementsByClassName和ele.querySelectorAll的区别？ )
+- [175. ele.getElementsByClassName和ele.querySelectorAll的区别？](#175-elegetelementsbyclassname和elequeryselectorall的区别)
 
 #### 1. 介绍 js 的基本数据类型。
 
