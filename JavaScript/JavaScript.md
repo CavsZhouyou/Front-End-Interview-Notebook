@@ -178,6 +178,7 @@
 - [172. js 中倒计时的纠偏实现？](#172-js-中倒计时的纠偏实现)
 - [173. 进程间通信的方式？](#173-进程间通信的方式)
 - [174. 如何查找一篇英文文章中出现频率最高的单词？](#174-如何查找一篇英文文章中出现频率最高的单词)
+- [175. ele.getElementsByClassName和ele.querySelectorAll的区别？](#175-elegetelementsbyclassname和elequeryselectorall的区别)
 
 #### 1. 介绍 js 的基本数据类型。
 
@@ -3691,3 +3692,31 @@ function findMostWord(article) {
   return maxWord + "  " + maxNum;
 }
 ```
+#### 175. ele.getElementsByClassName和ele.querySelectorAll的区别？ 
+```
+element.getElementsByClassName 返回一个即时更新（动态的）HTMLCollection
+element.querySelectorAll 返回一个非即时更新（静态的） NodeList
+// 先说什么叫即时更新，（前者是动态的，改变 DOM 结构会同步，后者只会记录调用 api 时的结果，不懂可以看下面的例子）
+<div id="parent">
+  <p class="p">1</p>
+  <p class="p">2</p>
+  <p class="p">3</p>
+</div>
+<script>
+let list1 = parent.getElementsByClassName('p');
+let list2 = parent.querySelectorAll('.p');
+console.log(list1.length1); // 3
+console.log(list2.length1); // 3
+let newP = docuemnt.createElement("p")
+newP.classList.add('p');
+parent.appendChild(newP);
+console.log(list1.length1); // 4 (即时更新)
+console.log(list2.length1); // 3（非即时更新）
+</script>
+// 在说下返回值
+// HTMLCollection 和 NodeList 都是类数组形式
+如下一个 div 可以看成是 HTMLDivElement 的实例，其中 Node 的集合为 NodeList；Element 的集合为 HTMLCollection
+EventTarget - Node - Element - HTMLElement - HTMLDivElement<br>
+EventTarget - Node - Element - SVGElement - SVGPathElement<br>
+```
+[MDN 上元素 div 继承关系](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLDivElement)
