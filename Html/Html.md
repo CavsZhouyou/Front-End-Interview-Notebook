@@ -112,14 +112,14 @@
 
 #### 4. SGML 、 HTML 、XML 和 XHTML 的区别？
    ```
-   SGML 是标准通用标记语言，是一种定义电子文档结构和描述其内容的国际标准语言，是所有电子文档标记语言的起源。
+   SGML（Standard Generalized Markup language）是标准通用置标语言，是一种定义电子文档结构和描述其内容的国际标准语言，是所有电子文档标记语言的起源。
    
-   HTML 是超文本标记语言，主要是用于规定怎么显示网页。
+   HTML（HyperText Markup Language）是超文本标记语言，主要是用于规定怎么显示网页。
    
-   XML 是可扩展标记语言是未来网页语言的发展方向，XML 和 HTML 的最大区别就在于 XML 的标签是可以自己创建的，数量无限多，
+   XML（Extensible Markup Language）是可扩展标记语言是未来网页语言的发展方向，XML 和 HTML 的最大区别就在于 XML 的标签是可以自己创建的，数量无限多，
    而 HTML 的标签都是固定的而且数量有限。
    
-   XHTML 也是现在基本上所有网页都在用的标记语言，他其实和 HTML 没什么本质的区别，标签都一样，用法也都一样，就是比 HTML 
+   XHTML（Extensible Hypertext Markup Language）也是现在基本上所有网页都在用的标记语言，他其实和 HTML 没什么本质的区别，标签都一样，用法也都一样，就是比 HTML 
    更严格，比如标签必须都用小写，标签都必须有闭合标签等。
    ```
 
